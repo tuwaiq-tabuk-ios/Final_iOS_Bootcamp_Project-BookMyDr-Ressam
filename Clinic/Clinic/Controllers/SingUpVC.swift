@@ -31,8 +31,8 @@ class SingUpVC: UIViewController {
   }
   
   
-  func setUpElements(){
-    
+  func setUpElements()
+  {
     errorLabel.alpha = 0
     
     Utilities.styleTextField(firstNameTextField)
@@ -43,8 +43,8 @@ class SingUpVC: UIViewController {
   }
   
   
-  func validateFields()->String?{
-    
+  func validateFields()->String?
+  {
     if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         lasttNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         emailTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines) == "" ||
@@ -57,22 +57,23 @@ class SingUpVC: UIViewController {
       .trimmingCharacters(in:.whitespacesAndNewlines)
     
     if  Utilities.isPasswordValid(cleanedPassword) ==
-          false {
-      
+          false
+    {
       return"Please make sure your password is at least 8 characters, contains a special charactar and a number. "
     }
     return nil
   }
   
   
-  @IBAction func singUpTappped(_ sender: Any) {
-    
+  @IBAction func singUpTappped(_ sender: Any)
+  {
     let error = validateFields()
     
     if error != nil{
       showError(error!)
-    } else {
-      
+    } 
+    else
+    {
       let firstName = firstNameTextField.text!
         .trimmingCharacters(in: .whitespacesAndNewlines)
       let lastName = lasttNameTextField.text!
@@ -85,14 +86,15 @@ class SingUpVC: UIViewController {
       Auth.auth().createUser(withEmail: email,
                              password: password)
       {
-        (result ,err)  in
+        (result,
+         err)  in
         
         if err != nil {
           
           self.showError("Error creating user")
-          
-        }else{
-          
+        }
+        else
+        {
           let user = UserModel(uid: (result?.user.uid)!,
                                firstName: self.firstNameTextField.text!,
                                lastName: self.lasttNameTextField.text!,
@@ -116,15 +118,15 @@ class SingUpVC: UIViewController {
   }
   
   
-  func showError(_ message:String){
-    
+  func showError(_ message:String)
+  {
     errorLabel.text = message
     errorLabel.alpha = 1
   }
   
   
-  func transitionToHome(){
-    
+  func transitionToHome()
+  {
     let homeViewController = storyboard?.instantiateViewController(identifier:"HomeVC")
     
     view.window?.rootViewController = homeViewController

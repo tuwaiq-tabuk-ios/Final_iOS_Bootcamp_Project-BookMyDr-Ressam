@@ -8,23 +8,36 @@
 import UIKit
 import FirebaseDatabase
 
-class BookVC : UIViewController {
+class BookVC : UIViewController,
+               UIPickerViewDataSource,
+               UITextFieldDelegate {
+
  
   @IBOutlet weak var clinicTextField: UITextField!
   @IBOutlet weak var doctorTextField: UITextField!
-  @IBOutlet weak var patientName: UIStackView!
+  @IBOutlet weak var patientName: UITextField!
   @IBOutlet weak var patientPhone: UITextField!
+  @IBOutlet weak var bookAppointmentButton: UIButton!
   
   var ref : DatabaseReference!
- 
+  var pickerView : UIPickerView?
+  var listbook = [AppoimentModel]()
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    ref = Database.database().reference()
+    let pickerView = UIPickerView()
+    pickerView.delegate = self
+    pickerView.dataSource = self
+    
   }
   
+  
+  func getData()
+  {
+    ref = Database.database().reference().child("Doctor")
+  }
 }
 
 
@@ -32,13 +45,22 @@ class BookVC : UIViewController {
 
 extension BookVC : UIPickerViewDelegate {
   
-  
   override func touchesBegan(_ touches: Set<UITouch>,
-                             with event: UIEvent?) {
-    
+                             with event: UIEvent?)
+  {
     view.endEditing(true)
   }
   
+  
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    return 2
+  }
+
+
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    return 2
+  }
+
   
 //  func numberOfComponents(in pickerView: UIPickerView) -> Int {
 //    <#code#>
@@ -53,4 +75,5 @@ extension BookVC : UIPickerViewDelegate {
 //  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 //    <#code#>
 //  }
+  
 }

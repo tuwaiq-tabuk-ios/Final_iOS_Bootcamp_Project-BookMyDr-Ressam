@@ -19,10 +19,17 @@ class ViewController: UIViewController {
   }
 
   
-  func setUpElements() {
-    
+  func setUpElements()
+  {
     Utilities.stylefilledButton(singUpButton)
     Utilities.stylefilledButton(loginButton)
   }
 }
+
+
+
+//اظهار تاريخ المواعيد و الاوقات المتاحه
+// ربط واجهات المستخدم مع البروجكت
+// واجهه جديده لحجز موعد من غير التابل
+//في الملف الطبي اضافه تاريخ الزياره و اضافه وصفه طبيه 
 

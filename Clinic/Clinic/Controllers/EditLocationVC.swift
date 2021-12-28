@@ -26,8 +26,8 @@ class EditLocationVC: UIViewController {
   }
   
   
-  func validateFields()->String?{
-    
+  func validateFields()->String?
+  {
     if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         adressTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
@@ -38,15 +38,15 @@ class EditLocationVC: UIViewController {
   }
   
   
-  @IBAction func dissmisButtonTapped(_ sender: UIButton) {
-    
+  @IBAction func dissmisButtonTapped(_ sender: UIButton)
+  {
     self.dismiss(animated: true,
                  completion: nil)
   }
   
   
-  @IBAction func doneButtonTapped(_ sender: UIButton) {
-    
+  @IBAction func doneButtonTapped(_ sender: UIButton)
+  {
     let error = validateFields()
     if error != nil
     {
@@ -70,19 +70,21 @@ class EditLocationVC: UIViewController {
                DataRef in
         if error == nil
         {
-          self.showaAlertDoneView(Title: "Done!", Msg: "Changed successfully")
+          self.showaAlertDoneView(Title: "Done!",
+                                  Msg: "Changed successfully")
         }
         else
         {
-          self.showaAlertDoneView(Title: "Error!", Msg: error.debugDescription)
+          self.showaAlertDoneView(Title: "Error!",
+                                  Msg: error.debugDescription)
         }
       }
     }
   }
   
-  
-  func showError(_ message:String){
     
+  func showError(_ message:String)
+  {
     errorLabel.text = message
     errorLabel.alpha = 1
   }

@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseDatabase
 
-class AddBookVC : UIViewController  {
+class AddBookVC : UIViewController {
   
   @IBOutlet weak var clinicNameLabel: UILabel!
   @IBOutlet weak var doctorNameLAbel: UILabel!
@@ -27,8 +27,8 @@ class AddBookVC : UIViewController  {
   
   
   
-  @IBAction func DateChanged(_ sender: UIDatePicker) {
-    
+  @IBAction func DateChanged(_ sender: UIDatePicker)
+  {
     let getdate = sender.date
     let dateFormatter = DateFormatter()
     
@@ -62,9 +62,9 @@ class AddBookVC : UIViewController  {
   }
   
   
-  @IBAction func addBook(_ sender: UIButton) {
-    
-    if  !date.isEmpty && !time.isEmpty{
+  @IBAction func addBook(_ sender: UIButton)
+  {
+    if  !date.isEmpty && !time.isEmpty {
       let book = AppoimentModel(clinicName: clinicName,
                                 doctorName: doctorName,
                                 date: self.date,
@@ -90,12 +90,15 @@ class AddBookVC : UIViewController  {
         }
       }
     }
-    else{
+    else
+    {
       self.showaAlertDoneView(Title: "Error",
                               Msg: "You must pick date and time.")
     }
   }
 }
 
+
+  
 
 

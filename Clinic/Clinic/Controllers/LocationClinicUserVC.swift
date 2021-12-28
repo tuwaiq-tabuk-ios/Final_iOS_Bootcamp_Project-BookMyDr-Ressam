@@ -1,23 +1,23 @@
 //
-//  LocationClinicViewController.swift
+//  LocationClinicUserVC.swift
 //  Clinic
 //
-//  Created by Ressam Al-Thebailah on 15/05/1443 AH.
+//  Created by Ressam Al-Thebailah on 22/05/1443 AH.
 //
 
 import UIKit
 import MapKit
 import FirebaseDatabase
 
-class LocationClinicVC : UIViewController {
-  
-  var ref : DatabaseReference!
-  var locationList = [LocationModel]()
+class LocationClinicUserVC : UIViewController {
   
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var emailLabel: UILabel!
   @IBOutlet weak var phoneLabel: UILabel!
-  @IBOutlet weak var adressLabel: UILabel!
+  @IBOutlet weak var addressLabel: UILabel!
+  
+  var ref : DatabaseReference!
+  var locationList = [LocationModel]()
   
   
   override func viewDidLoad(){
@@ -48,7 +48,7 @@ class LocationClinicVC : UIViewController {
         let adress = snapshotVaue?["adress"] as? String
         self.emailLabel.text = email
         self.phoneLabel.text = phone
-        self.adressLabel.text = adress
+        self.addressLabel.text = adress
         self.locationList.append(LocationModel(locationId: locationId!,
                                                email: email,
                                                phone: phone,
@@ -77,4 +77,5 @@ class LocationClinicVC : UIViewController {
     pin.title = "My Clinic"
     mapView.addAnnotation(pin)
   }
+  
 }

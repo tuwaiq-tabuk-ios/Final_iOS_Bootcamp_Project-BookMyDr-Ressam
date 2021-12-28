@@ -32,7 +32,8 @@ class DoctorTableUserVC : UIViewController {
   }
   
   
-  private func getDate(){
+  private func getDate()
+  {
     ref.child("Doctor").getData { Error,
                                   DataShot in
       if Error == nil
@@ -57,8 +58,8 @@ class DoctorTableUserVC : UIViewController {
             else if key as! String == "ClinicName"
             {
               ClinicName = val as! String
-            }
-            else if key as! String == "YearsOfExperince"
+            }// YearsOfExperience
+            else if key as! String == "YearsOfExperience"
             {
               YearsOfExperince = val as! String
             }
@@ -86,15 +87,15 @@ extension DoctorTableUserVC : UITableViewDelegate,
                               MyCellDelegate {
   
   
-  func didPressButton(_ tag: Int) {
-    
+  func didPressButton(_ tag: Int)
+  {
     print("I have pressed a button with a tag:\(self.doctorList[tag].DoctorId)")
     
     let storyBoard : UIStoryboard = UIStoryboard(name:"Main",
                                                  bundle: nil)
     
     if let nextViewController =
-        storyboard?.instantiateViewController(identifier:"AddBookUser") as? AddBookUser{
+        storyboard?.instantiateViewController(identifier:"AddBookUser") as? AddBookUserVC{
       nextViewController.doctorId = self.doctorList[tag].DoctorId
       nextViewController.clinicName = self.doctorList[tag].ClinicName
       nextViewController.doctorName = self.doctorList[tag].DoctorName
@@ -107,18 +108,17 @@ extension DoctorTableUserVC : UITableViewDelegate,
   }
   
   
-  
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int)
   -> Int {
-    
     self.doctorList.count
   }
   
+  
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath)
-  -> UITableViewCell {
-    
+  -> UITableViewCell
+  {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCellUser",
                                              for: indexPath) as? TableViewCellUser
     
@@ -131,13 +131,13 @@ extension DoctorTableUserVC : UITableViewDelegate,
       cell?.clinicNameLabel.text = self.doctorList[indexPath.row].ClinicName
       cell?.doctorNameLabel.text = self.doctorList[indexPath.row].DoctorName
       cell?.yearsOfExperienceLabel.text = self.doctorList[indexPath.row].YearsOfExperience
+      print("\n\n\nYear Of experince : " + self.doctorList[indexPath.row].YearsOfExperience)
     }
     return cell!
   }
   
   func numberOfSections(in tableView: UITableView)
   -> Int {
-    
     1
   }
 }

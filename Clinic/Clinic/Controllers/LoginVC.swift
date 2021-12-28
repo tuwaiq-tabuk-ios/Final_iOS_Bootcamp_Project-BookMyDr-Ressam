@@ -28,8 +28,8 @@ class LoginVC: UIViewController {
   }
   
   
-  func setUpElements(){
-    
+  func setUpElements()
+  {
     errorLabel.alpha = 0
     
     Utilities.styleTextField(emailTextField)
@@ -38,8 +38,8 @@ class LoginVC: UIViewController {
   }
   
   
-  @IBAction func loginTapped(_ sender: Any) {
-    
+  @IBAction func loginTapped(_ sender: Any)
+  {
     let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     
@@ -51,12 +51,12 @@ class LoginVC: UIViewController {
       {
         self.errorLabel.text = error!.localizedDescription
         self.errorLabel.alpha = 1
-        
       }
       else
       {
         let userID = Auth.auth().currentUser?.uid
-        self.ref.child("users").queryEqual(toValue: userID).getData { error,Data in
+        self.ref.child("users").queryEqual(toValue: userID).getData { error,
+                                                                      Data in
           
           if error == nil
           {

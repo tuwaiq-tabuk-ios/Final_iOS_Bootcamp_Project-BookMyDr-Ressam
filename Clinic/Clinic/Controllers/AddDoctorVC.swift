@@ -47,27 +47,28 @@ class AddDoctorVC: UIViewController ,
     toolBar.sizeToFit()
     
     let buttonDone = UIBarButtonItem(title: "Done",
-                                     style: .plain, target: self,
+                                     style: .plain,
+                                     target: self,
                                      action:#selector(closePicker) )
     toolBar.setItems([buttonDone],
                      animated: true)
     
     txtSelectDoctor.inputView = pickerSection
     txtSelectDoctor.inputAccessoryView = toolBar
-    
-  
-  
   }
   
   
   
-  @IBAction func dissmisButtonTapped(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+  @IBAction func dissmisButtonTapped(_ sender: UIButton)
+  {
+    self.dismiss(animated: true,
+                 completion: nil)
   }
   
  
   
-  @IBAction func addNewDoctorTapped(_ sender: Any) {
+  @IBAction func addNewDoctorTapped(_ sender: Any)
+  {
     let DocId = UUID.init().uuidString
     let doctor = DoctorModel(DoctorId: DocId,
                              DoctorName:self.doctorNameTextField.text,
@@ -82,11 +83,13 @@ class AddDoctorVC: UIViewController ,
     ]) { [self] error, DataRef in
       if error == nil
       {
-        
-        self.showaAlertDoneView(Title: "Done!", Msg: "Doctor added successfully")
-      }else{
-        
-        self.showaAlertDoneView(Title: "Error!", Msg: error.debugDescription)
+        self.showaAlertDoneView(Title: "Done!",
+                                Msg: "Doctor added successfully")
+      }
+      else
+      {
+        self.showaAlertDoneView(Title: "Error!",
+                                Msg: error.debugDescription)
       }
     }
   }
@@ -97,7 +100,8 @@ class AddDoctorVC: UIViewController ,
 extension AddDoctorVC: UIPickerViewDelegate {
   
   override func touchesBegan(_ touches: Set<UITouch>,
-                             with event: UIEvent?) {
+                             with event: UIEvent?)
+  {
     view.endEditing(true)
   }
   
@@ -119,21 +123,21 @@ extension AddDoctorVC: UIPickerViewDelegate {
                   titleForRow row: Int,
                   forComponent component: Int)
   -> String? {
-    
     return arrSection[row]
   }
   
   
   func pickerView(_ pickerView: UIPickerView,
                   didSelectRow row: Int,
-                  inComponent component: Int) {
+                  inComponent component: Int)
+  {
     currentIndex = row
     txtSelectDoctor.text = arrSection[row]
   }
   
   
-  @objc func closePicker(){
-    
+  @objc func closePicker()
+  {
     txtSelectDoctor.text = arrSection[currentIndex]
     view.endEditing(true)
   }

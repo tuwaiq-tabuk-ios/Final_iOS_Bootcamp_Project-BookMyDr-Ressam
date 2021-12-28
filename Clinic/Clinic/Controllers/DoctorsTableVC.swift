@@ -34,12 +34,17 @@ class DoctorsTableVC: UIViewController {
   }
   
   
-  private func getData() {
-    
-    ref.child("Doctor").getData { Error,
+  private func getData()
+  {
+    ref.child("Doctor").observe(.value, with: {
                                   DataShot in
-      if Error == nil
+      
+      if DataShot.value != nil
       {
+        if !self.doctorList.isEmpty
+        {
+          self.doctorList.removeAll()
+        }
         let data = DataShot.value as? NSDictionary
         
         var DoctorId = ""
@@ -47,8 +52,8 @@ class DoctorsTableVC: UIViewController {
         var ClinicName = ""
         var YearsOfExperince = ""
         
-        for (_,v) in data!  {
-          
+        for (_,v) in data!
+        {
           for (key,val) in v as! NSDictionary {
             
             if key as! String == "DoctorId"
@@ -72,26 +77,46 @@ class DoctorsTableVC: UIViewController {
           self.doctorList.append(DoctorModel(DoctorId: DoctorId, DoctorName: DoctorName, ClinicName: ClinicName, YearsOfExperience: YearsOfExperince))
         }
       }
-      else
-      {
-        print(Error.debugDescription)
-      }
+      
       self.tableView.reloadData()
     }
+  )}
+  
+  
+  
+  @IBAction func backButtonTapped(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
   }
 }
 
 
 //MARK: - UITableViewDelegate,UITableViewDataSource
 
-extension DoctorsTableVC : UITableViewDelegate,UITableViewDataSource,MyCellDelegate
+extension DoctorsTableVC : UITableViewDelegate,
+                           UITableViewDataSource,
+                           MyCellDelegate
 {
   
   
   func tableView(_ tableView: UITableView,
+    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
+  -> UISwipeActionsConfiguration?
+  {
+    let delete = UIContextualAction(style: .destructive,
+                                    title: "Delete") { ACTION,
+                                                       view,
+                                                       result in
+      self.ref.child("Doctor").child(self.doctorList[indexPath.row].DoctorId).removeValue()
+      result(true)
+    }
+   return UISwipeActionsConfiguration(actions: [delete])
+  }
+  
+  
+  func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath)
-  -> UITableViewCell {
-    
+  -> UITableViewCell
+  {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell",
                                              for: indexPath) as? TableViewCell
     cell?.myCellDelegate = self
@@ -110,8 +135,8 @@ extension DoctorsTableVC : UITableViewDelegate,UITableViewDataSource,MyCellDeleg
   }
   
   
-  func didPressButton(_ tag: Int) {
-    
+  func didPressButton(_ tag: Int)
+  {
     print("I have pressed a button with a tag: \(self.doctorList[tag].DoctorId)")
     
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main",
@@ -133,18 +158,18 @@ extension DoctorsTableVC : UITableViewDelegate,UITableViewDataSource,MyCellDeleg
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int)
   -> Int {
-    
     self.doctorList.count
   }
   
   
   func numberOfSections(in tableView: UITableView)
   -> Int {
-    
     1
   }
   
-  
+}
+
+
   //TODO:Delet Row in Table And Database
   //  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
   //
@@ -154,4 +179,4 @@ extension DoctorsTableVC : UITableViewDelegate,UITableViewDataSource,MyCellDeleg
   //    }
   //  }
   
-}
+

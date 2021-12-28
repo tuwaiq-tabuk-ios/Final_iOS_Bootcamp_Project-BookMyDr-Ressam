@@ -9,8 +9,9 @@ import UIKit
 
 extension UIViewController {
   
-  func showaAlertDoneView(Title: String, Msg: String){
-    
+  func showaAlertDoneView(Title: String,
+                          Msg: String)
+  {
     let alert = UIAlertController(title: Title,
                                   message: Msg,
                                   preferredStyle: .alert)
@@ -19,10 +20,12 @@ extension UIViewController {
                                   style: .default,
                                   handler: { action in
                                     print("Cansle clicked")
-                                    self.dismiss(animated: true, completion: nil)
+                                    self.dismiss(animated: true,
+                                                 completion: nil)
                                   }))
     
-    self.present(alert, animated: true, completion: nil)
+    self.present(alert, animated: true,
+                 completion: nil)
   }
   
   
