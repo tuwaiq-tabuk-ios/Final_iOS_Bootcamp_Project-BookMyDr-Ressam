@@ -20,9 +20,9 @@ class Utilities {
                               width: textfield.frame.width,
                               height: 2)
     
-    bottomLine.backgroundColor = UIColor.init(red: 48/255,
-                                              green: 173/255,
-                                              blue: 99/255,
+    bottomLine.backgroundColor = UIColor.init(red: 100/255,
+                                              green: 181/255,
+                                              blue: 234/255,
                                               alpha: 1).cgColor
     
     textfield.borderStyle = .none
@@ -33,9 +33,9 @@ class Utilities {
 
   static func stylefilledButton (_ button:UIButton)
   {
-    button.backgroundColor = UIColor.init(red: 48/255,
-                                          green: 173/255,
-                                          blue: 99/255,
+    button.backgroundColor = UIColor.init(red: 255/255,
+                                          green: 147/255,
+                                          blue: 0/255,
                                           alpha: 1)
     button.layer.cornerRadius = 25.0
     button.tintColor = UIColor.white
@@ -47,7 +47,7 @@ class Utilities {
   static func styleHelloButton (_ button:UIButton)
   {
     button.layer.borderWidth = 2
-    button.layer.borderColor = UIColor.black.cgColor
+    button.layer.borderColor = UIColor.purple.cgColor
     button.layer.cornerRadius = 25.0
     button.tintColor = UIColor.black
   }

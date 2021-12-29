@@ -18,7 +18,7 @@ class MedicationUserVC: UIViewController {
   var ref : DatabaseReference!
   
   
-  override func viewDidLoad() {
+  override func viewDidLoad(){
     super.viewDidLoad()
     
     ref = Database.database().reference()

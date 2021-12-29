@@ -46,6 +46,7 @@ class LocationClinicUserVC : UIViewController {
         let email = snapshotVaue?["email"] as? String
         let phone = snapshotVaue?["phone"] as? String
         let adress = snapshotVaue?["adress"] as? String
+        
         self.emailLabel.text = email
         self.phoneLabel.text = phone
         self.addressLabel.text = adress
@@ -53,6 +54,7 @@ class LocationClinicUserVC : UIViewController {
                                                email: email,
                                                phone: phone,
                                                adress: adress))
+        
       }
   }
   

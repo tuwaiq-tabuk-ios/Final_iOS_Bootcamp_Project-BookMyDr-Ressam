@@ -34,5 +34,5 @@ class TableViewCellUser: UITableViewCell {
   {
     myCellDelegate?.didPressButton(sender.tag)
   }
-  
+
 }
