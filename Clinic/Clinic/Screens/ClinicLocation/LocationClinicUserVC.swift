@@ -20,7 +20,7 @@ class LocationClinicUserVC : UIViewController {
   var locationList = [LocationModel]()
   
   
-  override func viewDidLoad(){
+  override func viewDidLoad() {
     super.viewDidLoad()
     
     let initialLocation = CLLocation(latitude: 28.3905943,
@@ -36,9 +36,8 @@ class LocationClinicUserVC : UIViewController {
   }
   
   
-  func getData()
-  {
-    ref.child("Location").queryOrderedByKey()
+  func getData() {
+    ref.child(K.FireStore.locationCollection).queryOrderedByKey()
       .observe(.value) { (snapshot) in
         let snapshotVaue = snapshot.value as? NSDictionary
         
@@ -60,8 +59,7 @@ class LocationClinicUserVC : UIViewController {
   
   
   func setStartingLocation (location:CLLocation,
-                            distance:CLLocationDistance)
-  {
+                            distance:CLLocationDistance) {
     let region = MKCoordinateRegion(center: location.coordinate,
                                     latitudinalMeters: distance,
                                     longitudinalMeters: distance)
@@ -71,13 +69,11 @@ class LocationClinicUserVC : UIViewController {
   }
   
   
-  func addAnnotation()
-  {
+  func addAnnotation() {
     let pin = MKPointAnnotation()
     pin.coordinate = CLLocationCoordinate2D(latitude:28.3905943 ,
                                             longitude: 36.5282448)
     pin.title = "My Clinic"
     mapView.addAnnotation(pin)
   }
-  
 }

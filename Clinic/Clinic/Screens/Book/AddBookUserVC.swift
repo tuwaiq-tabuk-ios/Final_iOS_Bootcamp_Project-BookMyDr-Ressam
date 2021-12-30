@@ -28,7 +28,8 @@ class AddBookUserVC: UIViewController {
   var doctorName : String = ""
   var date : String = ""
   var time : String = ""
-  
+  var patintName = ""
+  var mobile = ""
   var ref : DatabaseReference!
   
   
@@ -44,6 +45,7 @@ class AddBookUserVC: UIViewController {
     if !Staticv.instance.Time.isEmpty
     {
       timeText.text = Staticv.instance.Time
+      self.time = timeText.text!
     }
     
     
@@ -59,24 +61,27 @@ class AddBookUserVC: UIViewController {
   
   @IBAction func bookButtonTapped(_ sender: UIButton)
   {
-    if !date.isEmpty &&
-        !time.isEmpty &&
-        !patientNameTextField.text!.isEmpty &&
-        !patientPhoneTextField.text!.isEmpty
-    {
+    let name = patientNameTextField.text!
+    let phone = patientPhoneTextField.text!
+    print("name is \(name) phone \(phone) date \(self.date) time \(self.timeText.text!)")
+    
+    if !self.date.isEmpty &&
+        !self.timeText.text!.isEmpty &&
+        !name.isEmpty &&
+        !phone.isEmpty {
+      
       let bookId = UUID.init().uuidString
-      let book = PatientModel (
+      let book = PatientModel(
         bookId: bookId,
         clinicName: clinicName,
         doctorName: doctorName,
         name:self.patientNameTextField.text!,
-        phone: self.patientPhoneTextField.text!,
-        date: self.date,
-        time: self.time,
-        isAvilable:true
-      )
+        phone:self.patientPhoneTextField.text!,
+        date:self.date,
+        time:timeText.text!,
+        isAvilable:true )
       
-      ref = Database.database().reference().child("Patient")
+      ref = Database.database().reference().child(K.FireStore.patientCollection)
         .child(doctorId).child(date).child(bookId)
       ref.setValue([
         "bookId": book.bookId,
@@ -87,24 +92,17 @@ class AddBookUserVC: UIViewController {
         "date" : book.date,
         "time" : book.time,
         "isAvilable":book.isAvilable
-      ])
-      {
-        Error, result in
-        if Error == nil
-        {
+      ]) { Error, result in
+        if Error == nil {
           self.showaAlertDoneView(Title: "Done",
                                   Msg: "Book added Successfully.")
         }
       }
-    }
-    else
-    {
+    } else {
       self.showaAlertDoneView(Title: "Error",
                               Msg: "You must pick date and time.")
     }
   }
-  
-
 }
 
 
@@ -113,11 +111,10 @@ extension AddBookUserVC :UITableViewDataSource,
 {
   
   
-  
   func getDates()
   {
     
-    let db : DatabaseReference = Database.database().reference().child("Books").child(doctorId)
+    let db : DatabaseReference = Database.database().reference().child(K.FireStore.booksCollection).child(doctorId)
     db.observe(.value) { DataResult in
       if DataResult.value != nil
       {
@@ -163,14 +160,14 @@ extension AddBookUserVC :UITableViewDataSource,
   func tableView(_ tableView: UITableView,
                  didSelectRowAt indexPath: IndexPath)
   {
-    let myDate = tableView.cellForRow(at: indexPath)?.textLabel?.text
+    self.date = (tableView.cellForRow(at: indexPath)?.textLabel?.text)!
     if !self.times.isEmpty
     {
       self.times.removeAll()
     }
     for item in appoiment
     {
-      if item.date == myDate
+      if item.date == self.date
       {
         self.times.append(item.Time)
         
@@ -179,7 +176,7 @@ extension AddBookUserVC :UITableViewDataSource,
   
     
     let story = UIStoryboard(name: "Main", bundle: nil)
-    let timeController = story.instantiateViewController(identifier: "timeView") as TimeViewController
+    let timeController = story.instantiateViewController(identifier: "timeView") as TimeVC
     timeController.modalPresentationStyle = .fullScreen
     timeController.times = self.times
     self.present(timeController, animated: true) {

@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  LoginVC.swift
 //  Clinic
 //
 //  Created by Ressam Al-Thebailah on 09/05/1443 AH.
@@ -28,47 +28,44 @@ class LoginVC: UIViewController {
   }
   
   
-  func setUpElements()
-  {
-    errorLabel.alpha = 0
-    
-    Utilities.styleTextField(emailTextField)
-    Utilities.styleTextField(passwordTextField)
-    Utilities.styleHelloButton(loginButton)
-  }
-  
-  
-  @IBAction func loginTapped(_ sender: Any)
-  {
+  @IBAction func loginPressed(_ sender: Any) {
     let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     
     Auth.auth().signIn(withEmail: email,
-                       password: password)
-    {
+                       password: password) {
       (result,error) in
-      if error != nil
-      {
-        self.errorLabel.text = error!.localizedDescription
-        self.errorLabel.alpha = 1
+      
+      if let error = error {
+        self.errorLabel.text = error.localizedDescription
+        self.errorLabel.isHidden = false
       }
-      else
-      {
+      else {
         let userID = Auth.auth().currentUser?.uid
-        self.ref.child("users").queryEqual(toValue: userID).getData { error,
-                                                                      Data in
-          
-          if error == nil
-          {
-            let isAdmin = Data
-          }
-        }
         
-        let homeViewController = self.storyboard?.instantiateViewController(identifier: "HomeVC")
+        self.ref.child(K.FireStore.usersCollection)
+          .queryEqual(toValue: userID).getData { error, Data in
+            if error == nil {
+              let isData = Data
+            }
+          }
+        
+        let homeViewController = self.storyboard?
+          .instantiateViewController(identifier: K.Storyboard.homeViewController)
         
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
       }
     }
   }
+  
+  
+  private func setUpElements() {
+    errorLabel.alpha = 0
+    
+    emailTextField.styleTextField()
+    passwordTextField.styleTextField()
+    Utilities.styleHelloButton(loginButton)
+  }
+  
 }

@@ -59,35 +59,30 @@ class AddDoctorVC: UIViewController ,
   
   
   
-  @IBAction func dissmisButtonTapped(_ sender: UIButton)
-  {
+  @IBAction func dissmisButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true,
                  completion: nil)
   }
   
  
   
-  @IBAction func addNewDoctorTapped(_ sender: Any)
-  {
+  @IBAction func addNewDoctorTapped(_ sender: Any) {
     let DocId = UUID.init().uuidString
     let doctor = DoctorModel(DoctorId: DocId,
                              DoctorName:self.doctorNameTextField.text,
                              ClinicName:arrSection[currentIndex],
                              YearsOfExperience:self.yearsOfExperience.text)
     
-    self.ref.child("Doctor").child(doctor.DoctorId).setValue([
+    self.ref.child(K.FireStore.doctorCollection).child(doctor.DoctorId).setValue([
       "DoctorId" : doctor.DoctorId!,
       "DoctorName" : doctor.DoctorName!,
       "ClinicName" : doctor.ClinicName!,
       "YearsOfExperience" : doctor.YearsOfExperience!
     ]) { [self] error, DataRef in
-      if error == nil
-      {
+      if error == nil {
         self.showaAlertDoneView(Title: "Done!",
                                 Msg: "Doctor added successfully")
-      }
-      else
-      {
+      } else {
         self.showaAlertDoneView(Title: "Error!",
                                 Msg: error.debugDescription)
       }
@@ -100,46 +95,39 @@ class AddDoctorVC: UIViewController ,
 extension AddDoctorVC: UIPickerViewDelegate {
   
   override func touchesBegan(_ touches: Set<UITouch>,
-                             with event: UIEvent?)
-  {
+                             with event: UIEvent?) {
     view.endEditing(true)
   }
   
   
-  func numberOfComponents(in pickerView: UIPickerView)
-  -> Int {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
   
   
   func pickerView(_ pickerView: UIPickerView,
-                  numberOfRowsInComponent component: Int)
-  -> Int {
+                  numberOfRowsInComponent component: Int) -> Int {
     return arrSection.count
   }
   
   
   func pickerView(_ pickerView: UIPickerView,
                   titleForRow row: Int,
-                  forComponent component: Int)
-  -> String? {
+                  forComponent component: Int) -> String? {
     return arrSection[row]
   }
   
   
   func pickerView(_ pickerView: UIPickerView,
                   didSelectRow row: Int,
-                  inComponent component: Int)
-  {
+                  inComponent component: Int) {
     currentIndex = row
     txtSelectDoctor.text = arrSection[row]
   }
   
   
-  @objc func closePicker()
-  {
+  @objc func closePicker() {
     txtSelectDoctor.text = arrSection[currentIndex]
     view.endEditing(true)
   }
-  
 }

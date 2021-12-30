@@ -9,7 +9,7 @@ import UIKit
 
 class MyMedicalFileVC : UIViewController {
   
-  override func viewDidLoad() {
+  override func viewDidLoad(){
     super.viewDidLoad()
   }
 }

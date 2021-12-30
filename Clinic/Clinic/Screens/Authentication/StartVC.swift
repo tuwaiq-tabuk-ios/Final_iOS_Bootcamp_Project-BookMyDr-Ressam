@@ -19,8 +19,7 @@ class ViewController: UIViewController {
   }
 
   
-  func setUpElements()
-  {
+  func setUpElements() {
     Utilities.stylefilledButton(singUpButton)
     Utilities.stylefilledButton(loginButton)
   }

@@ -13,6 +13,4 @@ struct LocationModel {
   var email : String!
   var phone : String!
   var adress :String!
-
-  
 }

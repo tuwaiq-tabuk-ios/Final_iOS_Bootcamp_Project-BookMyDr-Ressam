@@ -45,15 +45,13 @@ class BookVC : UIViewController,
 //  }
   
   
-  @IBAction func bookButtonTapped(_ sender:UIButton)
-  {
+  @IBAction func bookButtonTapped(_ sender:UIButton) {
     if !clinicTextField.text!.isEmpty &&
         !doctorTextField.text!.isEmpty &&
         !patientNameTextField.text!.isEmpty &&
         !patientPhoneTextField.text!.isEmpty &&
         !date.isEmpty &&
-        time.isEmpty
-    {
+        time.isEmpty {
       let patientId = UUID.init().uuidString
       let patient = PatientModel(bookId: patientId,
                                  clinicName:self.clinicTextField.text!,
@@ -64,7 +62,7 @@ class BookVC : UIViewController,
                                  time: self.time,
                                  isAvilable: true)
       
-      ref = Database.database().reference().child("Pstient").child(doctorId).child(date).child(time).child(patientId)
+      ref = Database.database().reference().child(K.FireStore.patientCollection).child(doctorId).child(date).child(time).child(patientId)
       
       ref.setValue([
         "patientId":patient.bookId,
@@ -75,32 +73,24 @@ class BookVC : UIViewController,
         "date" : patient.date,
         "time" : patient.time,
         "isAvilable":patient.isAvilable
-      ])
-      {
-        Error,result in
+      ]) { Error,result in
         if Error == nil {
           self.showaAlertDoneView(Title: "Done",
                                   Msg: "Book added Successfully.")
         }
       }
-    }
-    else
-    {
+    } else {
       self.showaAlertDoneView(Title: "Error",
                               Msg: "Complete the appointment information")
     }
-    
-    
   }
-  
 }
 // MARK: - UIPickerViewDelegate
 
 extension BookVC : UIPickerViewDelegate {
   
   override func touchesBegan(_ touches: Set<UITouch>,
-                             with event: UIEvent?)
-  {
+                             with event: UIEvent?) {
     view.endEditing(true)
   }
   
@@ -110,23 +100,8 @@ extension BookVC : UIPickerViewDelegate {
   }
 
 
-  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+  func pickerView(_ pickerView: UIPickerView,
+                  numberOfRowsInComponent component: Int) -> Int {
     return 2
   }
-
-  
-//  func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//    <#code#>
-//  }
-//
-//
-//  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//    <#code#>
-//  }
-//
-//
-//  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//    <#code#>
-//  }
-  
 }

@@ -26,55 +26,42 @@ class EditLocationVC: UIViewController {
   }
   
   
-  func validateFields()->String?
-  {
+  func validateFields()->String? {
     if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        adressTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-    {
+        adressTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
       return "Please fill in all fields."
     }
     return nil
   }
   
   
-  @IBAction func dissmisButtonTapped(_ sender: UIButton)
-  {
+  @IBAction func dissmisButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true,
                  completion: nil)
   }
   
   
-  @IBAction func doneButtonTapped(_ sender: UIButton)
-  {
+  @IBAction func doneButtonTapped(_ sender: UIButton) {
     let error = validateFields()
-    if error != nil
-    {
+    if error != nil {
       showError(error!)
-    }
-    else
-    {
+    } else {
       let locationId = UUID.init().uuidString
       let location = LocationModel(locationId:locationId,
                                    email:self.emailTextField.text,
                                    phone:self.phoneTextField.text, adress:self.adressTextField.text)
       
-      self.ref .child("Location").setValue([
+      self.ref .child(K.FireStore.locationCollection).setValue([
         "locationId" : location.locationId,
         "email": location.email,
         "phone" : location.phone,
         "adress" :location.adress
-      ])
-      {
-        [self] error,
-               DataRef in
-        if error == nil
-        {
+      ]) { [self] error, DataRef in
+        if error == nil {
           self.showaAlertDoneView(Title: "Done!",
                                   Msg: "Changed successfully")
-        }
-        else
-        {
+        } else {
           self.showaAlertDoneView(Title: "Error!",
                                   Msg: error.debugDescription)
         }
@@ -83,8 +70,7 @@ class EditLocationVC: UIViewController {
   }
   
     
-  func showError(_ message:String)
-  {
+  func showError(_ message:String) {
     errorLabel.text = message
     errorLabel.alpha = 1
   }

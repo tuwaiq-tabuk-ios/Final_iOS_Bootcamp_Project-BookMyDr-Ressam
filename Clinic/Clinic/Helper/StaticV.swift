@@ -7,11 +7,9 @@
 
 import Foundation
 
-class Staticv
-{
+class Staticv {
   
   static let instance = Staticv()
-  
   
   var Time = ""
 }

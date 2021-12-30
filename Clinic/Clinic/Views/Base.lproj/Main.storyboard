@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l9q-Mq-gEt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bvJ-3P-dop">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -94,9 +94,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2MG-cY-f1f" userLabel="Stack_View">
-                                <rect key="frame" x="40" y="344" width="334" height="263"/>
+                                <rect key="frame" x="40" y="299" width="334" height="230.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nv0-wu-3fB" userLabel="Email_Text_Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="resam@r.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nv0-wu-3fB" userLabel="Email_Text_Field">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="L7l-6V-SW8"/>
@@ -105,7 +105,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5z-DG-m6t" userLabel="Password_Text_Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Resam1234@" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5z-DG-m6t" userLabel="Password_Text_Field">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="FRv-uP-XY1"/>
@@ -124,11 +124,11 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="loginTapped:" destination="Kg0-bu-OW4" eventType="touchUpInside" id="dcz-fg-eEr"/>
+                                            <action selector="loginPressed:" destination="Kg0-bu-OW4" eventType="touchUpInside" id="dcz-fg-eEr"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAf-z8-ufz" userLabel="Error_Label">
-                                        <rect key="frame" x="0.0" y="210" width="334" height="53"/>
+                                        <rect key="frame" x="0.0" y="210" width="334" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53" id="JDR-mq-Md7"/>
                                             <constraint firstAttribute="width" constant="334" id="ehb-Dm-Ipa"/>
@@ -144,17 +144,17 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Drawkit-Vector-Illustration-Medical-19" translatesAutoresizingMaskIntoConstraints="NO" id="STJ-3w-uAN" userLabel="Login_Image">
-                                <rect key="frame" x="0.0" y="54" width="414" height="270"/>
+                                <rect key="frame" x="0.0" y="54" width="414" height="225"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FTt-s1-Gii"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FTt-s1-Gii" firstAttribute="trailing" secondItem="STJ-3w-uAN" secondAttribute="trailing" id="4w9-0H-asm"/>
-                            <constraint firstItem="2MG-cY-f1f" firstAttribute="top" secondItem="FTt-s1-Gii" secondAttribute="top" constant="300" id="Deu-LF-xx8"/>
+                            <constraint firstItem="2MG-cY-f1f" firstAttribute="top" secondItem="FTt-s1-Gii" secondAttribute="top" constant="255" id="Deu-LF-xx8"/>
                             <constraint firstItem="STJ-3w-uAN" firstAttribute="leading" secondItem="FTt-s1-Gii" secondAttribute="leading" id="Gpx-rP-4Ug"/>
                             <constraint firstItem="STJ-3w-uAN" firstAttribute="top" secondItem="FTt-s1-Gii" secondAttribute="top" constant="10" id="LAq-ve-oQ9"/>
-                            <constraint firstItem="FTt-s1-Gii" firstAttribute="bottom" secondItem="2MG-cY-f1f" secondAttribute="bottom" constant="255" id="UCw-C5-roZ"/>
+                            <constraint firstItem="FTt-s1-Gii" firstAttribute="bottom" secondItem="2MG-cY-f1f" secondAttribute="bottom" constant="200" id="UCw-C5-roZ"/>
                             <constraint firstItem="FTt-s1-Gii" firstAttribute="trailing" secondItem="2MG-cY-f1f" secondAttribute="trailing" constant="40" id="jqp-Es-tuf"/>
                             <constraint firstItem="2MG-cY-f1f" firstAttribute="top" secondItem="STJ-3w-uAN" secondAttribute="bottom" constant="20" id="nzR-Qv-Mkf"/>
                             <constraint firstItem="2MG-cY-f1f" firstAttribute="leading" secondItem="FTt-s1-Gii" secondAttribute="leading" constant="40" id="tyP-3l-lgS"/>
@@ -1799,10 +1799,10 @@
             </objects>
             <point key="canvasLocation" x="4357" y="1744"/>
         </scene>
-        <!--Time View Controller-->
+        <!--TimeVC-->
         <scene sceneID="rBr-hh-cYq">
             <objects>
-                <viewController storyboardIdentifier="timeView" id="3ul-Mo-qSA" customClass="TimeViewController" customModule="Clinic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeView" id="3ul-Mo-qSA" customClass="TimeVC" customModule="Clinic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mm3-L4-mbQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2097,7 +2097,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="singUpTappped:" destination="b8f-Qo-NXE" eventType="touchUpInside" id="xrp-tc-aTe"/>
+                                            <action selector="singUpPressed:" destination="b8f-Qo-NXE" eventType="touchUpInside" id="xrp-tc-aTe"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0D-Nf-hE8" userLabel="Error_Label">
@@ -2140,7 +2140,7 @@
                         <outlet property="emailTextField" destination="kuc-9W-NI5" id="JyP-ft-N87"/>
                         <outlet property="errorLabel" destination="G0D-Nf-hE8" id="imw-OJ-xeJ"/>
                         <outlet property="firstNameTextField" destination="gEe-To-ImU" id="AhF-nu-GoN"/>
-                        <outlet property="lasttNameTextField" destination="Shg-Dy-uhL" id="nGP-bs-fYM"/>
+                        <outlet property="lastNameTextField" destination="Shg-Dy-uhL" id="nGP-bs-fYM"/>
                         <outlet property="passwordTextField" destination="ZJi-ac-DFa" id="MaG-co-ZLu"/>
                         <outlet property="singUpButton" destination="k0G-ou-xor" id="DBk-iM-rIV"/>
                     </connections>

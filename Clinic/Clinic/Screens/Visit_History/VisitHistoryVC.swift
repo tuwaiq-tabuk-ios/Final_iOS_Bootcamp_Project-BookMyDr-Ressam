@@ -27,9 +27,9 @@ class VisitHistoryCV: UIViewController {
   }
   
   
-  func getData(){
+  func getData() {
     
-    ref.child("Patient").queryOrderedByKey()
+    ref.child(K.FireStore.patientCollection).queryOrderedByKey()
       .observe(.value) { (snapShot) in
         let snapShotValue = snapShot.value as? NSDictionary
         
@@ -45,8 +45,6 @@ class VisitHistoryCV: UIViewController {
         self.dateLabel.text = date
         self.timeLabel.text = time
 
-//        self.patientList.append(PatientModel(bookId: <#T##String#>, clinicName: <#T##String#>, doctorName: <#T##String#>, name: <#T##String#>, phone: <#T##String#>, date: <#T##String#>, time: <#T##String#>, isAvilable: <#T##Bool#>))
-        
       }
   }
 }

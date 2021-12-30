@@ -32,12 +32,10 @@ class DoctorTableUserVC : UIViewController {
   }
   
   
-  private func getDate()
-  {
-    ref.child("Doctor").getData { Error,
+  private func getDate() {
+    ref.child(K.FireStore.doctorCollection).getData { Error,
                                   DataShot in
-      if Error == nil
-      {
+      if Error == nil {
         let data = DataShot.value as? NSDictionary
         var DoctorId = ""
         var DoctorName = ""
@@ -45,22 +43,14 @@ class DoctorTableUserVC : UIViewController {
         var YearsOfExperince = ""
         
         for (_,v) in data!{
-          for (key,val) in v as! NSDictionary
-          {
-            if key as! String == "DoctorId"
-            {
+          for (key,val) in v as! NSDictionary {
+            if key as! String == "DoctorId" {
               DoctorId = val as! String
-            }
-            else if key as! String == "DoctorName"
-            {
+            } else if key as! String == "DoctorName" {
               DoctorName = val as! String
-            }
-            else if key as! String == "ClinicName"
-            {
+            } else if key as! String == "ClinicName" {
               ClinicName = val as! String
-            }// YearsOfExperience
-            else if key as! String == "YearsOfExperience"
-            {
+            } else if key as! String == "YearsOfExperience" {
               YearsOfExperince = val as! String
             }
           }
@@ -69,9 +59,7 @@ class DoctorTableUserVC : UIViewController {
                                              ClinicName: ClinicName,
                                              YearsOfExperience: YearsOfExperince))
         }
-      }
-      else
-      {
+      } else {
         print(Error.debugDescription)
       }
       self.tableView.reloadData()
@@ -87,21 +75,20 @@ extension DoctorTableUserVC : UITableViewDelegate,
                               MyCellDelegate {
   
   
-  func didPressButton(_ tag: Int)
-  {
+  func didPressButton(_ tag: Int) {
     print("I have pressed a button with a tag:\(self.doctorList[tag].DoctorId)")
     
     let storyBoard : UIStoryboard = UIStoryboard(name:"Main",
                                                  bundle: nil)
     
-    if let nextViewController =
-        storyboard?.instantiateViewController(identifier:"AddBookUser") as? AddBookUserVC{
-      nextViewController.doctorId = self.doctorList[tag].DoctorId
-      nextViewController.clinicName = self.doctorList[tag].ClinicName
-      nextViewController.doctorName = self.doctorList[tag].DoctorName
-      nextViewController.modalPresentationStyle = .fullScreen
+    if let addBookUserVC =
+        storyboard?.instantiateViewController(identifier:K.Storyboard.addBookUserVC) as? AddBookUserVC{
+      addBookUserVC.doctorId = self.doctorList[tag].DoctorId
+      addBookUserVC.clinicName = self.doctorList[tag].ClinicName
+      addBookUserVC.doctorName = self.doctorList[tag].DoctorName
+      addBookUserVC.modalPresentationStyle = .fullScreen
       
-      self.present(nextViewController,
+      self.present(addBookUserVC,
                    animated: true,
                    completion: nil)
     }
@@ -109,16 +96,13 @@ extension DoctorTableUserVC : UITableViewDelegate,
   
   
   func tableView(_ tableView: UITableView,
-                 numberOfRowsInSection section: Int)
-  -> Int {
+                 numberOfRowsInSection section: Int) -> Int {
     self.doctorList.count
   }
   
   
   func tableView(_ tableView: UITableView,
-                 cellForRowAt indexPath: IndexPath)
-  -> UITableViewCell
-  {
+                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCellUser",
                                              for: indexPath) as? TableViewCellUser
     
@@ -136,8 +120,8 @@ extension DoctorTableUserVC : UITableViewDelegate,
     return cell!
   }
   
-  func numberOfSections(in tableView: UITableView)
-  -> Int {
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
     1
   }
 }

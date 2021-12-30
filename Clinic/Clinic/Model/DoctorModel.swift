@@ -13,7 +13,4 @@ struct DoctorModel {
   var DoctorName : String!
   var ClinicName : String!
   var YearsOfExperience : String!
-  
- 
-
 }

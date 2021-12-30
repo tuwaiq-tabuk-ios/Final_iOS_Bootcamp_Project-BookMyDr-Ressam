@@ -28,7 +28,7 @@ class AddBookVC : UIViewController {
   
   
   @IBAction func DateChanged(_ sender: UIDatePicker)
-  {
+{
     let getdate = sender.date
     let dateFormatter = DateFormatter()
     
@@ -62,8 +62,7 @@ class AddBookVC : UIViewController {
   }
   
   
-  @IBAction func addBook(_ sender: UIButton)
-  {
+  @IBAction func addBook(_ sender: UIButton) {
     if  !date.isEmpty && !time.isEmpty {
       let book = AppoimentModel(clinicName: clinicName,
                                 doctorName: doctorName,
@@ -72,26 +71,23 @@ class AddBookVC : UIViewController {
                                 isAvilable: true)
       
       let uid = UUID.init().uuidString
-      ref = Database.database().reference().child("Books")
+      ref = Database.database().reference().child(K.FireStore.booksCollection)
         .child(doctorId).child(date).child(uid)
       ref.setValue([
         "clinicName":book.clinicName,
         "doctorName":book.doctorName,
-        "date":book.date ,
+        "date":book.date,
         "time":book.Time,
         "isAvilable":book.isAvilable
       ])
       {
         Error, result in
-        if Error == nil
-        {
+        if Error == nil {
           self.showaAlertDoneView(Title: "Done",
                                   Msg: "Book added Successfully.")
         }
       }
-    }
-    else
-    {
+    } else {
       self.showaAlertDoneView(Title: "Error",
                               Msg: "You must pick date and time.")
     }

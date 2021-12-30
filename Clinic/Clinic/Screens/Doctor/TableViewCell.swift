@@ -22,15 +22,13 @@ class TableViewCell: UITableViewCell {
 
   
     override func setSelected(_ selected: Bool,
-                              animated: Bool)
-    {
+                              animated: Bool) {
         super.setSelected(selected,
                           animated: animated)
     }
   
   
-  @IBAction func buttonPressed(_ sender : UIButton)
-  {
+  @IBAction func buttonPressed(_ sender : UIButton) {
     myCellDelegate?.didPressButton(sender.tag)
      }
 }

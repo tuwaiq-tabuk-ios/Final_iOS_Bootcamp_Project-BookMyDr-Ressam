@@ -7,17 +7,24 @@
 
 import UIKit
 
-class TimeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class TimeViewController: UIViewController,
+                          UITableViewDelegate,
+                          UITableViewDataSource {
   
   var times = [String]()
   
   
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+  func tableView(_ tableView: UITableView,
+                 numberOfRowsInSection section: Int)
+  -> Int {
     let count = self.times.count
     return count
   }
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  
+  
+  func tableView(_ tableView: UITableView,
+                 didSelectRowAt indexPath: IndexPath)
+  {
     Staticv.instance.Time = (tableView.cellForRow(at: indexPath)?.textLabel!.text)!
     self.dismiss(animated: true, completion: nil)
   }
