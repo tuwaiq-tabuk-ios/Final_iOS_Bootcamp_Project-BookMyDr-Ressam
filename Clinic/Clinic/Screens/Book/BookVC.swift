@@ -41,7 +41,7 @@ class BookVC : UIViewController,
   }
   
   
-  func setUpElements(){
+  func setUpElements() {
     Utilities.stylefilledButton(bookAppointmentButton)
 //    clinicTextField.styleTextField()
 //    doctorTextField.styleTextField()
@@ -91,8 +91,8 @@ class BookVC : UIViewController,
   }
 }
 
-// MARK: - UIPickerViewDelegate
 
+// MARK: - UIPickerViewDelegate
 extension BookVC : UIPickerViewDelegate {
   
   

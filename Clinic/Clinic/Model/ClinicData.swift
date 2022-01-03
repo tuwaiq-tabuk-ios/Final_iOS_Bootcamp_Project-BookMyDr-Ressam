@@ -7,8 +7,7 @@
 
 import Foundation
 
-class ClinicData
-{
+class ClinicData {
   var clinicDataList : [String]
   
   init() {
