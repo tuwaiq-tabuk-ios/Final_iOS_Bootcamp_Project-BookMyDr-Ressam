@@ -31,5 +31,5 @@ class TableViewCellUser: UITableViewCell {
   @IBAction func buttonPressed(_ sender : UIButton) {
     myCellDelegate?.didPressButton(sender.tag)
   }
-
+  
 }

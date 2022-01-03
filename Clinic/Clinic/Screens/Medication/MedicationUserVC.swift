@@ -22,5 +22,13 @@ class MedicationUserVC: UIViewController {
     super.viewDidLoad()
     
     ref = Database.database().reference()
+    setUpElemnts()
+  }
+  
+  func setUpElemnts(){
+    patientNameLabel.styleLabel()
+    doctorNameLabel.styleLabel()
+    departmentNameLabel.styleLabel()
+    teartmentNameLabel.styleLabel()
   }
 }

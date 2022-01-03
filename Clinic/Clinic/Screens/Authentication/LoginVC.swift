@@ -46,7 +46,8 @@ class LoginVC: UIViewController {
         self.ref.child(K.FireStore.usersCollection)
           .queryEqual(toValue: userID).getData { error, Data in
             if error == nil {
-              let isData = Data
+              let _ = Data
+//              let isData = Data
             }
           }
         
@@ -67,5 +68,4 @@ class LoginVC: UIViewController {
     passwordTextField.styleTextField()
     Utilities.styleHelloButton(loginButton)
   }
-  
 }

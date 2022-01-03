@@ -15,6 +15,8 @@ class TimeVC: UIViewController,
   
   
   @IBOutlet weak var timeTable: UITableView!
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -48,5 +50,4 @@ class TimeVC: UIViewController,
     
     return cell
   }
-  
 }

@@ -1,5 +1,5 @@
 //
-//  EditLocationViewController.swift
+//  EditLocationVC.swift
 //  Clinic
 //
 //  Created by Ressam Al-Thebailah on 15/05/1443 AH.
@@ -23,9 +23,21 @@ class EditLocationVC: UIViewController {
     
     ref = Database.database().reference()
     
+    setUpElements()
   }
   
   
+  func setUpElements(){
+    
+    errorLabel.isHidden = false
+    
+    emailTextField.styleTextField()
+    phoneTextField.styleTextField()
+    adressTextField.styleTextField()
+  }
+  
+  
+ // validation all Text Field is empty
   func validateFields()->String? {
     if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -36,6 +48,7 @@ class EditLocationVC: UIViewController {
   }
   
   
+  // Return to the previous view
   @IBAction func dissmisButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true,
                  completion: nil)
@@ -44,9 +57,11 @@ class EditLocationVC: UIViewController {
   
   @IBAction func doneButtonTapped(_ sender: UIButton) {
     let error = validateFields()
+    //validation have error then shoe error
     if error != nil {
       showError(error!)
     } else {
+      //not have error update the clinic information in Firebase
       let locationId = UUID.init().uuidString
       let location = LocationModel(locationId:locationId,
                                    email:self.emailTextField.text,
@@ -69,7 +84,7 @@ class EditLocationVC: UIViewController {
     }
   }
   
-    
+  
   func showError(_ message:String) {
     errorLabel.text = message
     errorLabel.alpha = 1

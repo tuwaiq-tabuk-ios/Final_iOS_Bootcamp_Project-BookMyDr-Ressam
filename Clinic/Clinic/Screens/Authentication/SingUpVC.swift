@@ -1,5 +1,5 @@
 //
-//  SingUpViewController.swift
+//  SingUpVC.swift
 //  Clinic
 //
 //  Created by Ressam Al-Thebailah on 09/05/1443 AH.
@@ -33,10 +33,7 @@ class SingUpVC: UIViewController {
   
   
   @IBAction func singUpPressed(_ sender: Any) {
-    //    let error = Utilities.validateEmptyFields(textFields: firstNameTextField,
-    //                                         lastNameTextField,
-    //                                         emailTextField,
-    //                                         passwordTextField)
+
     print("\n\n\n- - - - -  - - - - - - - -\(#file) - \(#function)")
     
     do {
@@ -77,18 +74,6 @@ class SingUpVC: UIViewController {
         self.showError("Error creating user")
       } else {
         let uid = (result?.user.uid)!
-        //        let user = UserModel(uid: (result?.user.uid)!,
-        //                             firstName: firstName,
-        //                             lastName: lastName,
-        //                             email: email)
-        //
-        //        self.ref.child("users").child((result?.user.uid)!).setValue([
-        //          "FirstName" : user.firstName!,
-        //          "LastName" : user.lastName!,
-        //          "Email" : user.email!,
-        //          "Id" : user.uid!,
-        //          "isAdmin" : false
-        //        ])
         
         self.ref.child(K.FireStore.usersCollection).child(uid).setValue([
           "FirstName" : firstName,

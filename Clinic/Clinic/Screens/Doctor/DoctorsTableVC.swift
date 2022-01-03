@@ -1,5 +1,5 @@
 //
-//  DoctorsTableViewController.swift
+//  DoctorsTableVC.swift
 //  Clinic
 //
 //  Created by Ressam Al-Thebailah on 11/05/1443 AH.
@@ -33,9 +33,10 @@ class DoctorsTableVC: UIViewController {
   }
   
   
+  // Get data from firebase
   private func getData() {
     ref.child(K.FireStore.doctorCollection).observe(.value, with: {
-                                  DataShot in
+      DataShot in
       
       if DataShot.value != nil {
         if !self.doctorList.isEmpty {
@@ -71,10 +72,10 @@ class DoctorsTableVC: UIViewController {
       
       self.tableView.reloadData()
     }
-  )}
+    )}
   
   
-  
+  // Return to the previous page
   @IBAction func backButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true, completion: nil)
   }
@@ -87,9 +88,9 @@ extension DoctorsTableVC : UITableViewDelegate,
                            UITableViewDataSource,
                            MyCellDelegate {
   
-  
+  // Delete cell row in table and firebase
   func tableView(_ tableView: UITableView,
-    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
+                 trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
   -> UISwipeActionsConfiguration? {
     let delete = UIContextualAction(style: .destructive,
                                     title: "Delete") { ACTION,
@@ -98,10 +99,11 @@ extension DoctorsTableVC : UITableViewDelegate,
       self.ref.child(K.FireStore.doctorCollection).child(self.doctorList[indexPath.row].DoctorId).removeValue()
       result(true)
     }
-   return UISwipeActionsConfiguration(actions: [delete])
+    return UISwipeActionsConfiguration(actions: [delete])
   }
+ 
   
-  
+  //show Doctors List(data) in table
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath)
   -> UITableViewCell {
@@ -122,10 +124,16 @@ extension DoctorsTableVC : UITableViewDelegate,
   }
   
   
-  func didPressButton(_ tag: Int) {
-    print("I have pressed a button with a tag: \(self.doctorList[tag].DoctorId)")
+//  func didPressButton(_ tag: Int) {
+//    print("I have pressed a button with a tag: \(self.doctorList[tag].DoctorId)")
+  
+  //transafer next View
+    func didPressButton(_ tag: Int) {
+      print("I have pressed a button with a tag: \(String(describing: self.doctorList[tag].DoctorId))")
     
-    let storyBoard : UIStoryboard = UIStoryboard(name: "Main",
+//    let storyBoard : UIStoryboard = UIStoryboard(name: "Main",
+//                                                 bundle: nil)
+    let _ : UIStoryboard = UIStoryboard(name: "Main",
                                                  bundle: nil)
     
     if let nextViewController = storyboard?.instantiateViewController(identifier: "AddBookVC") as? AddBookVC {
@@ -149,7 +157,6 @@ extension DoctorsTableVC : UITableViewDelegate,
   func numberOfSections(in tableView: UITableView) -> Int {
     1
   }
-  
 }
 
 

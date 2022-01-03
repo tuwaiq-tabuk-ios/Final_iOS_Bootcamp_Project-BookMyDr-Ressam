@@ -1,5 +1,5 @@
 //
-//  CustomError+Ext.swift
+//  Error+Ext.swift
 //  Clinic
 //
 //  Created by Ressam Al-Thebailah on 25/05/1443 AH.
@@ -9,6 +9,7 @@ import Foundation
 
 
 enum CustomError: Error {
+  
   // Throw when Textfields are empty
   case emptyFields
   

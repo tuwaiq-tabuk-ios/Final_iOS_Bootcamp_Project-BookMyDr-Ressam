@@ -33,9 +33,18 @@ class LocationClinicUserVC : UIViewController {
     
     ref = Database.database().reference()
     getData()
+    setUpelement()
   }
   
   
+  func setUpelement(){
+    emailLabel.styleLabel()
+    phoneLabel.styleLabel()
+    addressLabel.styleLabel()
+  }
+  
+  
+  //Get the Clinic Information in Firebase
   func getData() {
     ref.child(K.FireStore.locationCollection).queryOrderedByKey()
       .observe(.value) { (snapshot) in
@@ -58,6 +67,7 @@ class LocationClinicUserVC : UIViewController {
   }
   
   
+  //Define the boundaries of the area
   func setStartingLocation (location:CLLocation,
                             distance:CLLocationDistance) {
     let region = MKCoordinateRegion(center: location.coordinate,
@@ -69,6 +79,7 @@ class LocationClinicUserVC : UIViewController {
   }
   
   
+  // add Add coordinates and notation
   func addAnnotation() {
     let pin = MKPointAnnotation()
     pin.coordinate = CLLocationCoordinate2D(latitude:28.3905943 ,

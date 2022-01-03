@@ -17,11 +17,20 @@ class AddMedicationVC: UIViewController {
   
   var ref : DatabaseReference!
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     ref = Database.database().reference()
-    
+    setUpElements()
+  }
+  
+  
+  func setUpElements(){
+    patientNameLabel.styleLabel()
+    departmentNameLabel.styleLabel()
+    treatmentTextField.styleTextField()
+    doctorNameLabel.styleLabel()
   }
   
   

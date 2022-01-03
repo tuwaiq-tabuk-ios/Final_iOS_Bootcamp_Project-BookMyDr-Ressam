@@ -1,5 +1,5 @@
 //
-//  LocationClinicViewController.swift
+//  LocationClinicVC.swift
 //  Clinic
 //
 //  Created by Ressam Al-Thebailah on 15/05/1443 AH.
@@ -33,9 +33,18 @@ class LocationClinicVC : UIViewController {
     
     ref = Database.database().reference()
     getData()
+    setElements()
   }
   
   
+  func setElements() {
+    emailLabel.styleLabel()
+    phoneLabel.styleLabel()
+    adressLabel.styleLabel()
+  }
+  
+  
+  //Get the Clinic Information in Firebase
   func getData() {
     ref.child(K.FireStore.locationCollection).queryOrderedByKey()
       .observe(.value) { (snapshot) in
@@ -56,6 +65,7 @@ class LocationClinicVC : UIViewController {
   }
   
   
+  //Define the boundaries of the area
   func setStartingLocation (location:CLLocation,
                             distance:CLLocationDistance) {
     let region = MKCoordinateRegion(center: location.coordinate,
@@ -67,6 +77,7 @@ class LocationClinicVC : UIViewController {
   }
   
   
+  // add Add coordinates and notation
   func addAnnotation() {
     let pin = MKPointAnnotation()
     pin.coordinate = CLLocationCoordinate2D(latitude:28.3905943 ,

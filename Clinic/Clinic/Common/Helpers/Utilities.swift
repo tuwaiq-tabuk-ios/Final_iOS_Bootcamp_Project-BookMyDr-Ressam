@@ -23,17 +23,10 @@ class Utilities {
   
   static func styleHelloButton (_ button:UIButton) {
     button.layer.borderWidth = 2
-    button.layer.borderColor = UIColor.purple.cgColor
+    button.layer.borderColor = UIColor.white.cgColor
     button.layer.cornerRadius = 25.0
     button.tintColor = UIColor.black
   }
-  
-  
-//  static func isPasswordValid(_ password: String) -> Bool {
-//    let passwordTest = NSPredicate(format: "SELF MATCHES%@",
-//                                   "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
-//    return passwordTest.evaluate(with: password)
-//  }
   
   
   static func validateEmptyFields(textFields: UITextField...) throws {

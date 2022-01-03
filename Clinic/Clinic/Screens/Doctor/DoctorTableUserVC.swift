@@ -1,5 +1,5 @@
 //
-//  DoctorTableUser.swift
+//  DoctorTableUserVC.swift
 //  Clinic
 //
 //  Created by Ressam Al-Thebailah on 19/05/1443 AH.
@@ -17,6 +17,7 @@ class DoctorTableUserVC : UIViewController {
   var doctorList = [DoctorModel]()
   var myId = ""
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -32,9 +33,10 @@ class DoctorTableUserVC : UIViewController {
   }
   
   
+  // Get data from firebase
   private func getDate() {
     ref.child(K.FireStore.doctorCollection).getData { Error,
-                                  DataShot in
+                                                      DataShot in
       if Error == nil {
         let data = DataShot.value as? NSDictionary
         var DoctorId = ""
@@ -75,10 +77,16 @@ extension DoctorTableUserVC : UITableViewDelegate,
                               MyCellDelegate {
   
   
+//  func didPressButton(_ tag: Int) {
+//    print("I have pressed a button with a tag:\(self.doctorList[tag].DoctorId)")
+  
+  //transafer next View
   func didPressButton(_ tag: Int) {
-    print("I have pressed a button with a tag:\(self.doctorList[tag].DoctorId)")
+    print("I have pressed a button with a tag: \(String(describing: self.doctorList[tag].DoctorId))")
     
-    let storyBoard : UIStoryboard = UIStoryboard(name:"Main",
+//    let storyBoard : UIStoryboard = UIStoryboard(name:"Main",
+//                                                 bundle: nil)
+    let _ : UIStoryboard = UIStoryboard(name:"Main",
                                                  bundle: nil)
     
     if let addBookUserVC =
@@ -101,6 +109,7 @@ extension DoctorTableUserVC : UITableViewDelegate,
   }
   
   
+  //show Doctors List(data) in table
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCellUser",

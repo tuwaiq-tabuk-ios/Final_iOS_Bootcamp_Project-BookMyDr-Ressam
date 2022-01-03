@@ -25,8 +25,7 @@ class AddBookVC : UIViewController {
   var date : String = ""
   var time : String = ""
   
-  
-  
+  // add date and time
   @IBAction func DateChanged(_ sender: UIDatePicker)
 {
     let getdate = sender.date
@@ -59,11 +58,23 @@ class AddBookVC : UIViewController {
     
     clinicNameLabel.text = clinicName
     doctorNameLAbel.text = doctorName
+    
+    setUpElements()
+ 
   }
   
   
+  func setUpElements(){
+    Utilities.stylefilledButton(bookAppointment)
+    clinicNameLabel.styleLabel()
+    doctorNameLAbel.styleLabel()
+  }
+
+  
   @IBAction func addBook(_ sender: UIButton) {
+    //validation date and time not empty
     if  !date.isEmpty && !time.isEmpty {
+      
       let book = AppoimentModel(clinicName: clinicName,
                                 doctorName: doctorName,
                                 date: self.date,
@@ -71,6 +82,7 @@ class AddBookVC : UIViewController {
                                 isAvilable: true)
       
       let uid = UUID.init().uuidString
+      //store date and time in Firebase
       ref = Database.database().reference().child(K.FireStore.booksCollection)
         .child(doctorId).child(date).child(uid)
       ref.setValue([

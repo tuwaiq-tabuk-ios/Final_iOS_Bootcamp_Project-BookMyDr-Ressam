@@ -1,5 +1,5 @@
 //
-//  AddDoctorViewController.swift
+//  AddDoctorVC.swift
 //  Clinic
 //
 //  Created by Ressam Al-Thebailah on 10/05/1443 AH.
@@ -12,8 +12,8 @@ import FirebaseCore
 import FirebaseDatabase
 
 class AddDoctorVC: UIViewController ,
-                               UIPickerViewDataSource ,
-                               UITextFieldDelegate {
+                   UIPickerViewDataSource ,
+                   UITextFieldDelegate {
   
   @IBOutlet weak var txtSelectDoctor: UITextField!
   @IBOutlet weak var yearsOfExperience: UITextField!
@@ -25,12 +25,7 @@ class AddDoctorVC: UIViewController ,
   
   var ref: DatabaseReference!
   
-  var arrSection = ["Dental and orthodontic clinic",
-                    "Dermatology and beauty clinic",
-                    "Obstetrics and Gynecology Clinic",
-                    "Pediatric Clinic",
-                    "ophthalmology clinic",
-                    "Ear, Nose and Throat Clinic"]
+  var arrSection = ClinicData().clinicDataList
   
   var currentIndex = 0
   
@@ -55,8 +50,15 @@ class AddDoctorVC: UIViewController ,
     
     txtSelectDoctor.inputView = pickerSection
     txtSelectDoctor.inputAccessoryView = toolBar
+    setUpElement()
   }
   
+  
+  func setUpElement(){
+    txtSelectDoctor.styleTextField()
+    yearsOfExperience.styleTextField()
+    doctorNameTextField.styleTextField()
+  }
   
   
   @IBAction func dissmisButtonTapped(_ sender: UIButton) {
@@ -64,7 +66,6 @@ class AddDoctorVC: UIViewController ,
                  completion: nil)
   }
   
- 
   
   @IBAction func addNewDoctorTapped(_ sender: Any) {
     let DocId = UUID.init().uuidString
@@ -93,6 +94,7 @@ class AddDoctorVC: UIViewController ,
 
 // MARK: - UIPickerViewDelegate
 extension AddDoctorVC: UIPickerViewDelegate {
+  
   
   override func touchesBegan(_ touches: Set<UITouch>,
                              with event: UIEvent?) {

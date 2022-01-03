@@ -36,13 +36,18 @@ class BookVC : UIViewController,
     pickerView.delegate = self
     pickerView.dataSource = self
     
+    setUpElements()
+
   }
   
   
-//  func getData()
-//  {
-//    ref = Database.database().reference().child("Doctor")
-//  }
+  func setUpElements(){
+    Utilities.stylefilledButton(bookAppointmentButton)
+//    clinicTextField.styleTextField()
+//    doctorTextField.styleTextField()
+//    patientNameTextField.styleTextField()
+//    patientPhoneTextField.styleTextField()
+  }
   
   
   @IBAction func bookButtonTapped(_ sender:UIButton) {
@@ -85,9 +90,11 @@ class BookVC : UIViewController,
     }
   }
 }
+
 // MARK: - UIPickerViewDelegate
 
 extension BookVC : UIPickerViewDelegate {
+  
   
   override func touchesBegan(_ touches: Set<UITouch>,
                              with event: UIEvent?) {

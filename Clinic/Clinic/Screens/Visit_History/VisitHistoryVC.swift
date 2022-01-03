@@ -19,11 +19,22 @@ class VisitHistoryCV: UIViewController {
   var ref : DatabaseReference!
   var patientList = [PatientModel]()
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     ref = Database.database().reference()
     getData()
+    setUpElements()
+  }
+  
+  
+  func setUpElements(){
+    patientNameLabel.styleLabel()
+    doctorNameLabel.styleLabel()
+    ClinicNameLabel.styleLabel()
+    dateLabel.styleLabel()
+    timeLabel.styleLabel()
   }
   
   
@@ -44,7 +55,7 @@ class VisitHistoryCV: UIViewController {
         self.ClinicNameLabel.text = clinicName
         self.dateLabel.text = date
         self.timeLabel.text = time
-
+        
       }
   }
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StartVC.swift
 //  Clinic
 //
 //  Created by Ressam Al-Thebailah on 09/05/1443 AH.
@@ -11,6 +11,7 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var singUpButton: UIButton!
   @IBOutlet weak var loginButton: UIButton!
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,8 +28,8 @@ class ViewController: UIViewController {
 
 
 
-//اظهار تاريخ المواعيد و الاوقات المتاحه
+//حجز الوقت ما يتكرر عند شخص ثاني
 // ربط واجهات المستخدم مع البروجكت
 // واجهه جديده لحجز موعد من غير التابل
 //في الملف الطبي اضافه تاريخ الزياره و اضافه وصفه طبيه 
-
+//مشكله الايرور في تسجيل الدخول ما يطلع
