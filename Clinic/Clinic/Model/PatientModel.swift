@@ -17,6 +17,5 @@ struct PatientModel {
   var date : String
   var time : String
   var isAvilable : Bool
- 
 }
 
