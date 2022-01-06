@@ -11,12 +11,18 @@ Patients and clinic administrators
 
 
 ## User stories - Clinic administrators
-   - Add doctors with their specializtion and clinic or clinics they offer their services.
+   - Add doctors to the clinic by  specializtion or department.
+   - Add availabe visits for doctors
+   - Edit location, email and telephone of a clinic
+   - Locate the clinic in a map dinamycally as the user change the address
+   - Add medical prescriptions to patients
 
 
 ## User stories - Patients
-   - Create, update and delete patients profile
-   - Book an appointment with a doctor
+   - Create an account  
+   - Book an appointment with a doctor by departments
+   - See the location of the clinic in a map and information like address, email and phone of the clinic
+   - View history of visits and medical prescriptions
    - Receive notifications regarding upcoming appointments
 
 ## ScreenShot - Patients
