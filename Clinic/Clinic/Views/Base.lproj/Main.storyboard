@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jkw-wA-ISR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l9q-Mq-gEt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -105,7 +105,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Resam1234@" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5z-DG-m6t" userLabel="Password_Text_Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="resam1234@" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5z-DG-m6t" userLabel="Password_Text_Field">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="FRv-uP-XY1"/>
@@ -277,6 +277,7 @@
                             <constraint firstItem="BP9-Kk-1XA" firstAttribute="bottom" secondItem="kTq-6K-E5o" secondAttribute="bottom" constant="500" id="zAv-hc-rfv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gch-99-Zg8"/>
                     <connections>
                         <outlet property="addressLabel" destination="SSV-CL-2Sj" id="Hag-Yv-tlQ"/>
                         <outlet property="emailLabel" destination="JkV-MY-iqd" id="zJI-gT-Yh8"/>
@@ -632,7 +633,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQh-je-y04" userLabel="Doctors_Button">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="141"/>
                                         <connections>
-                                            <segue destination="Zdn-W5-cwN" kind="show" id="Avo-eo-xvN"/>
+                                            <segue destination="Zdn-W5-cwN" kind="show" id="2WD-uB-6yk"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Drawkit-Vector-Illustration-Medical-13" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-LL-rab" userLabel="Doctors_Image">
@@ -726,7 +727,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJr-O5-GOk" userLabel="Location_Button">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="141"/>
                                         <connections>
-                                            <segue destination="Y49-f4-z6P" kind="show" id="JwE-W6-E3Z"/>
+                                            <segue destination="Y49-f4-z6P" kind="show" id="wdw-YU-wl3"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Drawkit-Vector-Illustration-Medical-15" translatesAutoresizingMaskIntoConstraints="NO" id="k10-dR-ruV" userLabel="Location_Image">
