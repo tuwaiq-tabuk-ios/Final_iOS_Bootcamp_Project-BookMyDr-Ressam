@@ -10,6 +10,14 @@ import FirebaseDatabase
 
 class AddBookUserVC: UIViewController,UITextFieldDelegate {
   
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var timeText: UITextField!
+  @IBOutlet weak var clinicNameText: UITextField!
+  @IBOutlet weak var doctorNameText: UITextField!
+  @IBOutlet weak var patientNameTextField: UITextField!
+  @IBOutlet weak var patientPhoneTextField: UITextField!
+  @IBOutlet weak var bookButton: UIButton!
+  
   var CliniccurrentIndex = 0 ,  doctorcurrentIndex = 0
   
   var clinicList = ClinicData().clinicDataList
@@ -21,13 +29,6 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
   var times = [String]()
   var bookkeys = [String]()
   
-  @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var timeText: UITextField!
-  @IBOutlet weak var clinicNameText: UITextField!
-  @IBOutlet weak var doctorNameText: UITextField!
-  @IBOutlet weak var patientNameTextField: UITextField!
-  @IBOutlet weak var patientPhoneTextField: UITextField!
-  @IBOutlet weak var bookButton: UIButton!
   
   let toolBar = UIToolbar()
   
@@ -50,8 +51,9 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     getDoctors()
-    getDates()
+    getDates(id:doctorId)
     setUpElements()
     toolBar.sizeToFit()
     
@@ -71,16 +73,21 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
     
     picker.dataSource = self
     picker.delegate = self
+    
     clinicNameText.delegate = self
     doctorNameText.delegate = self
+    
     tableView.dataSource = self
     tableView.delegate = self
+    
     clinicNameText.tag = 100
     doctorNameText.tag = 200
+    
     clinicNameText.addTarget(self,
                              action:#selector(isTextFieldTapped(Sender:)),
   
                              for: .allTouchEvents)
+    
     doctorNameText.addTarget(self,
                              action:#selector(isTextFieldTapped(Sender:)),
                              for: .allTouchEvents)
@@ -91,6 +98,8 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
     }
   }
   
+  
+  //get name doctor, clinic name, years of experience from database
   func getDoctors() {
     let db = Database.database().reference().child("Doctor")
     db.getData { Error, Data in
@@ -98,9 +107,7 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
         let data = Data.value as! NSDictionary
         for (_,v) in data {
          let  v1  = v as! NSDictionary
-          self.Doctors.append(DoctorModel(DoctorId: (v1["DoctorId"] as! String),
-                                          DoctorName:  (v1["DoctorName"] as! String),
-                                          ClinicName: (v1["ClinicName"] as! String), YearsOfExperience: (v1["YearsOfExperience"] as! String)))
+          self.Doctors.append(DoctorModel(value: v1))
         }
       }
     }
@@ -129,12 +136,9 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
   }
   
   
-  @objc func isTextFieldTapped(Sender : UITextField)
-  {
-    
+  @objc func isTextFieldTapped(Sender : UITextField) {
     if Sender.tag == 100
     {
-     
       clinicTapped = true
       doctortapped = false
       clinicNameText.inputView = picker
@@ -144,7 +148,7 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
         self.FilteredDoctors.removeAll()
       }
       for item in Doctors {
-        if item.ClinicName == clinicNameText.text! {
+        if item.clinicName == clinicNameText.text! {
           self.FilteredDoctors.append(item)
         }
       }
@@ -159,24 +163,28 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
   @IBAction func bookButtonTapped(_ sender: UIButton) {
     let name = patientNameTextField.text!
     let phone = patientPhoneTextField.text!
+    
     print("name is \(name) phone \(phone) date \(self.date) time \(self.timeText.text!)")
+    
     //validation the Text Field not empty
     if !self.date.isEmpty &&
         !self.timeText.text!.isEmpty &&
         !name.isEmpty &&
         !phone.isEmpty {
+      
       // store the data in firebase
       let bookId = UUID.init().uuidString
       let book = PatientModel (
         bookId: bookId,
-        clinicName: clinicName,
-        doctorName: doctorName,
+        clinicName: self.clinicNameText.text!,
+        doctorName: self.doctorNameText.text!,
         name:self.patientNameTextField.text!,
         phone:self.patientPhoneTextField.text!,
         date:self.date,
         time:timeText.text!,
         isAvilable:true )
       
+      // set booking data to firebase
       ref = Database.database().reference().child(K.FireStore.patientCollection)
         .child(doctorId).child(date).child(bookId)
       ref.setValue([
@@ -190,13 +198,35 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
         "isAvilable":book.isAvilable
       ]) { Error, result in
         if Error == nil {
+          // show this massage without any error
           self.showaAlertDoneView(Title: "Done",
                                   Msg: "Book added Successfully.")
           
+          //check remove the selected time
           let _ = Database.database().reference().child(K.FireStore.booksCollection).child(self.doctorId).child(book.date).child(self.key).removeValue()
+          if !self.times.isEmpty
+          {
+            self.times.removeAll()
+          }
+          if !self.appoiment.isEmpty
+          {
+            self.appoiment.removeAll()
+          }
+          if !self.dates.isEmpty
+          {
+            self.dates.removeAll()
+          }
+          
+          let story = UIStoryboard(name: "Main", bundle: nil)
+          
+          if let next = story.instantiateViewController(identifier: K.Storyboard.homeViewController) as? HomeVC {
+            next.modalPresentationStyle = .fullScreen
+            self.present(next, animated: true, completion: nil)
+          }
         }
       }
     } else {
+      //show this massage with error
       self.showaAlertDoneView(Title: "Error",
                               Msg: "You must pick date and time.")
     }
@@ -206,27 +236,30 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
 
 //MARK:- UITableViewDataSource,UITableViewDelegate
 extension AddBookUserVC :UITableViewDataSource,
-                         UITableViewDelegate
-{
+                         UITableViewDelegate {
   
   
-  func getDates() {
-    if !doctorId.isEmpty
-//        || !doctorNameText.text!.isEmpty
+  func getDates(id : String) {
+    //show all time availble for each doctor
+    if !id.isEmpty
     {
-      let db : DatabaseReference = Database.database().reference().child(K.FireStore.booksCollection).child(doctorId)
+      
+      let db : DatabaseReference = Database.database().reference().child(K.FireStore.booksCollection).child(id)
       db.observe(.value) { DataResult in
-        if DataResult.value != nil {
-          for (key,val) in DataResult.value as! NSDictionary {
+        if let data =  DataResult.value  {
+          if !self.dates.isEmpty
+          {
+            self.dates.removeAll()
+          }
+          for (key,val) in data as! NSDictionary {
+           
             print("key : \(key)\t\n")
-            
             self.dates.append(key as! String)
-            self.times.append(key as! String)
-            
+
             for (k,v) in val as! NSDictionary {
               self.bookkeys.append(k as! String)
-              let V = v as! NSDictionary
               
+              let V = v as! NSDictionary
               self.appoiment.append(AppoimentModel(
                                       clinicName: V["clinicName"] as! String,
                                       doctorName: V["doctorName"] as! String,
@@ -264,11 +297,12 @@ extension AddBookUserVC :UITableViewDataSource,
         self.times.append(item.Time)
       }
     }
-    
     self.key  = self.bookkeys[indexPath.row]
     
-    let story = UIStoryboard(name: "Main", bundle: nil)
+    let story = UIStoryboard(name: "Main",
+                             bundle: nil)
     let timeController = story.instantiateViewController(identifier: "timeView") as TimeVC
+    
     timeController.modalPresentationStyle = .fullScreen
     timeController.times = self.times
     self.present(timeController,
@@ -301,7 +335,8 @@ extension AddBookUserVC : UIPickerViewDelegate,UIPickerViewDataSource {
   }
   
   
-  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+  func pickerView(_ pickerView: UIPickerView,
+                  numberOfRowsInComponent component: Int) -> Int {
     if clinicTapped {
       return clinicList.count
     } else {
@@ -316,8 +351,7 @@ extension AddBookUserVC : UIPickerViewDelegate,UIPickerViewDataSource {
     if clinicTapped {
       return clinicList[row]
     } else {
-      
-      return self.FilteredDoctors[row].DoctorName
+      return self.FilteredDoctors[row].doctorName
     }
   }
   
@@ -325,12 +359,18 @@ extension AddBookUserVC : UIPickerViewDelegate,UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView,
                     didSelectRow row: Int,
                     inComponent component: Int) {
+      
       if clinicTapped {
         CliniccurrentIndex = row
         clinicNameText.text = clinicList[row]
+        
       } else {
+
         doctorcurrentIndex = row
-        doctorNameText.text = FilteredDoctors[row].DoctorName
+        doctorNameText.text = FilteredDoctors[row].doctorName
+        self.doctorId = FilteredDoctors[row].doctorId
+        getDates(id: FilteredDoctors[row].doctorId)
+      
       }
     }
   

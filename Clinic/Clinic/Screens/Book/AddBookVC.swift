@@ -26,8 +26,7 @@ class AddBookVC : UIViewController {
   var time : String = ""
   
   // add date and time
-  @IBAction func DateChanged(_ sender: UIDatePicker)
-{
+  @IBAction func DateChanged(_ sender: UIDatePicker) {
     let getdate = sender.date
     let dateFormatter = DateFormatter()
     
@@ -55,7 +54,7 @@ class AddBookVC : UIViewController {
     super.viewDidLoad()
     
     print(doctorId)
-    
+  
     clinicNameLabel.text = clinicName
     doctorNameLAbel.text = doctorName
     
@@ -64,7 +63,7 @@ class AddBookVC : UIViewController {
   }
   
   
-  func setUpElements(){
+  func setUpElements() {
     Utilities.stylefilledButton(bookAppointment)
     clinicNameLabel.styleLabel()
     doctorNameLAbel.styleLabel()
@@ -95,11 +94,13 @@ class AddBookVC : UIViewController {
       {
         Error, result in
         if Error == nil {
+          // show this massage without ane error
           self.showaAlertDoneView(Title: "Done",
                                   Msg: "Book added Successfully.")
         }
       }
     } else {
+      // show this massage with error
       self.showaAlertDoneView(Title: "Error",
                               Msg: "You must pick date and time.")
     }

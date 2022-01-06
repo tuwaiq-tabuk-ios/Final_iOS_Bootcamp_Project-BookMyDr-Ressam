@@ -8,7 +8,6 @@
 import Foundation
 
 struct UserModel : Codable {
-  
   var uid : String!
   var firstName : String!
   var lastName : String!

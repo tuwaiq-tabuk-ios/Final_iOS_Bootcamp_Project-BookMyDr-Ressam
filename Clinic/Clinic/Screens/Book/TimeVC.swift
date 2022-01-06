@@ -11,10 +11,13 @@ class TimeVC: UIViewController,
                           UITableViewDelegate,
                           UITableViewDataSource {
   
+  @IBOutlet weak var timeTable: UITableView!
+  
   var times = [String]()
   
-  
-  @IBOutlet weak var timeTable: UITableView!
+  override func viewDidDisappear(_ animated: Bool) {
+    self.times.removeAll()
+  }
   
   
   override func viewDidLoad() {
@@ -27,19 +30,22 @@ class TimeVC: UIViewController,
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    
     let count = self.times.count
     return count
   }
   
   
+  // Return to the previous view
   func tableView(_ tableView: UITableView,
                  didSelectRowAt indexPath: IndexPath) {
     Staticv.instance.Time = (tableView.cellForRow(at: indexPath)?.textLabel!.text)!
+    self.times.removeAll()
+    tableView.reloadData()
     self.dismiss(animated: true, completion: nil)
   }
   
   
+  //show the time available for each doctor
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell(style: .default,

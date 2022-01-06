@@ -10,8 +10,7 @@ import UIKit
 extension UILabel {
   
   
-  func styleLabel (){
-    
+  func styleLabel() {
     let bottomLine  = CALayer()
     
     bottomLine.frame = CGRect(x: 0,

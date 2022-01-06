@@ -11,7 +11,6 @@ extension UITextField {
   
   
   func styleTextField () {
-    
     let bottomLine = CALayer()
     
     bottomLine.frame = CGRect(x: 0,

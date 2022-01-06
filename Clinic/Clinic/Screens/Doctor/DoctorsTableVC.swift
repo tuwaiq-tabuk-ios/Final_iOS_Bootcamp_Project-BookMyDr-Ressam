@@ -33,49 +33,34 @@ class DoctorsTableVC: UIViewController {
   }
   
   
-  // Get data from firebase
+  // Get the doctor information from firebase
   private func getData() {
     ref.child(K.FireStore.doctorCollection).observe(.value, with: {
       DataShot in
       
       if DataShot.value != nil {
+        
         if !self.doctorList.isEmpty {
           self.doctorList.removeAll()
         }
-        let data = DataShot.value as? NSDictionary
         
-        var DoctorId = ""
-        var DoctorName = ""
-        var ClinicName = ""
-        var YearsOfExperince = ""
-        
-        for (_,v) in data! {
-          for (key,val) in v as! NSDictionary {
-            
-            if key as! String == "DoctorId" {
-              DoctorId = val as! String
-            }
-            else if key as! String == "DoctorName" {
-              DoctorName = val as! String
-            }
-            else if key as! String == "ClinicName" {
-              ClinicName = val as! String
-            }
-            else if key as! String == "YearsOfExperience" {
-              YearsOfExperince = val as! String
-            }
-          }
+        if let data = DataShot.value as? NSDictionary{
           
-          self.doctorList.append(DoctorModel(DoctorId: DoctorId, DoctorName: DoctorName, ClinicName: ClinicName, YearsOfExperience: YearsOfExperince))
+          
+          
+          for (_,v) in data {
+            let value = v as! NSDictionary
+            
+            self.doctorList.append(DoctorModel(value: value))
+          }
         }
+        self.tableView.reloadData()
       }
-      
-      self.tableView.reloadData()
     }
     )}
   
   
-  // Return to the previous page
+  // Return to the previous view
   @IBAction func backButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true, completion: nil)
   }
@@ -86,7 +71,8 @@ class DoctorsTableVC: UIViewController {
 
 extension DoctorsTableVC : UITableViewDelegate,
                            UITableViewDataSource,
-                           MyCellDelegate {
+                           MyCellDelegate{
+  
   
   // Delete cell row in table and firebase
   func tableView(_ tableView: UITableView,
@@ -96,12 +82,14 @@ extension DoctorsTableVC : UITableViewDelegate,
                                     title: "Delete") { ACTION,
                                                        view,
                                                        result in
-      self.ref.child(K.FireStore.doctorCollection).child(self.doctorList[indexPath.row].DoctorId).removeValue()
+      
+      self.ref.child(K.FireStore.doctorCollection).child(self.doctorList[indexPath.row].doctorId).removeValue()
       result(true)
     }
+    
     return UISwipeActionsConfiguration(actions: [delete])
   }
- 
+  
   
   //show Doctors List(data) in table
   func tableView(_ tableView: UITableView,
@@ -109,37 +97,39 @@ extension DoctorsTableVC : UITableViewDelegate,
   -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell",
                                              for: indexPath) as? TableViewCell
+    
     cell?.myCellDelegate = self
     
-    myId = self.doctorList[indexPath.row].DoctorName
+    myId = self.doctorList[indexPath.row].doctorName
     cell?.bookingButton.tag = indexPath.row
     
     if !self.doctorList.isEmpty {
-      cell?.clinicNameLabel.text = self.doctorList[indexPath.row].ClinicName
-      cell?.doctorNameLabel.text = self.doctorList[indexPath.row].DoctorName
-      cell?.yearsExpLabel.text = self.doctorList[indexPath.row].YearsOfExperience
+      
+      cell?.clinicNameLabel.text = self.doctorList[indexPath.row].clinicName
+      cell?.doctorNameLabel.text = self.doctorList[indexPath.row].doctorName
+      cell?.yearsExpLabel.text = self.doctorList[indexPath.row].hireDate
     }
+    cell?.backgroundColor = UIColor.init(red: 246/255, green: 246/255, blue: 212/255, alpha: 1)
+    
+    
     
     return cell!
   }
   
   
-//  func didPressButton(_ tag: Int) {
-//    print("I have pressed a button with a tag: \(self.doctorList[tag].DoctorId)")
-  
   //transafer next View
-    func didPressButton(_ tag: Int) {
-      print("I have pressed a button with a tag: \(String(describing: self.doctorList[tag].DoctorId))")
+  func didPressButton(_ tag: Int) {
     
-//    let storyBoard : UIStoryboard = UIStoryboard(name: "Main",
-//                                                 bundle: nil)
+    print("I have pressed a button with a tag: \(String(describing: self.doctorList[tag].doctorId))")
+    
     let _ : UIStoryboard = UIStoryboard(name: "Main",
-                                                 bundle: nil)
+                                        bundle: nil)
     
     if let nextViewController = storyboard?.instantiateViewController(identifier: "AddBookVC") as? AddBookVC {
-      nextViewController.doctorId = self.doctorList[tag].DoctorId
-      nextViewController.clinicName = self.doctorList[tag].ClinicName
-      nextViewController.doctorName = self.doctorList[tag].DoctorName
+      
+      nextViewController.doctorId = self.doctorList[tag].doctorId
+      nextViewController.clinicName = self.doctorList[tag].clinicName
+      nextViewController.doctorName = self.doctorList[tag].doctorName
       nextViewController.modalPresentationStyle = .fullScreen
       self.present(nextViewController,
                    animated: true,
@@ -158,5 +148,6 @@ extension DoctorsTableVC : UITableViewDelegate,
     1
   }
 }
+
 
 

@@ -26,7 +26,7 @@ class AddMedicationVC: UIViewController {
   }
   
   
-  func setUpElements(){
+  func setUpElements() {
     patientNameLabel.styleLabel()
     departmentNameLabel.styleLabel()
     treatmentTextField.styleTextField()
@@ -35,9 +35,11 @@ class AddMedicationVC: UIViewController {
   
   
   @IBAction func addButtonTapped(_ sender: UIButton) {
+    
+    
   }
   
-  
+  // Return to the previous view
   @IBAction func backButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true,
                  completion: nil)

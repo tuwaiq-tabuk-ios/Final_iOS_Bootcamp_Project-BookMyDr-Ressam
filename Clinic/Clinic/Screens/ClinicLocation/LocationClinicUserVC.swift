@@ -29,9 +29,9 @@ class LocationClinicUserVC : UIViewController {
     setStartingLocation(location: initialLocation,
                         distance: 0)
     
-    addAnnotation()
-    
     ref = Database.database().reference()
+    
+    addAnnotation()
     getData()
     setUpelement()
   }
@@ -48,6 +48,7 @@ class LocationClinicUserVC : UIViewController {
   func getData() {
     ref.child(K.FireStore.locationCollection).queryOrderedByKey()
       .observe(.value) { (snapshot) in
+        
         let snapshotVaue = snapshot.value as? NSDictionary
         
         let locationId = snapshotVaue? ["locationId"] as? String
@@ -58,6 +59,7 @@ class LocationClinicUserVC : UIViewController {
         self.emailLabel.text = email
         self.phoneLabel.text = phone
         self.addressLabel.text = adress
+        
         self.locationList.append(LocationModel(locationId: locationId!,
                                                email: email,
                                                phone: phone,
@@ -79,12 +81,13 @@ class LocationClinicUserVC : UIViewController {
   }
   
   
-  // add Add coordinates and notation
+  // Add coordinates and notation
   func addAnnotation() {
     let pin = MKPointAnnotation()
     pin.coordinate = CLLocationCoordinate2D(latitude:28.3905943 ,
                                             longitude: 36.5282448)
     pin.title = "My Clinic"
+    
     mapView.addAnnotation(pin)
   }
 }

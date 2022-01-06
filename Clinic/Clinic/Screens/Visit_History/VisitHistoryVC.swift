@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseDatabase
 
-class VisitHistoryCV: UIViewController {
+class VisitHistoryVC: UIViewController {
   
   @IBOutlet weak var patientNameLabel: UILabel!
   @IBOutlet weak var doctorNameLabel: UILabel!
@@ -29,7 +29,7 @@ class VisitHistoryCV: UIViewController {
   }
   
   
-  func setUpElements(){
+  func setUpElements() {
     patientNameLabel.styleLabel()
     doctorNameLabel.styleLabel()
     ClinicNameLabel.styleLabel()
@@ -39,7 +39,6 @@ class VisitHistoryCV: UIViewController {
   
   
   func getData() {
-    
     ref.child(K.FireStore.patientCollection).queryOrderedByKey()
       .observe(.value) { (snapShot) in
         let snapShotValue = snapShot.value as? NSDictionary
@@ -55,7 +54,6 @@ class VisitHistoryCV: UIViewController {
         self.ClinicNameLabel.text = clinicName
         self.dateLabel.text = date
         self.timeLabel.text = time
-        
       }
   }
 }

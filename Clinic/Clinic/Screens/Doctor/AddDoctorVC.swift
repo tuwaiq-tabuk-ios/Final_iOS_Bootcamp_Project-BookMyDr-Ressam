@@ -20,13 +20,10 @@ class AddDoctorVC: UIViewController ,
   @IBOutlet weak var doctorNameTextField: UITextField!
   @IBOutlet weak var dismissButton: UIButton!
   
-  
   let pickerSection = UIPickerView()
   
   var ref: DatabaseReference!
-  
   var arrSection = ClinicData().clinicDataList
-  
   var currentIndex = 0
   
   
@@ -39,12 +36,13 @@ class AddDoctorVC: UIViewController ,
     pickerSection.dataSource = self
     
     let toolBar = UIToolbar()
+    
     toolBar.sizeToFit()
     
     let buttonDone = UIBarButtonItem(title: "Done",
                                      style: .plain,
                                      target: self,
-                                     action:#selector(closePicker) )
+                                     action:#selector(closePicker))
     toolBar.setItems([buttonDone],
                      animated: true)
     
@@ -54,13 +52,14 @@ class AddDoctorVC: UIViewController ,
   }
   
   
-  func setUpElement(){
+  func setUpElement() {
     txtSelectDoctor.styleTextField()
     yearsOfExperience.styleTextField()
     doctorNameTextField.styleTextField()
   }
   
   
+  // Return to the previous view
   @IBAction func dissmisButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true,
                  completion: nil)
@@ -69,17 +68,14 @@ class AddDoctorVC: UIViewController ,
   
   @IBAction func addNewDoctorTapped(_ sender: Any) {
     let DocId = UUID.init().uuidString
-    let doctor = DoctorModel(DoctorId: DocId,
-                             DoctorName:self.doctorNameTextField.text,
-                             ClinicName:arrSection[currentIndex],
-                             YearsOfExperience:self.yearsOfExperience.text)
     
-    self.ref.child(K.FireStore.doctorCollection).child(doctor.DoctorId).setValue([
-      "DoctorId" : doctor.DoctorId!,
-      "DoctorName" : doctor.DoctorName!,
-      "ClinicName" : doctor.ClinicName!,
-      "YearsOfExperience" : doctor.YearsOfExperience!
-    ]) { [self] error, DataRef in
+    let doctor = DoctorModel(doctorId: DocId,
+                             doctorName:self.doctorNameTextField.text!,
+                             clinicName:arrSection[currentIndex],
+                             hireDate:self.yearsOfExperience.text!)
+    
+    self.ref.child(K.FireStore.doctorCollection).child(doctor.doctorId).setValue(doctor.toDic())
+    { [self] error, DataRef in
       if error == nil {
         self.showaAlertDoneView(Title: "Done!",
                                 Msg: "Doctor added successfully")
@@ -87,6 +83,7 @@ class AddDoctorVC: UIViewController ,
         self.showaAlertDoneView(Title: "Error!",
                                 Msg: error.debugDescription)
       }
+      
     }
   }
 }
@@ -123,6 +120,7 @@ extension AddDoctorVC: UIPickerViewDelegate {
   func pickerView(_ pickerView: UIPickerView,
                   didSelectRow row: Int,
                   inComponent component: Int) {
+    //show the cliln array in cell table
     currentIndex = row
     txtSelectDoctor.text = arrSection[row]
   }

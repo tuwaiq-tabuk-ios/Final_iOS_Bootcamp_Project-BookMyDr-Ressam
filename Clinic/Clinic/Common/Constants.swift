@@ -21,6 +21,7 @@ struct K {
   
   
   struct FireStore {
+    static var userId = "Id"
     static let usersCollection = "users"
     static let booksCollection = "Books"
     static let patientCollection = "Patient"

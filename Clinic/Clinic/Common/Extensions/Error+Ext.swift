@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum CustomError: Error {
   
   // Throw when Textfields are empty

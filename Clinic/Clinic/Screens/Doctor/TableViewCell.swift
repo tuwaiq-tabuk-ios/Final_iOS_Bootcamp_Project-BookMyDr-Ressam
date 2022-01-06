@@ -19,6 +19,7 @@ class TableViewCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    
   }
   
   
@@ -29,6 +30,7 @@ class TableViewCell: UITableViewCell {
   }
   
   
+  //transfare to another view
   @IBAction func buttonPressed(_ sender : UIButton) {
     myCellDelegate?.didPressButton(sender.tag)
   }

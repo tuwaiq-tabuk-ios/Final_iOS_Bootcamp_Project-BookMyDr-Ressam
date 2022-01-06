@@ -51,13 +51,16 @@ class BookVC : UIViewController,
   
   
   @IBAction func bookButtonTapped(_ sender:UIButton) {
+    //validation all text field not empty
     if !clinicTextField.text!.isEmpty &&
         !doctorTextField.text!.isEmpty &&
         !patientNameTextField.text!.isEmpty &&
         !patientPhoneTextField.text!.isEmpty &&
         !date.isEmpty &&
         time.isEmpty {
+      
       let patientId = UUID.init().uuidString
+      
       let patient = PatientModel(bookId: patientId,
                                  clinicName:self.clinicTextField.text!,
                                  doctorName: self.doctorTextField.text!,
