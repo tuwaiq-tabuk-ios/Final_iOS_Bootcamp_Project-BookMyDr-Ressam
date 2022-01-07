@@ -27,7 +27,7 @@ class TableViewCellUser: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
   
-  
+  // transfare to another view
   @IBAction func buttonPressed(_ sender : UIButton) {
     myCellDelegate?.didPressButton(sender.tag)
   }

@@ -8,7 +8,6 @@
 import Foundation
  
 struct AppoimentModel {
-  
   var clinicName : String
   var doctorName: String
   var date : String

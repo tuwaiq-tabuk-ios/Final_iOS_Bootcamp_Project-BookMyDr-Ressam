@@ -8,7 +8,6 @@
 import Foundation
 
 struct PatientModel {
-  
   var bookId : String
   var clinicName : String
   var doctorName: String

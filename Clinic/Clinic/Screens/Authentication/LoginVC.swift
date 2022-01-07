@@ -34,13 +34,14 @@ class LoginVC: UIViewController {
     
     Auth.auth().signIn(withEmail: email,
                        password: password) {
+      
       (result,error) in
       
       if let error = error {
         self.errorLabel.text = error.localizedDescription
         self.errorLabel.isHidden = false
-      }
-      else {
+        
+      } else {
         let userID = Auth.auth().currentUser?.uid
         
         self.ref.child(K.FireStore.usersCollection)
@@ -51,6 +52,8 @@ class LoginVC: UIViewController {
             }
           }
         
+        K.FireStore.userId = result!.user.uid
+
         let homeViewController = self.storyboard?
           .instantiateViewController(identifier: K.Storyboard.homeViewController)
         

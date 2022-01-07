@@ -33,7 +33,6 @@ class SingUpVC: UIViewController {
   
   
   @IBAction func singUpPressed(_ sender: Any) {
-
     print("\n\n\n- - - - -  - - - - - - - -\(#file) - \(#function)")
     
     do {
@@ -46,12 +45,10 @@ class SingUpVC: UIViewController {
       showError(CustomError.emptyFields.errorDescription ?? "ERROR_NOT_CATCHED: validateEmptyFields(textFields:")
       return
     }
-    
-
     do {
       try passwordTextField.cmValidatePasswordSyntax()
-    } catch CustomError.invalidSyntaxPassword {
-      
+    }
+    catch CustomError.invalidSyntaxPassword {
     } catch {
       print("---- ERROR: \(String(describing: CustomError.invalidSyntaxPassword.errorDescription))")
       showError(CustomError.invalidSyntaxPassword.errorDescription ?? "ERROR_NOT_CATCHED: validatePasswordSyntax(passwordTextField:")
@@ -68,9 +65,11 @@ class SingUpVC: UIViewController {
     
     Auth.auth().createUser(
       withEmail: email,
-      password: password) { (result, errorCreatingUser)  in
+      password: password) { (result,
+                             errorCreatingUser)in
       
       if errorCreatingUser != nil {
+        
         self.showError("Error creating user")
       } else {
         let uid = (result?.user.uid)!

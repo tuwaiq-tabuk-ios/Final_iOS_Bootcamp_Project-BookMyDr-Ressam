@@ -13,8 +13,9 @@ class MyMedicalFileVC : UIViewController {
   @IBOutlet weak var medicationButton: UIButton!
   
   
-  override func viewDidLoad(){
+  override func viewDidLoad() {
     super.viewDidLoad()
+    
     setUpElements()
   }
   

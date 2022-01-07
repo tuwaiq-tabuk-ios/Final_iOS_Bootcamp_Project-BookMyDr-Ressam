@@ -8,7 +8,6 @@
 import Foundation
 
 struct LocationModel {
-  
   var locationId = String()
   var email : String!
   var phone : String!

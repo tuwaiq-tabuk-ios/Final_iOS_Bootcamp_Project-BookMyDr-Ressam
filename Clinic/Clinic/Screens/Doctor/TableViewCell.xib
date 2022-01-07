@@ -20,13 +20,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="546" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-ar-jq1" userLabel="Doctor_Label">
-                                <rect key="frame" x="0.0" y="0.0" width="273" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="W12-GJ-feo"/>
+                                    <constraint firstAttribute="width" constant="110" id="pGh-rb-6B4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKd-oD-sEf" userLabel="Doctor_Name_Label">
-                                <rect key="frame" x="273" y="0.0" width="273" height="20.5"/>
+                                <rect key="frame" x="110" y="0.0" width="436" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="4xT-tX-VFg"/>
+                                    <constraint firstAttribute="width" constant="436" id="yjM-XC-jeY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -40,14 +48,22 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g4r-rV-Gtc" userLabel="Second_Stack_View">
                         <rect key="frame" x="0.0" y="20.5" width="546" height="20.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Years of Experience :" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3O-67-DwP" userLabel="Years_Of_Experience_Label">
-                                <rect key="frame" x="0.0" y="0.0" width="273" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hire Date :" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3O-67-DwP" userLabel="Years_Of_Experience_Label">
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="Gqo-fq-Ng9"/>
+                                    <constraint firstAttribute="height" constant="20.5" id="UI9-Gt-hLZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeer" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgl-tG-CYv" userLabel="Value_Years_Experience_Label">
-                                <rect key="frame" x="273" y="0.0" width="273" height="20.5"/>
+                                <rect key="frame" x="110" y="0.0" width="436" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="436" id="O86-0J-HU0"/>
+                                    <constraint firstAttribute="height" constant="20.5" id="kO1-SQ-Z5N"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -62,13 +78,21 @@
                         <rect key="frame" x="0.0" y="71" width="546" height="25"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Department :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aw1-fI-ZHg" userLabel="Clinic_Label">
-                                <rect key="frame" x="0.0" y="0.0" width="273" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="4An-wz-rQq"/>
+                                    <constraint firstAttribute="width" constant="110" id="gtp-3g-ebS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clinc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0M-ku-Qsl" userLabel="Clinic_Name_Label">
-                                <rect key="frame" x="273" y="0.0" width="273" height="25"/>
+                                <rect key="frame" x="110" y="0.0" width="436" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="436" id="ELv-tI-UW7"/>
+                                    <constraint firstAttribute="height" constant="25" id="xi7-dd-8h4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -85,6 +109,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6n-C3-i0u" userLabel="Bppk_Appo_Button">
                                 <rect key="frame" x="0.0" y="0.0" width="546" height="20.5"/>
                                 <color key="backgroundColor" red="0.87045599490000003" green="0.94613626699999998" blue="0.91937712589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="Z7K-eq-RM0"/>
+                                    <constraint firstAttribute="width" constant="546" id="jcS-Bz-z8C"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add an appointment">
                                     <color key="titleColor" red="0.81231398809523814" green="0.2901519982993197" blue="0.50621811224489799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

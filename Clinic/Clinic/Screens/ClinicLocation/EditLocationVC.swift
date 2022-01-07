@@ -39,17 +39,22 @@ class EditLocationVC: UIViewController {
   
  // validation all Text Field is empty
   func validateFields()->String? {
+
+    
     if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         adressTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+      
       return "Please fill in all fields."
     }
+    
     return nil
   }
   
   
   // Return to the previous view
   @IBAction func dissmisButtonTapped(_ sender: UIButton) {
+    
     self.dismiss(animated: true,
                  completion: nil)
   }
@@ -72,7 +77,8 @@ class EditLocationVC: UIViewController {
         "email": location.email,
         "phone" : location.phone,
         "adress" :location.adress
-      ]) { [self] error, DataRef in
+      ])
+      { [self] error, DataRef in
         if error == nil {
           self.showaAlertDoneView(Title: "Done!",
                                   Msg: "Changed successfully")
