@@ -59,7 +59,7 @@ class AddDoctorVC: UIViewController ,
   }
   
   
-  // Return to the previous view
+  //Return to the previous view
   @IBAction func dissmisButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true,
                  completion: nil)
@@ -83,7 +83,6 @@ class AddDoctorVC: UIViewController ,
         self.showaAlertDoneView(Title: "Error!",
                                 Msg: error.debugDescription)
       }
-      
     }
   }
 }
@@ -120,13 +119,13 @@ extension AddDoctorVC: UIPickerViewDelegate {
   func pickerView(_ pickerView: UIPickerView,
                   didSelectRow row: Int,
                   inComponent component: Int) {
-    //show the cliln array in cell table
+    //Show the cliln array in cell table
     currentIndex = row
     txtSelectDoctor.text = arrSection[row]
   }
   
   
-  @objc func closePicker() {
+  @objc func closePicker () {
     txtSelectDoctor.text = arrSection[currentIndex]
     view.endEditing(true)
   }

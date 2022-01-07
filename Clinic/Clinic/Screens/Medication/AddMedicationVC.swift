@@ -39,7 +39,7 @@ class AddMedicationVC: UIViewController {
     
   }
   
-  // Return to the previous view
+  //Return to the previous view
   @IBAction func backButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true,
                  completion: nil)

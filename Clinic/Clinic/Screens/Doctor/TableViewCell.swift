@@ -30,7 +30,7 @@ class TableViewCell: UITableViewCell {
   }
   
   
-  //transfare to another view
+  //Transfare to another view
   @IBAction func buttonPressed(_ sender : UIButton) {
     myCellDelegate?.didPressButton(sender.tag)
   }

@@ -81,7 +81,7 @@ class LocationClinicUserVC : UIViewController {
   }
   
   
-  // Add coordinates and notation
+  //Add coordinates and notation
   func addAnnotation() {
     let pin = MKPointAnnotation()
     pin.coordinate = CLLocationCoordinate2D(latitude:28.3905943 ,

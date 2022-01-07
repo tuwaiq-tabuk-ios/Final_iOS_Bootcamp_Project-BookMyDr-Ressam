@@ -10,8 +10,9 @@ import Foundation
 struct K {
   
   struct Storyboard {
-    static let homeViewController = "HomeVC"
+    static let userHomeViewController = "UserHomeVC"
     static let addBookUserVC = "AddBookUser"
+    static let adminHomeController = "AdminHomeVC"
   }
   
   
@@ -21,7 +22,7 @@ struct K {
   
   
   struct FireStore {
-    static var userId = "Id"
+    static var userId = ""
     static let usersCollection = "users"
     static let booksCollection = "Books"
     static let patientCollection = "Patient"

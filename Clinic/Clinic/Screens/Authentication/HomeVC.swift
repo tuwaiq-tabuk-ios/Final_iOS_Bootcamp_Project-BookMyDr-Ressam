@@ -12,5 +12,7 @@ class HomeVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    print("Uid \(K.FireStore.userId)")
   }
 }

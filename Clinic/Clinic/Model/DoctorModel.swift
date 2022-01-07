@@ -12,7 +12,7 @@ struct DoctorModel {
   var doctorName : String!
   var clinicName : String!
   var hireDate : String!
-
+  
   init(value : NSDictionary)
   {
     self.doctorId = value["doctorId"] as? String
@@ -21,8 +21,11 @@ struct DoctorModel {
     self.hireDate = value["hireDate"] as? String
   }
   
-  init(doctorId:String,doctorName:String,clinicName:String,hireDate:String)
-  {
+  init(doctorId:String,
+       doctorName:String,
+       clinicName:String,
+       hireDate:String) {
+    
     self.doctorId = doctorId
     self.doctorName = doctorName
     self.clinicName = clinicName
@@ -34,9 +37,9 @@ struct DoctorModel {
   {
     return
       [ "doctorId" : self.doctorId!,
-       "doctorName" : self.doctorName!,
-      "clinicName" : self.clinicName!,
-      "hireDate" : self.hireDate!] as [String:Any]
+        "doctorName" : self.doctorName!,
+        "clinicName" : self.clinicName!,
+        "hireDate" : self.hireDate!] as [String:Any]
   }
 }
 

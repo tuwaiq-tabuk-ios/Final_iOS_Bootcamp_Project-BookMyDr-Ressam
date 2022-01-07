@@ -22,7 +22,9 @@ class VisitHistoryTableUserVC : UIViewController {
     
     tableView.delegate = self
     tableView.dataSource = self
-    tableView.register(UINib(nibName: "VisitHistoryTableVC", bundle: nil), forCellReuseIdentifier: "VisitHistoryTableVC")
+    tableView.register(UINib(nibName: "VisitHistoryTableVC",
+                             bundle: nil),
+                       forCellReuseIdentifier: "VisitHistoryTableVC")
     
     ref = Database.database().reference()
     
@@ -30,12 +32,12 @@ class VisitHistoryTableUserVC : UIViewController {
   }
   
   
-  private func getData(){
+  private func getData() {
     ref.child(K.FireStore.patientCollection).child(K.FireStore.userId).getData
     { Error, dataShot in
-      if Error == nil {
+      
         
-        let data = dataShot.value as? NSDictionary
+      if  let data = dataShot.value as? NSDictionary {
         
         var bookId = ""
         var DoctorName = ""
@@ -45,7 +47,7 @@ class VisitHistoryTableUserVC : UIViewController {
         var date = ""
         var time = ""
         
-        for (_,v) in data! {
+        for (_,v) in data {
           let v1 = v as! NSDictionary
           for (_,v2) in v1
           {
@@ -58,15 +60,22 @@ class VisitHistoryTableUserVC : UIViewController {
             phone = v3["Phone"] as? String ?? " "
             date = v3["date"] as? String ?? " "
             time = v3["time"] as? String ?? " "
-            self.patientList.append(PatientModel(bookId:bookId , clinicName: ClinicName, doctorName: DoctorName, name: name, phone:phone , date: date, time: time, isAvilable: true))
+            self.patientList.append(PatientModel(bookId:bookId ,
+                                                 clinicName: ClinicName,
+                                                 doctorName: DoctorName,
+                                                 name: name,
+                                                 phone:phone ,
+                                                 date: date,
+                                                 time: time,
+                                                 isAvilable: true))
           }
         }
-    } else {
-      print(Error.debugDescription)
+      } else {
+        print(Error.debugDescription)
+      }
+      self.tableView.reloadData()
     }
-    self.tableView.reloadData()
   }
-}
 }
 
 

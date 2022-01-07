@@ -31,7 +31,7 @@ class LoginVC: UIViewController {
   @IBAction func loginPressed(_ sender: Any) {
     let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-    
+//  try?  Auth.auth().signOut()
     Auth.auth().signIn(withEmail: email,
                        password: password) {
       
@@ -41,24 +41,38 @@ class LoginVC: UIViewController {
         self.errorLabel.text = error.localizedDescription
         self.errorLabel.isHidden = false
         
-      } else {
-        let userID = Auth.auth().currentUser?.uid
         
+      } else {
+      
+        K.FireStore.userId = result!.user.uid
+        print(K.FireStore.userId)
         self.ref.child(K.FireStore.usersCollection)
-          .queryEqual(toValue: userID).getData { error, Data in
-            if error == nil {
-              let _ = Data
-//              let isData = Data
+          .child(K.FireStore.userId).getData { error, Data in
+            if let data = Data.value as? NSDictionary{
+              let isAdmin  = data["isAdmin"] as! Bool
+              print("isAdmin : \(isAdmin)")
+              if isAdmin
+              {
+                
+                let homeViewController = self.storyboard?
+                  .instantiateViewController(identifier: K.Storyboard.adminHomeController)
+                
+                self.view.window?.rootViewController = homeViewController
+                self.view.window?.makeKeyAndVisible()
+              }else{
+                
+                let homeViewController = self.storyboard?
+                  .instantiateViewController(identifier: K.Storyboard.userHomeViewController)
+                
+                self.view.window?.rootViewController = homeViewController
+                self.view.window?.makeKeyAndVisible()
+              }
             }
           }
         
-        K.FireStore.userId = result!.user.uid
-
-        let homeViewController = self.storyboard?
-          .instantiateViewController(identifier: K.Storyboard.homeViewController)
+       
         
-        self.view.window?.rootViewController = homeViewController
-        self.view.window?.makeKeyAndVisible()
+       
       }
     }
   }

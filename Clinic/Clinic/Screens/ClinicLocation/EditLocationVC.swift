@@ -37,9 +37,9 @@ class EditLocationVC: UIViewController {
   }
   
   
- // validation all Text Field is empty
+  //Validation all Text Field is empty
   func validateFields()->String? {
-
+    
     
     if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -52,7 +52,7 @@ class EditLocationVC: UIViewController {
   }
   
   
-  // Return to the previous view
+  //Return to the previous view
   @IBAction func dissmisButtonTapped(_ sender: UIButton) {
     
     self.dismiss(animated: true,
@@ -62,11 +62,13 @@ class EditLocationVC: UIViewController {
   
   @IBAction func doneButtonTapped(_ sender: UIButton) {
     let error = validateFields()
-    //validation have error then shoe error
+    
+    //Validation have error then shoe error
     if error != nil {
       showError(error!)
     } else {
-      //not have error update the clinic information in Firebase
+      
+      //Not have error update the clinic information in Firebase
       let locationId = UUID.init().uuidString
       let location = LocationModel(locationId:locationId,
                                    email:self.emailTextField.text,

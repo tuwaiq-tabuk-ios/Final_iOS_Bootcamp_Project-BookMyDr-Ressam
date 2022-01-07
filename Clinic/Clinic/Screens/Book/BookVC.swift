@@ -11,8 +11,8 @@ import FirebaseDatabase
 class BookVC : UIViewController,
                UIPickerViewDataSource,
                UITextFieldDelegate {
-
- 
+  
+  
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var tableView2: UITableView!
   @IBOutlet weak var clinicTextField: UITextField!
@@ -37,21 +37,21 @@ class BookVC : UIViewController,
     pickerView.dataSource = self
     
     setUpElements()
-
+    
   }
   
   
   func setUpElements() {
     Utilities.stylefilledButton(bookAppointmentButton)
-//    clinicTextField.styleTextField()
-//    doctorTextField.styleTextField()
-//    patientNameTextField.styleTextField()
-//    patientPhoneTextField.styleTextField()
+    //    clinicTextField.styleTextField()
+    //    doctorTextField.styleTextField()
+    //    patientNameTextField.styleTextField()
+    //    patientPhoneTextField.styleTextField()
   }
   
   
   @IBAction func bookButtonTapped(_ sender:UIButton) {
-    //validation all text field not empty
+    //Validation all text field not empty
     if !clinicTextField.text!.isEmpty &&
         !doctorTextField.text!.isEmpty &&
         !patientNameTextField.text!.isEmpty &&
@@ -108,8 +108,8 @@ extension BookVC : UIPickerViewDelegate {
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 2
   }
-
-
+  
+  
   func pickerView(_ pickerView: UIPickerView,
                   numberOfRowsInComponent component: Int) -> Int {
     return 2

@@ -65,8 +65,8 @@ class LocationClinicVC : UIViewController {
                                                phone: phone,
                                                adress: adress))
         
-  
-    }
+        
+      }
   }
   
   
@@ -82,7 +82,7 @@ class LocationClinicVC : UIViewController {
   }
   
   
-  // add Add coordinates and notation
+  //Add coordinates and notation
   func addAnnotation() {
     let pin = MKPointAnnotation()
     

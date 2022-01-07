@@ -17,19 +17,18 @@ class VisitHistoryTableVC: UITableViewCell {
   
   
   override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-  
-    override func setSelected(_ selected: Bool,
-                              animated: Bool) {
-        super.setSelected(selected,
-                          animated: animated)
-    }
+    super.awakeFromNib()
+  }
   
   
-  // transfare to anouther view
+  override func setSelected(_ selected: Bool,
+                            animated: Bool) {
+    super.setSelected(selected,
+                      animated: animated)
+  }
+  
+  
+  //Transfare to anouther view
   @IBAction func buttonTapped(_ sender: UIButton) {
     myCellDelegate?.didPressButton(sender.tag)
   }

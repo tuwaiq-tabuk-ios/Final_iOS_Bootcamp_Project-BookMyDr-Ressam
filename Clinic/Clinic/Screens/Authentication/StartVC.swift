@@ -15,10 +15,10 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     setUpElements()
   }
-
+  
   
   func setUpElements() {
     Utilities.stylefilledButton(singUpButton)
@@ -26,9 +26,6 @@ class ViewController: UIViewController {
   }
 }
 
-
-// اضافه كومبيوتد للخبرات يكتب اول سنه اصبح دكتور الى هذا السنه
-// اسم الدكتور و العياده يجون فاضيين بالداتا بيس
 // ربط واجهات المستخدم مع البروجكت
 // واجهه جديده لحجز موعد من غير التابل
 //في الملف الطبي اضافه تاريخ الزياره و اضافه وصفه طبيه 
