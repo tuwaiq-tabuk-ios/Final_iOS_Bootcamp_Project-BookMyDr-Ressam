@@ -184,25 +184,19 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
         isAvilable:true)
       
       //Set booking data to firebase
-      ref = Database.database().reference().child(K.FireStore.patientCollection)
-        .child(K.FireStore.userId).child(date).child(bookId)
-      ref.setValue([
-        "bookId": book.bookId,
-        "clinicName" :book.clinicName,
-        "doctorName" : book.doctorName,
-        "name" :book.name,
-        "Phone":book.phone,
-        "date" : book.date,
-        "time" : book.time,
-        "isAvilable":book.isAvilable
-      ]) { Error, result in
+      let confirmedBook = ConfirmedBooksModel(bookId: book.bookId, userId: K.FireStore.userId, doctorId: self.doctorId, date: book.date, time: book.time)
+      ref = Database.database().reference()
+      ref.child(K.FireStore.confirmedBooksCollection).child(book.bookId).setValue(
+        confirmedBook.toDic()
+      )
+      { Error, result in
         if Error == nil {
           //Show this massage without any error
           self.showaAlertDoneView(Title: "Done",
                                   Msg: "Book added Successfully.")
           
           //Check remove the selected time
-          let _ = Database.database().reference().child(K.FireStore.booksCollection).child(self.doctorId).child(book.date).child(self.key).removeValue()
+          let _ = Database.database().reference().child(K.FireStore.availableBooksCollection).child(self.doctorId).child(book.date).child(self.key).removeValue()
           if !self.times.isEmpty {
             self.times.removeAll()
           }
@@ -242,7 +236,7 @@ extension AddBookUserVC :UITableViewDataSource,
     {
       
       let db : DatabaseReference = Database.database().reference()
-        .child(K.FireStore.booksCollection).child(id)
+        .child(K.FireStore.availableBooksCollection).child(id)
       
       db.observe(.value) { DataResult in
         if let data =  DataResult.value  {

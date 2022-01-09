@@ -12,6 +12,7 @@ class VisitHistoryTableVC: UITableViewCell {
   @IBOutlet weak var doctorLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var detailsButton: UIButton!
+  @IBOutlet weak var timeLabel: UILabel!
   
   var myCellDelegate : MyCellDelegate?
   

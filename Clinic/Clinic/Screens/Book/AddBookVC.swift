@@ -82,7 +82,7 @@ class AddBookVC : UIViewController {
       
       let uid = UUID.init().uuidString
       //Store date and time in Firebase
-      ref = Database.database().reference().child(K.FireStore.booksCollection)
+      ref = Database.database().reference().child(K.FireStore.availableBooksCollection)
         .child(doctorId).child(date).child(uid)
       ref.setValue([
         "clinicName":book.clinicName,

@@ -61,9 +61,9 @@ class LocationClinicVC : UIViewController {
         self.adressLabel.text = adress
         
         self.locationList.append(LocationModel(locationId: locationId!,
-                                               email: email,
-                                               phone: phone,
-                                               adress: adress))
+                                               email: email!,
+                                               phone: phone!,
+                                               adress: adress!))
         
         
       }

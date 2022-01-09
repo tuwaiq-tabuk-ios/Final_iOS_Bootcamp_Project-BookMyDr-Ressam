@@ -21,7 +21,7 @@ class AddDoctorVC: UIViewController ,
   @IBOutlet weak var dismissButton: UIButton!
   
   let pickerSection = UIPickerView()
-  
+
   var ref: DatabaseReference!
   var arrSection = ClinicData().clinicDataList
   var currentIndex = 0
@@ -107,7 +107,7 @@ extension AddDoctorVC: UIPickerViewDelegate {
                   numberOfRowsInComponent component: Int) -> Int {
     return arrSection.count
   }
-  
+ 
   
   func pickerView(_ pickerView: UIPickerView,
                   titleForRow row: Int,

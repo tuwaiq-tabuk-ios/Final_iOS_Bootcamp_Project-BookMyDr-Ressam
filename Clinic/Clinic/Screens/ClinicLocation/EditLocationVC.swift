@@ -71,8 +71,8 @@ class EditLocationVC: UIViewController {
       //Not have error update the clinic information in Firebase
       let locationId = UUID.init().uuidString
       let location = LocationModel(locationId:locationId,
-                                   email:self.emailTextField.text,
-                                   phone:self.phoneTextField.text, adress:self.adressTextField.text)
+                                   email:self.emailTextField.text!,
+                                   phone:self.phoneTextField.text!, adress:self.adressTextField.text!)
       
       self.ref .child(K.FireStore.locationCollection).setValue([
         "locationId" : location.locationId,

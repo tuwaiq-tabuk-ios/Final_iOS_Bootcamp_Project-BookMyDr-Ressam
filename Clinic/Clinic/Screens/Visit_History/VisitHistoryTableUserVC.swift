@@ -11,7 +11,8 @@ import FirebaseDatabase
 class VisitHistoryTableUserVC : UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  
+  var confirmedBooks = [ConfirmedBooksModel]()
+  var patientConfirmedBooks = [ConfirmedBooksModel]()
   var patientList = [PatientModel]()
   var ref: DatabaseReference!
   var myId = ""
@@ -33,45 +34,23 @@ class VisitHistoryTableUserVC : UIViewController {
   
   
   private func getData() {
-    ref.child(K.FireStore.patientCollection).child(K.FireStore.userId).getData
+    ref.child(K.FireStore.confirmedBooksCollection).getData
     { Error, dataShot in
-      
-        
+
       if  let data = dataShot.value as? NSDictionary {
-        
-        var bookId = ""
-        var DoctorName = ""
-        var ClinicName = ""
-        var name = ""
-        var phone = ""
-        var date = ""
-        var time = ""
-        
         for (_,v) in data {
           let v1 = v as! NSDictionary
-          for (_,v2) in v1
-          {
-            let v3  = v2 as! NSDictionary
-            print(v3.allKeys)
-            bookId = v3["bookId"] as? String ?? " "
-            DoctorName = v3["doctorName"] as? String ?? " "
-            ClinicName = v3["clinicName"] as? String ?? " "
-            name = v3["name"] as? String ?? " "
-            phone = v3["Phone"] as? String ?? " "
-            date = v3["date"] as? String ?? " "
-            time = v3["time"] as? String ?? " "
-            self.patientList.append(PatientModel(bookId:bookId ,
-                                                 clinicName: ClinicName,
-                                                 doctorName: DoctorName,
-                                                 name: name,
-                                                 phone:phone ,
-                                                 date: date,
-                                                 time: time,
-                                                 isAvilable: true))
-          }
+          self.confirmedBooks.append(ConfirmedBooksModel(value: v1))
         }
       } else {
         print(Error.debugDescription)
+      }
+      for item in self.confirmedBooks
+      {
+        if item.userId == K.FireStore.userId
+        {
+          self.patientConfirmedBooks.append(item)
+        }
       }
       self.tableView.reloadData()
     }
@@ -87,7 +66,7 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    patientList.count
+    patientConfirmedBooks.count
   }
   
   
@@ -95,14 +74,18 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "VisitHistoryTableVC",
                                              for: indexPath) as? VisitHistoryTableVC
-    //    myId = self.patientList[indexPath.row].doctorName
+    var  doctorName =  " "
+    let doctorId = self.patientConfirmedBooks[indexPath.row].doctorId
+    ref.child("Doctor").child(doctorId).getData { error, Data in
+      if let data = Data.value as? NSDictionary {
+        doctorName = data["doctorName"] as? String ?? "No data"
+        cell?.doctorLabel.text = doctorName
+       }
+    }
     
-    //    if !self.patientList.isEmpty {
-    cell?.doctorLabel.text = self.patientList[indexPath.row].doctorName
+    cell?.dateLabel.text = self.patientConfirmedBooks[indexPath.row].date
+    cell?.timeLabel.text = self.patientConfirmedBooks[indexPath.row].time
     
-    cell?.dateLabel.text = self.patientList[indexPath.row].date
-    //
-    //    }
     return cell!
   }
   
