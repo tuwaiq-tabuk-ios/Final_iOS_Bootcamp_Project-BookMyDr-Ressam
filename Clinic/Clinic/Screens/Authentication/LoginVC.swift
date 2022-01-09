@@ -31,7 +31,7 @@ class LoginVC: UIViewController {
   @IBAction func loginPressed(_ sender: Any) {
     let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//  try?  Auth.auth().signOut()
+
     Auth.auth().signIn(withEmail: email,
                        password: password) {
       

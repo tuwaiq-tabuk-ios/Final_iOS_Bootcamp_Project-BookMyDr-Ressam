@@ -18,13 +18,15 @@ class HomeVC: UIViewController {
   }
   
   @IBAction func logOutButtonTapped(_ sender: Any) {
-//   
-//    do {
-//      try Auth.auth().signOut()
-//      self.dismiss(animated: true, completion: nil)
-//    } catch let singOutError {
-//      self.present(Serv, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
-//    }
+    
+    try?  Auth.auth().signOut()
+    
+    let homeViewController = self.storyboard?
+      .instantiateViewController(identifier: K.Storyboard.logOutController)
+    
+    self.view.window?.rootViewController = homeViewController
+    self.view.window?.makeKeyAndVisible()
+
   }
   
 }
