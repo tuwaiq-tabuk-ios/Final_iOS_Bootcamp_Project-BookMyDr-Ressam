@@ -21,7 +21,8 @@ class SingUpVC: UIViewController {
   @IBOutlet weak var errorLabel: UILabel!
   
   var ref: DatabaseReference!
-  
+  var iconClick = false
+  let imageIcon = UIImageView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,6 +30,46 @@ class SingUpVC: UIViewController {
     setUpElements()
     
     ref = Database.database().reference()
+    
+    imageIcon.image = UIImage(named: "visibility")
+    
+    let contentView = UIView()
+    contentView.addSubview(imageIcon)
+    
+    contentView.frame = CGRect(x: 0,
+                               y: 0,
+                               width: UIImage(named: "visibility")!.size.width,
+                               height: UIImage(named: "visibility")!.size.height)
+    
+    imageIcon.frame = CGRect(x: -10,
+                             y: 0,
+                             width: UIImage(named: "visibility")!.size.width,
+                             height: UIImage(named: "visibility")!.size.height)
+    
+    passwordTextField.rightView = contentView
+    passwordTextField.rightViewMode = .always
+    
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                      action:#selector(imageTapped(tapGestureRecognizer:)))
+    
+    imageIcon.isUserInteractionEnabled = true
+    imageIcon.addGestureRecognizer(tapGestureRecognizer)
+  }
+  
+  
+  @objc func imageTapped(tapGestureRecognizer:UITapGestureRecognizer) {
+    
+    let tappedImage = tapGestureRecognizer.view as! UIImageView
+    
+    if iconClick {
+      iconClick = false
+      tappedImage.image = UIImage(named: "eye")
+      passwordTextField.isSecureTextEntry = false
+    } else {
+      iconClick = true
+      tappedImage.image = UIImage(named: "visibility")
+      passwordTextField.isSecureTextEntry = true
+    }
   }
   
   

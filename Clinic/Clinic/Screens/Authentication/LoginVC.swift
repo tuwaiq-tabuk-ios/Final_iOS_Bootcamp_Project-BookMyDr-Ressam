@@ -16,7 +16,9 @@ class LoginVC: UIViewController {
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var errorLabel: UILabel!
   
+  var iconClick = false
   var ref : DatabaseReference!
+  let imageIcon = UIImageView()
   
   
   override func viewDidLoad() {
@@ -25,13 +27,55 @@ class LoginVC: UIViewController {
     ref = Database.database().reference()
     
     setUpElements()
+    imageIcon.image = UIImage(named: "visibility")
+    
+    let contentView = UIView()
+    contentView.addSubview(imageIcon)
+    
+    contentView.frame = CGRect(x: 0,
+                               y: 0,
+                               width: UIImage(named: "visibility")!.size.width,
+                               height: UIImage(named: "visibility")!.size.height)
+    
+    imageIcon.frame = CGRect(x: -10,
+                             y: 0,
+                             width: UIImage(named: "visibility")!.size.width,
+                             height: UIImage(named: "visibility")!.size.height)
+    
+    passwordTextField.rightView = contentView
+    passwordTextField.rightViewMode = .always
+    
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                      action:#selector(imageTapped(tapGestureRecognizer:)))
+    
+    imageIcon.isUserInteractionEnabled = true
+    imageIcon.addGestureRecognizer(tapGestureRecognizer)
+    
+    
+    
   }
   
+  
+  @objc func imageTapped(tapGestureRecognizer:UITapGestureRecognizer) {
+    
+    let tappedImage = tapGestureRecognizer.view as! UIImageView
+    
+    if iconClick
+    {
+      iconClick = false
+      tappedImage.image = UIImage(named: "eye")
+      passwordTextField.isSecureTextEntry = false
+    } else {
+      iconClick = true
+      tappedImage.image = UIImage(named: "visibility")
+      passwordTextField.isSecureTextEntry = true
+    }
+  }
   
   @IBAction func loginPressed(_ sender: Any) {
     let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-
+//  try?  Auth.auth().signOut()
     Auth.auth().signIn(withEmail: email,
                        password: password) {
       

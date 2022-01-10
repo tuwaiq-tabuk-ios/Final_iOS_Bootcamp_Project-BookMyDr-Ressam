@@ -24,13 +24,13 @@ class VisitHistoryTableAdminVC: UIViewController {
     
     tableView.delegate = self
     tableView.dataSource = self
-    tableView.register(UINib(nibName: "myCell",
+    tableView.register(UINib(nibName: "visitCell",
                              bundle: nil),
-                       forCellReuseIdentifier: "myCell")
+                       forCellReuseIdentifier: "visitCell")
     
     ref = Database.database().reference()
     
-    
+    getData()
   }
   
   
@@ -54,28 +54,34 @@ extension VisitHistoryTableAdminVC : UITableViewDelegate,UITableViewDataSource{
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    patientConfirmedBooks.count
+    confirmedBooks.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "myCell",
+    let cell = tableView.dequeueReusableCell(withIdentifier: "visitCell",
                                              for: indexPath) as? VisitHistoryAdminTableViewCell
     var  doctorName =  " "
     var  patientName =  " "
-    let doctorId = self.patientConfirmedBooks[indexPath.row].doctorId
+    let doctorId = self.confirmedBooks[indexPath.row].doctorId
     ref.child("Doctor").child(doctorId).getData { error, Data in
       if let data = Data.value as? NSDictionary {
         doctorName = data["doctorName"] as? String ?? "No data"
-        patientName = data["FirstName"] as? String ?? "No data"
+        
         cell?.doctorLabel.text = doctorName
+      }
+    }
+    ref.child(K.FireStore.usersCollection).child(self.confirmedBooks[indexPath.row].userId).getData { error, Data in
+      if let data = Data.value as? NSDictionary {
+        patientName = data["FirstName"] as? String ?? "No data"
         cell?.patientLabel.text = patientName
-       }
+      }
     }
     
-    cell?.dateLabel.text = self.patientConfirmedBooks[indexPath.row].date
+    
+    cell?.dateLabel.text = self.confirmedBooks[indexPath.row].date
     
     return cell!
-  
+    
   }
   
   
