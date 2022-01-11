@@ -16,8 +16,9 @@ class LoginVC: UIViewController {
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var errorLabel: UILabel!
   
-  var iconClick = false
+  
   var ref : DatabaseReference!
+  var iconClick = false
   let imageIcon = UIImageView()
   
   

@@ -83,9 +83,10 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
        }
     }
     
+    cell?.detailsButton.tag = indexPath.row
     cell?.dateLabel.text = self.patientConfirmedBooks[indexPath.row].date
     cell?.timeLabel.text = self.patientConfirmedBooks[indexPath.row].time
-    
+   
     return cell!
   }
   
@@ -93,30 +94,49 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
   func numberOfSections(in tableView: UITableView) -> Int {
     1
   }
-  
-  
-  //  func didPressButton(_ tag: Int) {
-  //    print("I have pressed a button with a tag: \(String(describing: self.patientList[tag].bookId))")
-  //
-  //    let storyBoard : UIStoryboard = UIStoryboard(name:"Main",
-  //                                                 bundle: nil)
-  //    let _ : UIStoryboard = UIStoryboard(name:"Main",
-  //                                                 bundle: nil)
-  //
-  //    if let visitHistoryVC =
-  //        storyboard?.instantiateViewController(identifier:"VisitHistoryCV") as? VisitHistoryCV{
-  //      visitHistoryVC.ClinicNameLabel = patientList[tag].clinicName
-  //      addBookUserVC.clinicName = self.doctorList[tag].ClinicName
-  //      addBookUserVC.doctorName = self.doctorList[tag].DoctorName
-  //      addBookUserVC.modalPresentationStyle = .fullScreen
-  //
-  //      self.present(addBookUserVC,
-  //                   animated: true,
-  //                   completion: nil)
-  //    }
-  //  }
-  
-  
-  
 }
+  
+  //MARK:- MyCellDelegate
+  extension VisitHistoryTableUserVC : MyCellDelegate {
+    
+    
+    func didPressButton(_ tag: Int) {
+      
+      let model = self.confirmedBooks[tag]
+      let story = UIStoryboard(name: "Main", bundle: nil)
+      if let next = story.instantiateViewController(identifier: "MedicationUserVC") as? MedicationUserVC{
+        next.modalPresentationStyle = .fullScreen
+        next.confirmedModel = model
+        self.present(next, animated: true, completion: nil)
+      }
+    }
+    
+    
+  }
+  
+  
+//    func didPressButton(_ tag: Int) {
+//      print("I have pressed a button with a tag: \(String(describing: self.patientList[tag].bookId))")
+//
+//      let storyBoard : UIStoryboard = UIStoryboard(name:"Main",
+//                                                   bundle: nil)
+//      let _ : UIStoryboard = UIStoryboard(name:"Main",
+//                                                   bundle: nil)
+//
+//      if let medicationUserVC =
+//          storyboard?.instantiateViewController(identifier:"MedicationUserVC") as? MedicationUserVC{
+//        medicationUserVC.patientNameLabel = patientList[tag].name
+//        addBookUserVC.clinicName = self.doctorList[tag].ClinicName
+//        addBookUserVC.doctorName = self.doctorList[tag].DoctorName
+//        addBookUserVC.modalPresentationStyle = .fullScreen
+//
+//        self.present(addBookUserVC,
+//                     animated: true,
+//                     completion: nil)
+//      }
+//    }
+//
+//
+  
+
 

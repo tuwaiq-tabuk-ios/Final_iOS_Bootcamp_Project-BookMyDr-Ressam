@@ -96,7 +96,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2MG-cY-f1f" userLabel="Stack_View">
                                 <rect key="frame" x="40" y="299" width="334" height="308"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="resam@r.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nv0-wu-3fB" userLabel="Email_Text_Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ressam15@gmail.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nv0-wu-3fB" userLabel="Email_Text_Field">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="L7l-6V-SW8"/>
@@ -812,7 +812,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28N-Xy-Z0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2403" y="409"/>
+            <point key="canvasLocation" x="2402.898550724638" y="408.48214285714283"/>
         </scene>
         <!--My Medical FileVC-->
         <scene sceneID="SmN-Us-l7F">
@@ -877,7 +877,7 @@
         <!--Add MedicationVC-->
         <scene sceneID="XbT-jW-aXg">
             <objects>
-                <viewController id="y0R-at-k0T" customClass="AddMedicationVC" customModule="Clinic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddMedicationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y0R-at-k0T" customClass="AddMedicationVC" customModule="Clinic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o60-gc-KGf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1059,7 +1059,7 @@
         <!--Medication UserVC-->
         <scene sceneID="CJ2-lJ-8xd">
             <objects>
-                <viewController id="kqd-wV-els" customClass="MedicationUserVC" customModule="Clinic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MedicationUserVC" id="kqd-wV-els" customClass="MedicationUserVC" customModule="Clinic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SjT-A6-r0O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1762,19 +1762,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-Rd-c1A">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-Rd-c1A">
                                 <rect key="frame" x="0.0" y="80" width="414" height="648"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="visitCell" id="mUt-Bq-wNg" customClass="VisitHistoryAdminTableViewCell" customModule="Clinic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mUt-Bq-wNg" id="oQw-JJ-O2Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kc6-lU-9QH"/>

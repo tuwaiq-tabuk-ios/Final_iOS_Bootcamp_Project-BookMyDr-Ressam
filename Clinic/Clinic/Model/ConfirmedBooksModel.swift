@@ -23,6 +23,15 @@ struct ConfirmedBooksModel {
     self.time = value["time"] as! String
   }
   
+  init()
+  {
+    self.bookId = ""
+    self.userId = ""
+    self.doctorId = ""
+    self.date = ""
+    self.time = ""
+    
+  }
   init(bookId : String , userId : String , doctorId : String , date : String , time : String)
   {
     self.bookId = bookId

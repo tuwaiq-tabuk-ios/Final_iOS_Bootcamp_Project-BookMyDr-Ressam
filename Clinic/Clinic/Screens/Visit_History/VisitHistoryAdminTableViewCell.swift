@@ -12,6 +12,7 @@ class VisitHistoryAdminTableViewCell: UITableViewCell {
   @IBOutlet weak var patientLabel: UILabel!
   @IBOutlet weak var doctorLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var addMedicationButton : UIButton!
   
   var myCellDelegate : MyCellDelegate?
   
@@ -21,9 +22,9 @@ class VisitHistoryAdminTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+  
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
   
@@ -32,5 +33,4 @@ class VisitHistoryAdminTableViewCell: UITableViewCell {
   @IBAction func buttonTapped(_ sender: UIButton) {
     myCellDelegate?.didPressButton(sender.tag)
   }
-    
 }

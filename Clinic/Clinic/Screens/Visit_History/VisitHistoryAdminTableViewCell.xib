@@ -40,6 +40,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="txU-Ng-kgp" secondAttribute="trailing" id="9uQ-kD-T9k"/>
+                            <constraint firstItem="txU-Ng-kgp" firstAttribute="top" secondItem="cC6-eq-LIA" secondAttribute="top" id="IPj-NC-8DK"/>
+                            <constraint firstItem="DHs-Ie-ySf" firstAttribute="leading" secondItem="cC6-eq-LIA" secondAttribute="leading" id="NVr-37-jNQ"/>
+                            <constraint firstItem="DHs-Ie-ySf" firstAttribute="top" secondItem="cC6-eq-LIA" secondAttribute="top" id="X4S-X9-VVJ"/>
+                        </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bk2-8G-Qwd" userLabel="Doctor_Stack_View">
                         <rect key="frame" x="0.0" y="31.5" width="374" height="20.5"/>
@@ -65,6 +71,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="PnX-uw-cSU" firstAttribute="top" secondItem="Bk2-8G-Qwd" secondAttribute="top" id="IeO-Da-j2e"/>
+                            <constraint firstItem="cAb-eh-HlV" firstAttribute="top" secondItem="Bk2-8G-Qwd" secondAttribute="top" id="PX4-Le-hWv"/>
+                            <constraint firstAttribute="trailing" secondItem="cAb-eh-HlV" secondAttribute="trailing" id="REf-mo-bsp"/>
+                            <constraint firstItem="PnX-uw-cSU" firstAttribute="leading" secondItem="Bk2-8G-Qwd" secondAttribute="leading" id="xxQ-Wj-yM3"/>
+                        </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6zR-dd-onu" userLabel="Date_Stack_View">
                         <rect key="frame" x="0.0" y="57" width="374" height="20.5"/>
@@ -90,6 +102,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="TWV-gB-NvX" firstAttribute="top" secondItem="6zR-dd-onu" secondAttribute="top" id="25W-ct-Dim"/>
+                            <constraint firstItem="goS-5F-5PM" firstAttribute="leading" secondItem="6zR-dd-onu" secondAttribute="leading" id="33r-ZK-wl8"/>
+                            <constraint firstItem="goS-5F-5PM" firstAttribute="top" secondItem="6zR-dd-onu" secondAttribute="top" id="CHZ-Ch-Xq5"/>
+                            <constraint firstAttribute="trailing" secondItem="TWV-gB-NvX" secondAttribute="trailing" id="XYv-X8-Wmo"/>
+                        </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="lYw-9c-Q0k" userLabel="Details_Button">
                         <rect key="frame" x="241" y="86" width="116" height="24"/>
@@ -115,6 +133,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addMedicationButton" destination="lYw-9c-Q0k" id="WrG-M4-JLj"/>
                 <outlet property="dateLabel" destination="TWV-gB-NvX" id="we9-qP-Vpk"/>
                 <outlet property="doctorLabel" destination="cAb-eh-HlV" id="520-Ay-vcY"/>
                 <outlet property="patientLabel" destination="txU-Ng-kgp" id="sDP-ch-b6Y"/>
