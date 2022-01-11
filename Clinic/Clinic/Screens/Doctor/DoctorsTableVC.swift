@@ -33,7 +33,7 @@ class DoctorsTableVC: UIViewController {
   }
   
   
-  // Get the doctor information from firebase
+  //Get the doctor information from firebase
   private func getData() {
     ref.child(K.FireStore.doctorCollection).observe(.value, with: {
       DataShot in
@@ -60,9 +60,10 @@ class DoctorsTableVC: UIViewController {
     )}
   
   
-  // Return to the previous view
+  //Return to the previous view
   @IBAction func backButtonTapped(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+    self.dismiss(animated: true,
+                 completion: nil)
   }
 }
 
@@ -74,7 +75,7 @@ extension DoctorsTableVC : UITableViewDelegate,
                            MyCellDelegate{
   
   
-  // Delete cell row in table and firebase
+  //Delete cell row in table and firebase
   func tableView(_ tableView: UITableView,
                  trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
   -> UISwipeActionsConfiguration? {
@@ -91,7 +92,7 @@ extension DoctorsTableVC : UITableViewDelegate,
   }
   
   
-  //show Doctors List(data) in table
+  //Show Doctors List(data) in table
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath)
   -> UITableViewCell {
@@ -109,15 +110,23 @@ extension DoctorsTableVC : UITableViewDelegate,
       cell?.doctorNameLabel.text = self.doctorList[indexPath.row].doctorName
       cell?.yearsExpLabel.text = self.doctorList[indexPath.row].hireDate
     }
+    
     cell?.backgroundColor = UIColor.init(red: 246/255, green: 246/255, blue: 212/255, alpha: 1)
-    
-    
-    
+//    cell?.layer.borderColor = UIColor.blue.cgColor
+//    cell?.layer.borderWidth = 2.0
+    cell?.layer.cornerRadius = 25.0
+    cell?.tintColor = UIColor.white
+  cell?.layer.borderColor = UIColor.white.cgColor
+   cell?.layer.borderWidth = 3
+    cell?.bookingButton.layer.cornerRadius = 25.0
+    cell?.clinicNameLabel.layer.cornerRadius = 25.0
+    cell?.doctorNameLabel.layer.cornerRadius = 25.0
+    cell?.yearsExpLabel.layer.cornerRadius = 25.0
     return cell!
   }
   
   
-  //transafer next View
+  //Transafer next View
   func didPressButton(_ tag: Int) {
     
     print("I have pressed a button with a tag: \(String(describing: self.doctorList[tag].doctorId))")

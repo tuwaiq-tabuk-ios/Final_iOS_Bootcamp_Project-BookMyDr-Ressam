@@ -25,7 +25,7 @@ class AddBookVC : UIViewController {
   var date : String = ""
   var time : String = ""
   
-  // add date and time
+  //Add date and time
   @IBAction func DateChanged(_ sender: UIDatePicker) {
     let getdate = sender.date
     let dateFormatter = DateFormatter()
@@ -54,12 +54,12 @@ class AddBookVC : UIViewController {
     super.viewDidLoad()
     
     print(doctorId)
-  
+    
     clinicNameLabel.text = clinicName
     doctorNameLAbel.text = doctorName
     
     setUpElements()
- 
+    
   }
   
   
@@ -68,10 +68,10 @@ class AddBookVC : UIViewController {
     clinicNameLabel.styleLabel()
     doctorNameLAbel.styleLabel()
   }
-
+  
   
   @IBAction func addBook(_ sender: UIButton) {
-    //validation date and time not empty
+    //Validation date and time not empty
     if  !date.isEmpty && !time.isEmpty {
       
       let book = AppoimentModel(clinicName: clinicName,
@@ -81,8 +81,8 @@ class AddBookVC : UIViewController {
                                 isAvilable: true)
       
       let uid = UUID.init().uuidString
-      //store date and time in Firebase
-      ref = Database.database().reference().child(K.FireStore.booksCollection)
+      //Store date and time in Firebase
+      ref = Database.database().reference().child(K.FireStore.availableBooksCollection)
         .child(doctorId).child(date).child(uid)
       ref.setValue([
         "clinicName":book.clinicName,
@@ -94,13 +94,13 @@ class AddBookVC : UIViewController {
       {
         Error, result in
         if Error == nil {
-          // show this massage without ane error
+          //Show this massage without ane error
           self.showaAlertDoneView(Title: "Done",
                                   Msg: "Book added Successfully.")
         }
       }
     } else {
-      // show this massage with error
+      //Show this massage with error
       self.showaAlertDoneView(Title: "Error",
                               Msg: "You must pick date and time.")
     }
@@ -108,6 +108,6 @@ class AddBookVC : UIViewController {
 }
 
 
-  
+
 
 

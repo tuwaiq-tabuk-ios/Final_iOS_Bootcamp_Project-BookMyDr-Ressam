@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VisitHistoryTableVC" rowHeight="102" id="KGk-i7-Jjw" customClass="VisitHistoryTableVC" customModule="Clinic" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="374" height="102"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VisitHistoryTableVC" rowHeight="104" id="KGk-i7-Jjw" customClass="VisitHistoryTableVC" customModule="Clinic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="104"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="374" height="102"/>
+                <rect key="frame" x="0.0" y="0.0" width="376" height="104"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DIz-1t-ZFp" userLabel="Doctor_Stack_View">
@@ -42,7 +42,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iJ7-AV-RPs" userLabel="Date_Stack_View">
-                        <rect key="frame" x="0.0" y="36.5" width="374" height="20.5"/>
+                        <rect key="frame" x="0.0" y="31.5" width="374" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Date :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3c-p7-rWu" userLabel="Date_Label">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
@@ -66,13 +66,35 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qu-Zm-bLs" userLabel="Details_Button">
-                        <rect key="frame" x="150" y="67" width="74" height="27"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="27" id="1Jl-zL-Yz6"/>
-                            <constraint firstAttribute="width" constant="74" id="D34-Et-OvU"/>
-                        </constraints>
-                        <state key="normal" title="Details"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P2M-OW-8HW" userLabel="Time_Stack_View">
+                        <rect key="frame" x="0.0" y="57" width="374" height="20.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Time :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMh-KB-zYy" userLabel="Date_Label">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="93F-Fp-HT2"/>
+                                    <constraint firstAttribute="width" constant="100" id="FEN-uy-AIf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NR0-QF-4wv" userLabel="Value_Date_Label">
+                                <rect key="frame" x="110" y="0.0" width="264" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="7l4-kA-cLJ"/>
+                                    <constraint firstAttribute="width" constant="264" id="PEl-XE-yIM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="0qu-Zm-bLs" userLabel="Details_Button">
+                        <rect key="frame" x="274" y="80" width="80" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Medication"/>
                         <connections>
                             <action selector="buttonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rsJ-IH-pyb"/>
                         </connections>
@@ -80,16 +102,17 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="iJ7-AV-RPs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="41B-Xc-xqI"/>
-                    <constraint firstAttribute="trailing" secondItem="0qu-Zm-bLs" secondAttribute="trailing" constant="150" id="6K0-YK-eXt"/>
-                    <constraint firstItem="iJ7-AV-RPs" firstAttribute="top" secondItem="DIz-1t-ZFp" secondAttribute="bottom" constant="10" id="9JF-Ln-krQ"/>
-                    <constraint firstItem="iJ7-AV-RPs" firstAttribute="top" secondItem="DIz-1t-ZFp" secondAttribute="bottom" constant="10" id="NvC-FW-eUN"/>
+                    <constraint firstItem="iJ7-AV-RPs" firstAttribute="top" secondItem="DIz-1t-ZFp" secondAttribute="bottom" constant="5" id="9JF-Ln-krQ"/>
+                    <constraint firstItem="P2M-OW-8HW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cz6-Vx-Yi5"/>
+                    <constraint firstItem="iJ7-AV-RPs" firstAttribute="top" secondItem="DIz-1t-ZFp" secondAttribute="bottom" constant="5" id="NvC-FW-eUN"/>
                     <constraint firstItem="DIz-1t-ZFp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="T3F-bZ-JW0"/>
                     <constraint firstAttribute="trailing" secondItem="iJ7-AV-RPs" secondAttribute="trailing" id="Uk4-np-etm"/>
                     <constraint firstAttribute="trailing" secondItem="DIz-1t-ZFp" secondAttribute="trailing" id="WTJ-RY-Owb"/>
-                    <constraint firstItem="0qu-Zm-bLs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="150" id="Yke-8W-c4X"/>
-                    <constraint firstAttribute="bottom" secondItem="0qu-Zm-bLs" secondAttribute="bottom" constant="8" id="bMK-OZ-hvG"/>
-                    <constraint firstItem="0qu-Zm-bLs" firstAttribute="top" secondItem="iJ7-AV-RPs" secondAttribute="bottom" constant="10" id="pCg-PC-Jgo"/>
+                    <constraint firstAttribute="bottom" secondItem="P2M-OW-8HW" secondAttribute="bottom" constant="23.5" id="ade-Aw-v90"/>
+                    <constraint firstAttribute="trailing" secondItem="P2M-OW-8HW" secondAttribute="trailing" id="eAT-fW-gGA"/>
+                    <constraint firstItem="0qu-Zm-bLs" firstAttribute="top" secondItem="P2M-OW-8HW" secondAttribute="bottom" constant="5" id="sG2-md-XXm"/>
                     <constraint firstItem="DIz-1t-ZFp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="y54-BU-fGw"/>
+                    <constraint firstItem="P2M-OW-8HW" firstAttribute="top" secondItem="iJ7-AV-RPs" secondAttribute="bottom" constant="5" id="yPy-qH-tKq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -97,8 +120,9 @@
                 <outlet property="dateLabel" destination="wFx-3Y-5AQ" id="V3T-w0-MeG"/>
                 <outlet property="detailsButton" destination="0qu-Zm-bLs" id="2dG-By-Lrs"/>
                 <outlet property="doctorLabel" destination="B4w-Zr-nsx" id="U5I-mc-jBX"/>
+                <outlet property="timeLabel" destination="NR0-QF-4wv" id="SHS-dN-OhT"/>
             </connections>
-            <point key="canvasLocation" x="4" y="-12"/>
+            <point key="canvasLocation" x="4.3478260869565224" y="-11.383928571428571"/>
         </tableViewCell>
     </objects>
 </document>

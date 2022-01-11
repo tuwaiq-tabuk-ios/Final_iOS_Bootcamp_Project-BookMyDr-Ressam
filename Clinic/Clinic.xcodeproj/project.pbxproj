@@ -20,6 +20,7 @@
 		6643207C2769F92500C137C1 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6643207B2769F92500C137C1 /* UIViewController+Ext.swift */; };
 		664A3370276F580B0050EDB3 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A336F276F580B0050EDB3 /* LocationModel.swift */; };
 		664A33722770EEA70050EDB3 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A33712770EEA70050EDB3 /* CellProtocol.swift */; };
+		6650BEC727874E3E00CE6C06 /* AdminHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6650BEC627874E3E00CE6C06 /* AdminHomeVC.swift */; };
 		6679F185276A44DC0031ECA5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6679F183276A44DC0031ECA5 /* TableViewCell.swift */; };
 		6679F186276A44DC0031ECA5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6679F184276A44DC0031ECA5 /* TableViewCell.xib */; };
 		667F0DFE27730B6C008A7321 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667F0DFD27730B6C008A7321 /* BookVC.swift */; };
@@ -48,8 +49,12 @@
 		66F3809E27821C3800EA4E49 /* ClinicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F3809D27821C3800EA4E49 /* ClinicData.swift */; };
 		66FA2A1127730A1D0002D6DE /* AppoimentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA2A1027730A1D0002D6DE /* AppoimentModel.swift */; };
 		66FA45ED2771E8B90007D4D7 /* PatientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA45EC2771E8B90007D4D7 /* PatientModel.swift */; };
+		66FAB0E62789E7E4007F37B9 /* ConfirmedBooksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E52789E7E4007F37B9 /* ConfirmedBooksModel.swift */; };
+		66FAB0E82789E876007F37B9 /* MedicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E72789E876007F37B9 /* MedicationModel.swift */; };
+		66FAB0EB278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E9278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift */; };
+		66FAB0EC278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66FAB0EA278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib */; };
 		66FC9AA52779A88B003041FF /* MyMedicalFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AA42779A88B003041FF /* MyMedicalFileVC.swift */; };
-		66FC9AA72779B203003041FF /* VisitHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AA62779B203003041FF /* VisitHistoryVC.swift */; };
+		66FC9AA72779B203003041FF /* VisitHistoryTableAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AA62779B203003041FF /* VisitHistoryTableAdminVC.swift */; };
 		66FC9AA92779CA45003041FF /* AddMedicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AA82779CA45003041FF /* AddMedicationVC.swift */; };
 		66FC9AAB2779CABF003041FF /* MedicationUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AAA2779CABF003041FF /* MedicationUserVC.swift */; };
 		66FD2D84277C399B0006ADE9 /* TimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FD2D83277C399B0006ADE9 /* TimeVC.swift */; };
@@ -71,6 +76,7 @@
 		6643207B2769F92500C137C1 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		664A336F276F580B0050EDB3 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		664A33712770EEA70050EDB3 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
+		6650BEC627874E3E00CE6C06 /* AdminHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeVC.swift; sourceTree = "<group>"; };
 		6679F183276A44DC0031ECA5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6679F184276A44DC0031ECA5 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		667F0DFD27730B6C008A7321 /* BookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
@@ -101,8 +107,12 @@
 		66F3809D27821C3800EA4E49 /* ClinicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicData.swift; sourceTree = "<group>"; };
 		66FA2A1027730A1D0002D6DE /* AppoimentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoimentModel.swift; sourceTree = "<group>"; };
 		66FA45EC2771E8B90007D4D7 /* PatientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientModel.swift; sourceTree = "<group>"; };
+		66FAB0E52789E7E4007F37B9 /* ConfirmedBooksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmedBooksModel.swift; sourceTree = "<group>"; };
+		66FAB0E72789E876007F37B9 /* MedicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationModel.swift; sourceTree = "<group>"; };
+		66FAB0E9278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitHistoryAdminTableViewCell.swift; sourceTree = "<group>"; };
+		66FAB0EA278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisitHistoryAdminTableViewCell.xib; sourceTree = "<group>"; };
 		66FC9AA42779A88B003041FF /* MyMedicalFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedicalFileVC.swift; sourceTree = "<group>"; };
-		66FC9AA62779B203003041FF /* VisitHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitHistoryVC.swift; sourceTree = "<group>"; };
+		66FC9AA62779B203003041FF /* VisitHistoryTableAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitHistoryTableAdminVC.swift; sourceTree = "<group>"; };
 		66FC9AA82779CA45003041FF /* AddMedicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationVC.swift; sourceTree = "<group>"; };
 		66FC9AAA2779CABF003041FF /* MedicationUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationUserVC.swift; sourceTree = "<group>"; };
 		66FD2D83277C399B0006ADE9 /* TimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeVC.swift; sourceTree = "<group>"; };
@@ -221,6 +231,8 @@
 				66FA45EC2771E8B90007D4D7 /* PatientModel.swift */,
 				66FA2A1027730A1D0002D6DE /* AppoimentModel.swift */,
 				66F3809D27821C3800EA4E49 /* ClinicData.swift */,
+				66FAB0E52789E7E4007F37B9 /* ConfirmedBooksModel.swift */,
+				66FAB0E72789E876007F37B9 /* MedicationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +244,7 @@
 				66BFC873276755EA007E09E8 /* StartVC.swift */,
 				66BFC88727675651007E09E8 /* HomeVC.swift */,
 				66BFC8832767562E007E09E8 /* SingUpVC.swift */,
+				6650BEC627874E3E00CE6C06 /* AdminHomeVC.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -298,10 +311,12 @@
 		66FD2D82277C39390006ADE9 /* Visit_History */ = {
 			isa = PBXGroup;
 			children = (
-				66FC9AA62779B203003041FF /* VisitHistoryVC.swift */,
 				6618832E27843A2B001B11E9 /* VisitHistoryTableVC.swift */,
 				6618832F27843A2B001B11E9 /* VisitHistoryTableVC.xib */,
 				6618833227843B51001B11E9 /* VisitHistoryTableUserVC.swift */,
+				66FC9AA62779B203003041FF /* VisitHistoryTableAdminVC.swift */,
+				66FAB0E9278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift */,
+				66FAB0EA278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib */,
 			);
 			path = Visit_History;
 			sourceTree = "<group>";
@@ -395,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66FAB0EC278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib in Resources */,
 				6618833127843A2B001B11E9 /* VisitHistoryTableVC.xib in Resources */,
 				667F0E0627744EC0008A7321 /* TableViewCellUser.xib in Resources */,
 				6679F186276A44DC0031ECA5 /* TableViewCell.xib in Resources */,
@@ -468,10 +484,12 @@
 				6643207A2769E24800C137C1 /* DoctorsTableVC.swift in Sources */,
 				661E2127277C4F4800ACA852 /* Error+Ext.swift in Sources */,
 				667F0E0527744EC0008A7321 /* TableViewCellUser.swift in Sources */,
+				66FAB0EB278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift in Sources */,
 				663FF488276F0FD20012D275 /* EditLocationVC.swift in Sources */,
 				66BFC874276755EA007E09E8 /* StartVC.swift in Sources */,
 				663FF486276F0F900012D275 /* LocationClinicVC.swift in Sources */,
 				661C363D277C3E5F000D8DF4 /* UITextField+Ext.swift in Sources */,
+				66FAB0E62789E7E4007F37B9 /* ConfirmedBooksModel.swift in Sources */,
 				663A16E52771AEBA00002D9A /* AddBookVC.swift in Sources */,
 				66BFC870276755EA007E09E8 /* AppDelegate.swift in Sources */,
 				66BFC88A27675CA1007E09E8 /* Utilities.swift in Sources */,
@@ -479,14 +497,16 @@
 				66BFC8842767562E007E09E8 /* SingUpVC.swift in Sources */,
 				66FC9AA52779A88B003041FF /* MyMedicalFileVC.swift in Sources */,
 				66BFC88627675642007E09E8 /* LoginVC.swift in Sources */,
+				6650BEC727874E3E00CE6C06 /* AdminHomeVC.swift in Sources */,
 				667F0DFE27730B6C008A7321 /* BookVC.swift in Sources */,
 				66BFC872276755EA007E09E8 /* SceneDelegate.swift in Sources */,
 				66BFC88827675651007E09E8 /* HomeVC.swift in Sources */,
 				66BFC8992767A414007E09E8 /* UserModel.swift in Sources */,
-				66FC9AA72779B203003041FF /* VisitHistoryVC.swift in Sources */,
+				66FC9AA72779B203003041FF /* VisitHistoryTableAdminVC.swift in Sources */,
 				667F0E0227744C8C008A7321 /* DoctorTableUserVC.swift in Sources */,
 				66FA45ED2771E8B90007D4D7 /* PatientModel.swift in Sources */,
 				66FC9AA92779CA45003041FF /* AddMedicationVC.swift in Sources */,
+				66FAB0E82789E876007F37B9 /* MedicationModel.swift in Sources */,
 				6643207C2769F92500C137C1 /* UIViewController+Ext.swift in Sources */,
 				66BFC89027676698007E09E8 /* Constants.swift in Sources */,
 				664A3370276F580B0050EDB3 /* LocationModel.swift in Sources */,

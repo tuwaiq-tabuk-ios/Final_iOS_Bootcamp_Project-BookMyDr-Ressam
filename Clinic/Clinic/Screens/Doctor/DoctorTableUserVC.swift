@@ -33,13 +33,13 @@ class DoctorTableUserVC : UIViewController {
   }
   
   
-  // Get the doctor information from firebase
+  //Get the doctor information from firebase
   private func getDate() {
     ref.child(K.FireStore.doctorCollection).getData { Error,
                                                       DataShot in
       if Error == nil {
         let data = DataShot.value as? NSDictionary
-      
+        
         for (_,v) in data! {
           let value =  v as! NSDictionary
           
@@ -60,18 +60,12 @@ extension DoctorTableUserVC : UITableViewDelegate,
                               UITableViewDataSource,
                               MyCellDelegate {
   
-  
-//  func didPressButton(_ tag: Int) {
-//    print("I have pressed a button with a tag:\(self.doctorList[tag].DoctorId)")
-  
-  //transafer next View
+  //Transafer next View
   func didPressButton(_ tag: Int) {
     print("I have pressed a button with a tag: \(String(describing: self.doctorList[tag].doctorId))")
     
-//    let storyBoard : UIStoryboard = UIStoryboard(name:"Main",
-//                                                 bundle: nil)
     let _ : UIStoryboard = UIStoryboard(name:"Main",
-                                                 bundle: nil)
+                                        bundle: nil)
     
     if let addBookUserVC =
         storyboard?.instantiateViewController(identifier:K.Storyboard.addBookUserVC) as? AddBookUserVC {
@@ -94,7 +88,7 @@ extension DoctorTableUserVC : UITableViewDelegate,
   }
   
   
-  //show Doctors List(data) in table
+  //Show Doctors List(data) in table
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCellUser",
@@ -117,6 +111,6 @@ extension DoctorTableUserVC : UITableViewDelegate,
   
   
   func numberOfSections(in tableView: UITableView) -> Int {
-  1
+    1
   }
 }

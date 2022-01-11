@@ -61,12 +61,12 @@ class LocationClinicVC : UIViewController {
         self.adressLabel.text = adress
         
         self.locationList.append(LocationModel(locationId: locationId!,
-                                               email: email,
-                                               phone: phone,
-                                               adress: adress))
+                                               email: email!,
+                                               phone: phone!,
+                                               adress: adress!))
         
-  
-    }
+        
+      }
   }
   
   
@@ -82,7 +82,7 @@ class LocationClinicVC : UIViewController {
   }
   
   
-  // add Add coordinates and notation
+  //Add coordinates and notation
   func addAnnotation() {
     let pin = MKPointAnnotation()
     

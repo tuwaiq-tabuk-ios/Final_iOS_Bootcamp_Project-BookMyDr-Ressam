@@ -24,10 +24,11 @@ class TableViewCellUser: UITableViewCell {
   
   override func setSelected(_ selected: Bool,
                             animated: Bool) {
-    super.setSelected(selected, animated: animated)
+    super.setSelected(selected,
+                      animated: animated)
   }
   
-  // transfare to another view
+  //Transfare to another view
   @IBAction func buttonPressed(_ sender : UIButton) {
     myCellDelegate?.didPressButton(sender.tag)
   }

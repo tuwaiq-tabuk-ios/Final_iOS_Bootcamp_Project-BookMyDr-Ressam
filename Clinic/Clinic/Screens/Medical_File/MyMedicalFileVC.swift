@@ -9,7 +9,7 @@ import UIKit
 
 class MyMedicalFileVC : UIViewController {
   
-  @IBOutlet weak var visitHistoryButton: UIButton!
+
   @IBOutlet weak var medicationButton: UIButton!
   
   
@@ -21,7 +21,7 @@ class MyMedicalFileVC : UIViewController {
   
   
   func setUpElements() {
-    Utilities.stylefilledButton(visitHistoryButton)
+  
     Utilities.stylefilledButton(medicationButton)
   }
 }

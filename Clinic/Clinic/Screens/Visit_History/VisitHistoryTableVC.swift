@@ -12,24 +12,24 @@ class VisitHistoryTableVC: UITableViewCell {
   @IBOutlet weak var doctorLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var detailsButton: UIButton!
+  @IBOutlet weak var timeLabel: UILabel!
   
   var myCellDelegate : MyCellDelegate?
   
   
   override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-  
-    override func setSelected(_ selected: Bool,
-                              animated: Bool) {
-        super.setSelected(selected,
-                          animated: animated)
-    }
+    super.awakeFromNib()
+  }
   
   
-  // transfare to anouther view
+  override func setSelected(_ selected: Bool,
+                            animated: Bool) {
+    super.setSelected(selected,
+                      animated: animated)
+  }
+  
+  
+  //Transfare to anouther view
   @IBAction func buttonTapped(_ sender: UIButton) {
     myCellDelegate?.didPressButton(sender.tag)
   }

@@ -16,7 +16,10 @@ class LoginVC: UIViewController {
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var errorLabel: UILabel!
   
+  
   var ref : DatabaseReference!
+  var iconClick = false
+  let imageIcon = UIImageView()
   
   
   override func viewDidLoad() {
@@ -25,13 +28,55 @@ class LoginVC: UIViewController {
     ref = Database.database().reference()
     
     setUpElements()
+    imageIcon.image = UIImage(named: "visibility")
+    
+    let contentView = UIView()
+    contentView.addSubview(imageIcon)
+    
+    contentView.frame = CGRect(x: 0,
+                               y: 0,
+                               width: UIImage(named: "visibility")!.size.width,
+                               height: UIImage(named: "visibility")!.size.height)
+    
+    imageIcon.frame = CGRect(x: -10,
+                             y: 0,
+                             width: UIImage(named: "visibility")!.size.width,
+                             height: UIImage(named: "visibility")!.size.height)
+    
+    passwordTextField.rightView = contentView
+    passwordTextField.rightViewMode = .always
+    
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                      action:#selector(imageTapped(tapGestureRecognizer:)))
+    
+    imageIcon.isUserInteractionEnabled = true
+    imageIcon.addGestureRecognizer(tapGestureRecognizer)
+    
+    
+    
   }
   
+  
+  @objc func imageTapped(tapGestureRecognizer:UITapGestureRecognizer) {
+    
+    let tappedImage = tapGestureRecognizer.view as! UIImageView
+    
+    if iconClick
+    {
+      iconClick = false
+      tappedImage.image = UIImage(named: "eye")
+      passwordTextField.isSecureTextEntry = false
+    } else {
+      iconClick = true
+      tappedImage.image = UIImage(named: "visibility")
+      passwordTextField.isSecureTextEntry = true
+    }
+  }
   
   @IBAction func loginPressed(_ sender: Any) {
     let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-    
+//  try?  Auth.auth().signOut()
     Auth.auth().signIn(withEmail: email,
                        password: password) {
       
@@ -41,24 +86,38 @@ class LoginVC: UIViewController {
         self.errorLabel.text = error.localizedDescription
         self.errorLabel.isHidden = false
         
-      } else {
-        let userID = Auth.auth().currentUser?.uid
         
+      } else {
+      
+        K.FireStore.userId = result!.user.uid
+        print(K.FireStore.userId)
         self.ref.child(K.FireStore.usersCollection)
-          .queryEqual(toValue: userID).getData { error, Data in
-            if error == nil {
-              let _ = Data
-//              let isData = Data
+          .child(K.FireStore.userId).getData { error, Data in
+            if let data = Data.value as? NSDictionary{
+              let isAdmin  = data["isAdmin"] as! Bool
+              print("isAdmin : \(isAdmin)")
+              if isAdmin
+              {
+                
+                let homeViewController = self.storyboard?
+                  .instantiateViewController(identifier: K.Storyboard.adminHomeController)
+                
+                self.view.window?.rootViewController = homeViewController
+                self.view.window?.makeKeyAndVisible()
+              }else{
+                
+                let homeViewController = self.storyboard?
+                  .instantiateViewController(identifier: K.Storyboard.userHomeViewController)
+                
+                self.view.window?.rootViewController = homeViewController
+                self.view.window?.makeKeyAndVisible()
+              }
             }
           }
         
-        K.FireStore.userId = result!.user.uid
-
-        let homeViewController = self.storyboard?
-          .instantiateViewController(identifier: K.Storyboard.homeViewController)
+       
         
-        self.view.window?.rootViewController = homeViewController
-        self.view.window?.makeKeyAndVisible()
+       
       }
     }
   }

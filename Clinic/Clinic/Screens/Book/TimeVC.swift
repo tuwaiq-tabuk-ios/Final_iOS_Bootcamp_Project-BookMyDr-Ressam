@@ -8,8 +8,8 @@
 import UIKit
 
 class TimeVC: UIViewController,
-                          UITableViewDelegate,
-                          UITableViewDataSource {
+              UITableViewDelegate,
+              UITableViewDataSource {
   
   @IBOutlet weak var timeTable: UITableView!
   
@@ -45,7 +45,7 @@ class TimeVC: UIViewController,
   }
   
   
-  //show the time available for each doctor
+  //Show the time available for each doctor
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell(style: .default,

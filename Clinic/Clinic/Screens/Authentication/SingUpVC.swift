@@ -21,7 +21,8 @@ class SingUpVC: UIViewController {
   @IBOutlet weak var errorLabel: UILabel!
   
   var ref: DatabaseReference!
-  
+  var iconClick = false
+  let imageIcon = UIImageView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,6 +30,46 @@ class SingUpVC: UIViewController {
     setUpElements()
     
     ref = Database.database().reference()
+    
+    imageIcon.image = UIImage(named: "visibility")
+    
+    let contentView = UIView()
+    contentView.addSubview(imageIcon)
+    
+    contentView.frame = CGRect(x: 0,
+                               y: 0,
+                               width: UIImage(named: "visibility")!.size.width,
+                               height: UIImage(named: "visibility")!.size.height)
+    
+    imageIcon.frame = CGRect(x: -10,
+                             y: 0,
+                             width: UIImage(named: "visibility")!.size.width,
+                             height: UIImage(named: "visibility")!.size.height)
+    
+    passwordTextField.rightView = contentView
+    passwordTextField.rightViewMode = .always
+    
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                      action:#selector(imageTapped(tapGestureRecognizer:)))
+    
+    imageIcon.isUserInteractionEnabled = true
+    imageIcon.addGestureRecognizer(tapGestureRecognizer)
+  }
+  
+  
+  @objc func imageTapped(tapGestureRecognizer:UITapGestureRecognizer) {
+    
+    let tappedImage = tapGestureRecognizer.view as! UIImageView
+    
+    if iconClick {
+      iconClick = false
+      tappedImage.image = UIImage(named: "eye")
+      passwordTextField.isSecureTextEntry = false
+    } else {
+      iconClick = true
+      tappedImage.image = UIImage(named: "visibility")
+      passwordTextField.isSecureTextEntry = true
+    }
   }
   
   
@@ -59,7 +100,7 @@ class SingUpVC: UIViewController {
     let lastName = lastNameTextField.cmTakeOutWhiteSpaces()
     let email = emailTextField.cmTakeOutWhiteSpaces()
     let password = passwordTextField.cmTakeOutWhiteSpaces()
-  
+    
     print(" - email: \(email)")
     print(" - password: \(password)")
     
@@ -72,13 +113,13 @@ class SingUpVC: UIViewController {
         
         self.showError("Error creating user")
       } else {
-        let uid = (result?.user.uid)!
+        K.FireStore.userId = (result?.user.uid)!
         
-        self.ref.child(K.FireStore.usersCollection).child(uid).setValue([
+        self.ref.child(K.FireStore.usersCollection).child(K.FireStore.userId).setValue([
           "FirstName" : firstName,
           "LastName" : lastName,
           "Email" : email,
-          "Id" : uid,
+          "Id" : K.FireStore.userId,
           "isAdmin" : false
         ])
       }
@@ -117,7 +158,7 @@ class SingUpVC: UIViewController {
   
   func transitionToHome() {
     let homeViewController
-      = storyboard?.instantiateViewController(identifier:K.Storyboard.homeViewController)
+      = storyboard?.instantiateViewController(identifier:K.Storyboard.userHomeViewController)
     
     view.window?.rootViewController = homeViewController
     view.window?.makeKeyAndVisible()
