@@ -118,8 +118,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dateLabel" destination="wFx-3Y-5AQ" id="V3T-w0-MeG"/>
-                <outlet property="detailsButton" destination="0qu-Zm-bLs" id="2dG-By-Lrs"/>
                 <outlet property="doctorLabel" destination="B4w-Zr-nsx" id="U5I-mc-jBX"/>
+                <outlet property="medicationButton" destination="0qu-Zm-bLs" id="2dG-By-Lrs"/>
                 <outlet property="timeLabel" destination="NR0-QF-4wv" id="SHS-dN-OhT"/>
             </connections>
             <point key="canvasLocation" x="4.3478260869565224" y="-11.383928571428571"/>

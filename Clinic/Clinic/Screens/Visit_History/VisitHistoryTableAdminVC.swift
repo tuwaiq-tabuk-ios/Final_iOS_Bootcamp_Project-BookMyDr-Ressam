@@ -117,7 +117,7 @@ extension VisitHistoryTableAdminVC : UITableViewDelegate,
     cell?.addMedicationButton.tag = indexPath.row
     cell?.myCellDelegate = self
     cell?.dateLabel.text = self.confirmedBooks[indexPath.row].date
-    
+    cell?.accessoryType = self.confirmedBooks[indexPath.row].haveMedication ? .checkmark : .none
     return cell!
   }
   

@@ -29,7 +29,15 @@ struct PatientModel {
     self.isAvilable = value["isAvilable"] as! Bool
   }
   
-  init(bookId:String , clinicName :String , doctorName:String,name:String,phone:String,date:String,time:String,isAvilable:Bool ) {
+  init(bookId:String ,
+       clinicName :String ,
+       doctorName:String,
+       name:String,
+       phone:String,
+       date:String,
+       time:String,
+       isAvilable:Bool )
+  {
     self.bookId = bookId
     self.clinicName = clinicName
     self.doctorName = doctorName

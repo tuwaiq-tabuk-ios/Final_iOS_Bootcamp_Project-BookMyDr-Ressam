@@ -184,7 +184,7 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
         isAvilable:true)
       
       //Set booking data to firebase
-      let confirmedBook = ConfirmedBooksModel(bookId: book.bookId, userId: K.FireStore.userId, doctorId: self.doctorId, date: book.date, time: book.time)
+      let confirmedBook = ConfirmedBooksModel(bookId: book.bookId, userId: K.FireStore.userId, doctorId: self.doctorId, date: book.date, time: book.time, haveMedication: false)
       ref = Database.database().reference()
       ref.child(K.FireStore.confirmedBooksCollection).child(book.bookId).setValue(
         confirmedBook.toDic()
@@ -239,11 +239,12 @@ extension AddBookUserVC :UITableViewDataSource,
         .child(K.FireStore.availableBooksCollection).child(id)
       
       db.observe(.value) { DataResult in
-        if let data =  DataResult.value  {
+        if let data =  DataResult.value , DataResult.exists()  {
           if !self.dates.isEmpty
           {
             self.dates.removeAll()
           }
+         
           for (key,val) in data as! NSDictionary {
             
             print("key : \(key)\t\n")

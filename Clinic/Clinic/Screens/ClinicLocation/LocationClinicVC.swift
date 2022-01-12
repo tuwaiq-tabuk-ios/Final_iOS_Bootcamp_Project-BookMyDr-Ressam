@@ -93,3 +93,25 @@ class LocationClinicVC : UIViewController {
     mapView.addAnnotation(pin)
   }
 }
+//private func search(using searchRequest: MKLocalSearch.Request) {
+//    // Confine the map search area to an area around the user's current location.
+//    searchRequest.region = boundingRegion
+//
+//    // Include only point of interest results. This excludes results based on address matches.
+//    searchRequest.resultTypes = .pointOfInterest
+//
+//    localSearch = MKLocalSearch(request: searchRequest)
+//    localSearch?.start { [unowned self] (response, error) in
+//        guard error == nil else {
+//            self.displaySearchError(error)
+//            return
+//        }
+//
+//        self.places = response?.mapItems
+//
+//        // Used when setting the map's region in `prepareForSegue`.
+//        if let updatedRegion = response?.boundingRegion {
+//            self.boundingRegion = updatedRegion
+//        }
+//    }
+//}
