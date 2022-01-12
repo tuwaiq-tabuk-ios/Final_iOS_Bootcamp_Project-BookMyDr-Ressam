@@ -17,7 +17,8 @@ struct MedicationModel {
     self.medication = value["medication"] as! String
   }
   
-  init(bookId : String , medication : String )
+  init(bookId : String ,
+       medication : String )
   {
     self.bookId = bookId
     self.medication = medication

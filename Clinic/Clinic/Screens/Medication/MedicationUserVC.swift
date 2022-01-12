@@ -18,6 +18,7 @@ class MedicationUserVC: UIViewController {
   var ref : DatabaseReference!
   var confirmedModel = ConfirmedBooksModel()
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -33,6 +34,7 @@ class MedicationUserVC: UIViewController {
     departmentNameLabel.styleLabel()
     teartmentNameLabel.styleLabel()
   }
+  
   
   func getData() {
     ref.child("Doctor").child(confirmedModel.doctorId).getData { error,

@@ -18,6 +18,7 @@ class AddMedicationVC: UIViewController {
   var ref : DatabaseReference!
   var confirmedModel = ConfirmedBooksModel()
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -34,9 +35,9 @@ class AddMedicationVC: UIViewController {
     doctorNameLabel.styleLabel()
   }
   
+  
  private func initData()
   {
-    
     ref.child("Doctor").child(confirmedModel.doctorId).getData { error,
                                                   Data in
       
@@ -56,6 +57,13 @@ class AddMedicationVC: UIViewController {
        
       }
     }
+  
+  ref.child("Medication").child(confirmedModel.bookId).getData{error , Data in
+    if let data = Data.value as? NSDictionary,Data.exists(){
+      self.treatmentTextField.text = data["medication"] as? String ?? "No data"
+    }
+    
+  }
   }
   
   
@@ -75,6 +83,7 @@ class AddMedicationVC: UIViewController {
       }
     }
   }
+  
   
   //Return to the previous view
   @IBAction func backButtonTapped(_ sender: UIButton) {

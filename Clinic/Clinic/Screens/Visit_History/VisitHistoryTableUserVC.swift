@@ -34,21 +34,28 @@ class VisitHistoryTableUserVC : UIViewController {
   
   
   private func getData() {
+    
     ref.child(K.FireStore.confirmedBooksCollection).getData
-    { Error, dataShot in
+    { Error,
+      dataShot in
 
       if  let data = dataShot.value as? NSDictionary {
+        
         for (_,v) in data {
+          
           let v1 = v as! NSDictionary
           self.confirmedBooks.append(ConfirmedBooksModel(value: v1))
         }
       } else {
+        
         print(Error.debugDescription)
       }
       for item in self.confirmedBooks
       {
+        
         if item.userId == K.FireStore.userId
         {
+          
           self.patientConfirmedBooks.append(item)
         }
       }
@@ -75,18 +82,23 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
     let cell = tableView.dequeueReusableCell(withIdentifier: "VisitHistoryTableVC",
                                              for: indexPath) as? VisitHistoryTableVC
     var  doctorName =  " "
-    let doctorId = self.patientConfirmedBooks[indexPath.row].doctorId
-    ref.child("Doctor").child(doctorId).getData { error, Data in
+    let doctorId =
+      
+      self.patientConfirmedBooks[indexPath.row].doctorId
+    ref.child("Doctor").child(doctorId).getData { error,
+                                                  Data in
       if let data = Data.value as? NSDictionary {
+        
         doctorName = data["doctorName"] as? String ?? "No data"
         cell?.doctorLabel.text = doctorName
        }
     }
     
-    cell?.detailsButton.tag = indexPath.row
+    cell?.medicationButton.tag = indexPath.row
     cell?.dateLabel.text = self.patientConfirmedBooks[indexPath.row].date
     cell?.timeLabel.text = self.patientConfirmedBooks[indexPath.row].time
-   
+    cell?.myCellDelegate = self
+    
     return cell!
   }
   
@@ -96,6 +108,7 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
   }
 }
   
+
   //MARK:- MyCellDelegate
   extension VisitHistoryTableUserVC : MyCellDelegate {
     
@@ -114,29 +127,6 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
     
   }
   
-  
-//    func didPressButton(_ tag: Int) {
-//      print("I have pressed a button with a tag: \(String(describing: self.patientList[tag].bookId))")
-//
-//      let storyBoard : UIStoryboard = UIStoryboard(name:"Main",
-//                                                   bundle: nil)
-//      let _ : UIStoryboard = UIStoryboard(name:"Main",
-//                                                   bundle: nil)
-//
-//      if let medicationUserVC =
-//          storyboard?.instantiateViewController(identifier:"MedicationUserVC") as? MedicationUserVC{
-//        medicationUserVC.patientNameLabel = patientList[tag].name
-//        addBookUserVC.clinicName = self.doctorList[tag].ClinicName
-//        addBookUserVC.doctorName = self.doctorList[tag].DoctorName
-//        addBookUserVC.modalPresentationStyle = .fullScreen
-//
-//        self.present(addBookUserVC,
-//                     animated: true,
-//                     completion: nil)
-//      }
-//    }
-//
-//
   
 
 

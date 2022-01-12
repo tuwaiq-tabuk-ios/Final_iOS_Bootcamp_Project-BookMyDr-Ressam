@@ -21,7 +21,11 @@ struct LocationModel {
     self.adress = value["adress"] as! String
   }
   
-  init(locationId:String , email :String , phone:String,adress:String ) {
+  init(locationId:String ,
+       email :String ,
+       phone:String,
+       adress:String )
+  {
     self.locationId = locationId
     self.email = email
     self.phone = phone

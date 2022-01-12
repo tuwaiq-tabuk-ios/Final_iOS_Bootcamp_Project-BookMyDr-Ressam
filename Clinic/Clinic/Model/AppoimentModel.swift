@@ -23,7 +23,11 @@ struct AppoimentModel {
     self.isAvilable = value["isAvilable"] as! Bool
   }
   
-  init( clinicName :String , doctorName:String,date:String,Time:String,isAvilable:Bool ) {
+  init( clinicName :String ,
+        doctorName:String,
+        date:String,
+        Time:String,
+        isAvilable:Bool ) {
    
     self.clinicName = clinicName
     self.doctorName = doctorName

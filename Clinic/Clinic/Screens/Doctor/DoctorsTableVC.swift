@@ -112,8 +112,6 @@ extension DoctorsTableVC : UITableViewDelegate,
     }
     
     cell?.backgroundColor = UIColor.init(red: 246/255, green: 246/255, blue: 212/255, alpha: 1)
-//    cell?.layer.borderColor = UIColor.blue.cgColor
-//    cell?.layer.borderWidth = 2.0
     cell?.layer.cornerRadius = 25.0
     cell?.tintColor = UIColor.white
   cell?.layer.borderColor = UIColor.white.cgColor
@@ -122,6 +120,7 @@ extension DoctorsTableVC : UITableViewDelegate,
     cell?.clinicNameLabel.layer.cornerRadius = 25.0
     cell?.doctorNameLabel.layer.cornerRadius = 25.0
     cell?.yearsExpLabel.layer.cornerRadius = 25.0
+   
     return cell!
   }
   

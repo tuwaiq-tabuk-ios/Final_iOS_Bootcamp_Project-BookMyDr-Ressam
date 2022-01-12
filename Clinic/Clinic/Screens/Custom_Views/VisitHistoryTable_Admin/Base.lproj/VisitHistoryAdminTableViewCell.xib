@@ -112,7 +112,7 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="lYw-9c-Q0k" userLabel="Details_Button">
                         <rect key="frame" x="241" y="86" width="116" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Add Medication"/>
+                        <state key="normal" title="Medication"/>
                         <connections>
                             <action selector="buttonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7QP-LD-rP7"/>
                         </connections>

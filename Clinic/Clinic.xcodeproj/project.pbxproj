@@ -28,6 +28,8 @@
 		667F0E0527744EC0008A7321 /* TableViewCellUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667F0E0327744EC0008A7321 /* TableViewCellUser.swift */; };
 		667F0E0627744EC0008A7321 /* TableViewCellUser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 667F0E0427744EC0008A7321 /* TableViewCellUser.xib */; };
 		6693359E277B7FA400250B24 /* StaticV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6693359D277B7FA400250B24 /* StaticV.swift */; };
+		66969CDF278DEF0000B18482 /* VisitHistoryAdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66969CE1278DEF0000B18482 /* VisitHistoryAdminTableViewCell.xib */; };
+		66969CE8278DF08500B18482 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66969CEA278DF08500B18482 /* Localizable.strings */; };
 		66B76BD3277880AB009B8443 /* LocationClinicUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B76BD2277880AB009B8443 /* LocationClinicUserVC.swift */; };
 		66BFC870276755EA007E09E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC86F276755EA007E09E8 /* AppDelegate.swift */; };
 		66BFC872276755EA007E09E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC871276755EA007E09E8 /* SceneDelegate.swift */; };
@@ -52,7 +54,6 @@
 		66FAB0E62789E7E4007F37B9 /* ConfirmedBooksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E52789E7E4007F37B9 /* ConfirmedBooksModel.swift */; };
 		66FAB0E82789E876007F37B9 /* MedicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E72789E876007F37B9 /* MedicationModel.swift */; };
 		66FAB0EB278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E9278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift */; };
-		66FAB0EC278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66FAB0EA278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib */; };
 		66FC9AA52779A88B003041FF /* MyMedicalFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AA42779A88B003041FF /* MyMedicalFileVC.swift */; };
 		66FC9AA72779B203003041FF /* VisitHistoryTableAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AA62779B203003041FF /* VisitHistoryTableAdminVC.swift */; };
 		66FC9AA92779CA45003041FF /* AddMedicationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AA82779CA45003041FF /* AddMedicationVC.swift */; };
@@ -84,6 +85,13 @@
 		667F0E0327744EC0008A7321 /* TableViewCellUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellUser.swift; sourceTree = "<group>"; };
 		667F0E0427744EC0008A7321 /* TableViewCellUser.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellUser.xib; sourceTree = "<group>"; };
 		6693359D277B7FA400250B24 /* StaticV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticV.swift; sourceTree = "<group>"; };
+		66969CD9278DA62E00B18482 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		66969CE0278DEF0000B18482 /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/VisitHistoryAdminTableViewCell.xib; sourceTree = "<group>"; };
+		66969CE4278DEFCE00B18482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VisitHistoryAdminTableViewCell.xib; sourceTree = "<group>"; };
+		66969CE5278DEFDA00B18482 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VisitHistoryAdminTableViewCell.strings; sourceTree = "<group>"; };
+		66969CE9278DF08500B18482 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		66969CEB278DF08C00B18482 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		66969CED278DF10A00B18482 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		66B76BD2277880AB009B8443 /* LocationClinicUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationClinicUserVC.swift; sourceTree = "<group>"; };
 		66BFC86C276755EA007E09E8 /* Clinic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clinic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66BFC86F276755EA007E09E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +118,6 @@
 		66FAB0E52789E7E4007F37B9 /* ConfirmedBooksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmedBooksModel.swift; sourceTree = "<group>"; };
 		66FAB0E72789E876007F37B9 /* MedicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationModel.swift; sourceTree = "<group>"; };
 		66FAB0E9278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitHistoryAdminTableViewCell.swift; sourceTree = "<group>"; };
-		66FAB0EA278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisitHistoryAdminTableViewCell.xib; sourceTree = "<group>"; };
 		66FC9AA42779A88B003041FF /* MyMedicalFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedicalFileVC.swift; sourceTree = "<group>"; };
 		66FC9AA62779B203003041FF /* VisitHistoryTableAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitHistoryTableAdminVC.swift; sourceTree = "<group>"; };
 		66FC9AA82779CA45003041FF /* AddMedicationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationVC.swift; sourceTree = "<group>"; };
@@ -154,6 +161,53 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		66969CDA278DBF3E00B18482 /* Custom_Views */ = {
+			isa = PBXGroup;
+			children = (
+				66969CDB278DBFF900B18482 /* TableDoctorCell_Admin */,
+				66969CDC278DC02B00B18482 /* TableDoctorCell_User */,
+				66969CDD278DC05300B18482 /* VisitHistoryTable_User */,
+				66969CDE278DC07300B18482 /* VisitHistoryTable_Admin */,
+			);
+			path = Custom_Views;
+			sourceTree = "<group>";
+		};
+		66969CDB278DBFF900B18482 /* TableDoctorCell_Admin */ = {
+			isa = PBXGroup;
+			children = (
+				6679F183276A44DC0031ECA5 /* TableViewCell.swift */,
+				6679F184276A44DC0031ECA5 /* TableViewCell.xib */,
+			);
+			path = TableDoctorCell_Admin;
+			sourceTree = "<group>";
+		};
+		66969CDC278DC02B00B18482 /* TableDoctorCell_User */ = {
+			isa = PBXGroup;
+			children = (
+				667F0E0327744EC0008A7321 /* TableViewCellUser.swift */,
+				667F0E0427744EC0008A7321 /* TableViewCellUser.xib */,
+			);
+			path = TableDoctorCell_User;
+			sourceTree = "<group>";
+		};
+		66969CDD278DC05300B18482 /* VisitHistoryTable_User */ = {
+			isa = PBXGroup;
+			children = (
+				6618832E27843A2B001B11E9 /* VisitHistoryTableVC.swift */,
+				6618832F27843A2B001B11E9 /* VisitHistoryTableVC.xib */,
+			);
+			path = VisitHistoryTable_User;
+			sourceTree = "<group>";
+		};
+		66969CDE278DC07300B18482 /* VisitHistoryTable_Admin */ = {
+			isa = PBXGroup;
+			children = (
+				66969CE1278DEF0000B18482 /* VisitHistoryAdminTableViewCell.xib */,
+				66FAB0E9278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift */,
+			);
+			path = VisitHistoryTable_Admin;
+			sourceTree = "<group>";
+		};
 		66BFC863276755EA007E09E8 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +240,7 @@
 				66BFC878276755EB007E09E8 /* Assets.xcassets */,
 				66BFC88D27675FDC007E09E8 /* GoogleService-Info.plist */,
 				66BFC87D276755EB007E09E8 /* Info.plist */,
+				66969CEA278DF08500B18482 /* Localizable.strings */,
 			);
 			path = Clinic;
 			sourceTree = "<group>";
@@ -204,10 +259,10 @@
 				66FD2D7B277C37D10006ADE9 /* Authentication */,
 				66FD2D7C277C37F20006ADE9 /* Book */,
 				66FD2D7F277C38600006ADE9 /* ClinicLocation */,
+				66969CDA278DBF3E00B18482 /* Custom_Views */,
 				66FD2D7E277C38440006ADE9 /* Doctor */,
 				66FD2D7D277C38120006ADE9 /* Medication */,
 				66FD2D81277C38A90006ADE9 /* Medical_File */,
-				66FD2D80277C38870006ADE9 /* User */,
 				66FD2D82277C39390006ADE9 /* Visit_History */,
 			);
 			path = Screens;
@@ -275,8 +330,6 @@
 				664320792769E24800C137C1 /* DoctorsTableVC.swift */,
 				667F0E0127744C8C008A7321 /* DoctorTableUserVC.swift */,
 				66BFC89C27688068007E09E8 /* AddDoctorVC.swift */,
-				6679F184276A44DC0031ECA5 /* TableViewCell.xib */,
-				6679F183276A44DC0031ECA5 /* TableViewCell.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -291,15 +344,6 @@
 			path = ClinicLocation;
 			sourceTree = "<group>";
 		};
-		66FD2D80277C38870006ADE9 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				667F0E0327744EC0008A7321 /* TableViewCellUser.swift */,
-				667F0E0427744EC0008A7321 /* TableViewCellUser.xib */,
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
 		66FD2D81277C38A90006ADE9 /* Medical_File */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,12 +355,8 @@
 		66FD2D82277C39390006ADE9 /* Visit_History */ = {
 			isa = PBXGroup;
 			children = (
-				6618832E27843A2B001B11E9 /* VisitHistoryTableVC.swift */,
-				6618832F27843A2B001B11E9 /* VisitHistoryTableVC.xib */,
 				6618833227843B51001B11E9 /* VisitHistoryTableUserVC.swift */,
 				66FC9AA62779B203003041FF /* VisitHistoryTableAdminVC.swift */,
-				66FAB0E9278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift */,
-				66FAB0EA278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib */,
 			);
 			path = Visit_History;
 			sourceTree = "<group>";
@@ -394,6 +434,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 66BFC863276755EA007E09E8;
 			productRefGroup = 66BFC86D276755EA007E09E8 /* Products */;
@@ -410,10 +451,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66FAB0EC278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.xib in Resources */,
+				66969CDF278DEF0000B18482 /* VisitHistoryAdminTableViewCell.xib in Resources */,
 				6618833127843A2B001B11E9 /* VisitHistoryTableVC.xib in Resources */,
 				667F0E0627744EC0008A7321 /* TableViewCellUser.xib in Resources */,
 				6679F186276A44DC0031ECA5 /* TableViewCell.xib in Resources */,
+				66969CE8278DF08500B18482 /* Localizable.strings in Resources */,
 				66BFC87C276755EB007E09E8 /* LaunchScreen.storyboard in Resources */,
 				66BFC88E27675FDC007E09E8 /* GoogleService-Info.plist in Resources */,
 				66BFC879276755EB007E09E8 /* Assets.xcassets in Resources */,
@@ -518,10 +560,31 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		66969CE1278DEF0000B18482 /* VisitHistoryAdminTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66969CE0278DEF0000B18482 /* ar */,
+				66969CE4278DEFCE00B18482 /* Base */,
+				66969CE5278DEFDA00B18482 /* en */,
+			);
+			name = VisitHistoryAdminTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		66969CEA278DF08500B18482 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66969CE9278DF08500B18482 /* ar */,
+				66969CEB278DF08C00B18482 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		66BFC875276755EA007E09E8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				66BFC876276755EA007E09E8 /* Base */,
+				66969CD9278DA62E00B18482 /* ar */,
+				66969CED278DF10A00B18482 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -541,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -602,6 +666,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
