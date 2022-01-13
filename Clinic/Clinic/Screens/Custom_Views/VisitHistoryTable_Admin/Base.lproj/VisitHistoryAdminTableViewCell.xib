@@ -17,23 +17,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cC6-eq-LIA" userLabel="Patienr_Stack_View">
-                        <rect key="frame" x="0.0" y="6" width="374" height="20.5"/>
+                        <rect key="frame" x="0.0" y="6" width="375" height="20.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Patient :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHs-Ie-ySf" userLabel="Patient_Label">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHs-Ie-ySf" userLabel="Patient_Label">
+                                <rect key="frame" x="0.0" y="0.0" width="101" height="20.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="C4J-1I-O6z"/>
                                     <constraint firstAttribute="height" constant="20.5" id="VTs-na-h8P"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Patient :">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="Rockwell-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txU-Ng-kgp" userLabel="Value_Patient_Label">
-                                <rect key="frame" x="110" y="0.0" width="264" height="20.5"/>
+                                <rect key="frame" x="111" y="0.0" width="264" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="59Z-q7-F4j"/>
-                                    <constraint firstAttribute="width" constant="264" id="S5t-sL-4yc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -48,22 +51,20 @@
                         </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bk2-8G-Qwd" userLabel="Doctor_Stack_View">
-                        <rect key="frame" x="0.0" y="31.5" width="374" height="20.5"/>
+                        <rect key="frame" x="0.0" y="31.5" width="375" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Doctor :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnX-uw-cSU" userLabel="Doctor_Label">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="101" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="PDm-PT-VU9"/>
-                                    <constraint firstAttribute="width" constant="100" id="sOe-Ly-LEw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAb-eh-HlV" userLabel="Value_Doctor_Label">
-                                <rect key="frame" x="110" y="0.0" width="264" height="20.5"/>
+                                <rect key="frame" x="111" y="0.0" width="264" height="20.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="264" id="LZF-Dk-TEz"/>
                                     <constraint firstAttribute="height" constant="20.5" id="oFC-Za-5II"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -79,22 +80,20 @@
                         </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6zR-dd-onu" userLabel="Date_Stack_View">
-                        <rect key="frame" x="0.0" y="57" width="374" height="20.5"/>
+                        <rect key="frame" x="0.0" y="57" width="375" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Date :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goS-5F-5PM" userLabel="Date_Label">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="101" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="5N4-iF-ykV"/>
-                                    <constraint firstAttribute="width" constant="100" id="HdX-1d-62d"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWV-gB-NvX" userLabel="Value_Date_Label">
-                                <rect key="frame" x="110" y="0.0" width="264" height="20.5"/>
+                                <rect key="frame" x="111" y="0.0" width="264" height="20.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="264" id="9KP-Mp-vbz"/>
                                     <constraint firstAttribute="height" constant="20.5" id="TO2-EP-zRd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -109,10 +108,18 @@
                             <constraint firstAttribute="trailing" secondItem="TWV-gB-NvX" secondAttribute="trailing" id="XYv-X8-Wmo"/>
                         </constraints>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="lYw-9c-Q0k" userLabel="Details_Button">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="lYw-9c-Q0k" userLabel="Details_Button">
                         <rect key="frame" x="241" y="86" width="116" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Medication"/>
+                        <state key="normal">
+                            <attributedString key="attributedTitle">
+                                <fragment content="Medication">
+                                    <attributes>
+                                        <font key="NSFont" size="15" name="Rockwell-Regular"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                        </state>
                         <connections>
                             <action selector="buttonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7QP-LD-rP7"/>
                         </connections>

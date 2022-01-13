@@ -64,8 +64,6 @@ class LocationClinicVC : UIViewController {
                                                email: email!,
                                                phone: phone!,
                                                adress: adress!))
-        
-        
       }
   }
   

@@ -7,13 +7,13 @@
 */
 
 /* Class = "UILabel"; text = "Patient :"; ObjectID = "DHs-Ie-ySf"; */
-"DHs-Ie-ySf.text" = "Patient :";
+"DHs-Ie-ySf.text" = "المريض :";
 
 /* Class = "UILabel"; text = "Doctor :"; ObjectID = "PnX-uw-cSU"; */
-"PnX-uw-cSU.text" = "Doctor :";
+"PnX-uw-cSU.text" = "الطبيب :";
 
 /* Class = "UILabel"; text = "Date :"; ObjectID = "goS-5F-5PM"; */
-"goS-5F-5PM.text" = "Date :";
+"goS-5F-5PM.text" = "التاريخ";
 
 /* Class = "UIButton"; normalTitle = "Medication"; ObjectID = "lYw-9c-Q0k"; */
-"lYw-9c-Q0k.normalTitle" = "Medication";
+"lYw-9c-Q0k.normalTitle" = "الدواء :";

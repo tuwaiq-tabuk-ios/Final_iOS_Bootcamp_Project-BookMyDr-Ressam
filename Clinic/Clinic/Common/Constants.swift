@@ -13,7 +13,9 @@ struct K {
     static let userHomeViewController = "UserHomeVC"
     static let addBookUserVC = "AddBookUser"
     static let adminHomeController = "AdminHomeVC"
-    static let logOutController = "logOutVC"
+    static let loginController = "loginVC"
+    static let singUpController = "singUpVC"
+    static let forgetPasswordVC = "forgetPasswordVC"
   }
   
   

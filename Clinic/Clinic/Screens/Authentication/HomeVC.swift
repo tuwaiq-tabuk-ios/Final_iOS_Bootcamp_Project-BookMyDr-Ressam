@@ -21,7 +21,7 @@ class HomeVC: UIViewController {
     try?  Auth.auth().signOut()
     
     let homeViewController = self.storyboard?
-      .instantiateViewController(identifier: K.Storyboard.logOutController)
+      .instantiateViewController(identifier: K.Storyboard.loginController)
     
     self.view.window?.rootViewController = homeViewController
     self.view.window?.makeKeyAndVisible()

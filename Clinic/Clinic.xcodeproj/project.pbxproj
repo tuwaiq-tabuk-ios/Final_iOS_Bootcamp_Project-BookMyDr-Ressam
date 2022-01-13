@@ -46,6 +46,7 @@
 		66BFC8992767A414007E09E8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC8982767A414007E09E8 /* UserModel.swift */; };
 		66BFC89D27688068007E09E8 /* AddDoctorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC89C27688068007E09E8 /* AddDoctorVC.swift */; };
 		66BFC89F2768B28C007E09E8 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC89E2768B28C007E09E8 /* DoctorModel.swift */; };
+		66D1B75827904778006DB004 /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D1B75727904778006DB004 /* ForgetPasswordVC.swift */; };
 		66ED16EB27745D5B009DFC2B /* AddBookUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED16EA27745D5B009DFC2B /* AddBookUserVC.swift */; };
 		66F3809A277D935700EA4E49 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F38099277D935700EA4E49 /* UILabel+Ext.swift */; };
 		66F3809E27821C3800EA4E49 /* ClinicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F3809D27821C3800EA4E49 /* ClinicData.swift */; };
@@ -86,9 +87,7 @@
 		667F0E0427744EC0008A7321 /* TableViewCellUser.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellUser.xib; sourceTree = "<group>"; };
 		6693359D277B7FA400250B24 /* StaticV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticV.swift; sourceTree = "<group>"; };
 		66969CD9278DA62E00B18482 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
-		66969CE0278DEF0000B18482 /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/VisitHistoryAdminTableViewCell.xib; sourceTree = "<group>"; };
 		66969CE4278DEFCE00B18482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VisitHistoryAdminTableViewCell.xib; sourceTree = "<group>"; };
-		66969CE5278DEFDA00B18482 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VisitHistoryAdminTableViewCell.strings; sourceTree = "<group>"; };
 		66969CE9278DF08500B18482 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		66969CEB278DF08C00B18482 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		66969CED278DF10A00B18482 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		66BFC8982767A414007E09E8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		66BFC89C27688068007E09E8 /* AddDoctorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoctorVC.swift; sourceTree = "<group>"; };
 		66BFC89E2768B28C007E09E8 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
+		66D1B75727904778006DB004 /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		66ED16EA27745D5B009DFC2B /* AddBookUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookUserVC.swift; sourceTree = "<group>"; };
 		66F38099277D935700EA4E49 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		66F3809D27821C3800EA4E49 /* ClinicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicData.swift; sourceTree = "<group>"; };
@@ -300,6 +300,7 @@
 				66BFC88727675651007E09E8 /* HomeVC.swift */,
 				66BFC8832767562E007E09E8 /* SingUpVC.swift */,
 				6650BEC627874E3E00CE6C06 /* AdminHomeVC.swift */,
+				66D1B75727904778006DB004 /* ForgetPasswordVC.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -546,6 +547,7 @@
 				66BFC8992767A414007E09E8 /* UserModel.swift in Sources */,
 				66FC9AA72779B203003041FF /* VisitHistoryTableAdminVC.swift in Sources */,
 				667F0E0227744C8C008A7321 /* DoctorTableUserVC.swift in Sources */,
+				66D1B75827904778006DB004 /* ForgetPasswordVC.swift in Sources */,
 				66FA45ED2771E8B90007D4D7 /* PatientModel.swift in Sources */,
 				66FC9AA92779CA45003041FF /* AddMedicationVC.swift in Sources */,
 				66FAB0E82789E876007F37B9 /* MedicationModel.swift in Sources */,
@@ -563,9 +565,7 @@
 		66969CE1278DEF0000B18482 /* VisitHistoryAdminTableViewCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				66969CE0278DEF0000B18482 /* ar */,
 				66969CE4278DEFCE00B18482 /* Base */,
-				66969CE5278DEFDA00B18482 /* en */,
 			);
 			name = VisitHistoryAdminTableViewCell.xib;
 			sourceTree = "<group>";

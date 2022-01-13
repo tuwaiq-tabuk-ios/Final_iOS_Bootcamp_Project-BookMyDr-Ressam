@@ -19,14 +19,19 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DIz-1t-ZFp" userLabel="Doctor_Stack_View">
                         <rect key="frame" x="0.0" y="6" width="374" height="20.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Doctor :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cso-Ji-Jvz" userLabel="Doctor_Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cso-Ji-Jvz" userLabel="Doctor_Label">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="6YG-uR-srZ"/>
                                     <constraint firstAttribute="width" constant="100" id="AlF-0c-4Un"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Doctor :">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="Rockwell-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4w-Zr-nsx" userLabel="Value_Doctor_Label">
@@ -50,7 +55,7 @@
                                     <constraint firstAttribute="width" constant="100" id="EQe-nX-elv"/>
                                     <constraint firstAttribute="height" constant="20.5" id="Gdr-AY-LQz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -75,7 +80,7 @@
                                     <constraint firstAttribute="height" constant="20.5" id="93F-Fp-HT2"/>
                                     <constraint firstAttribute="width" constant="100" id="FEN-uy-AIf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
