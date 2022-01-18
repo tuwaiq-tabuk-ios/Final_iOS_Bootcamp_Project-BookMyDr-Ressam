@@ -36,11 +36,10 @@ class AddMedicationVC: UIViewController {
   }
   
   
- private func initData()
-  {
+  private func initData() {
+    
     ref.child("Doctor").child(confirmedModel.doctorId).getData { error,
-                                                  Data in
-      
+                                                                 Data in
       if let data = Data.value as? NSDictionary {
         
         self.doctorNameLabel.text! = data["doctorName"] as? String ?? "No data"
@@ -54,16 +53,15 @@ class AddMedicationVC: UIViewController {
         let first  = data["FirstName"] as? String ?? "No data"
         let last  = data["LastName"] as? String ?? "No data"
         self.patientNameLabel.text! = first + " " + last
-       
+        
       }
     }
-  
-  ref.child("Medication").child(confirmedModel.bookId).getData{error , Data in
-    if let data = Data.value as? NSDictionary,Data.exists(){
-      self.treatmentTextField.text = data["medication"] as? String ?? "No data"
-    }
     
-  }
+    ref.child("Medication").child(confirmedModel.bookId).getData{ error , Data in
+      if let data = Data.value as? NSDictionary,Data.exists(){
+        self.treatmentTextField.text = data["medication"] as? String ?? "No data"
+      }
+    }
   }
   
   
@@ -78,8 +76,6 @@ class AddMedicationVC: UIViewController {
       }else{
         self.showaAlertDoneView(Title: "Error!",
                                 Msg: error.debugDescription)
-        
-//        print(error?.localizedDescription as Any)
       }
     }
   }

@@ -9,20 +9,54 @@ import UIKit
 import Firebase
 
 class AdminHomeVC :UIViewController {
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("This Admin View")
+      
+      navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "power.circle.fill"),
+                style: .plain, target: self,
+                action: #selector(logout))
   }
   
   
-  @IBAction func logOutButton(_ sender: Any) {
-    try?  Auth.auth().signOut()
+  @IBAction func doctorBtnTapped(_ sender: UIButton) {
     
-    let homeViewController = self.storyboard?
-      .instantiateViewController(identifier: K.Storyboard.loginController)
+      if  let homeViewController = self.storyboard?
+            .instantiateViewController(identifier: "DoctorsTableVC") as? DoctorsTableVC{
+    navigationController?.pushViewController(homeViewController, animated: true)
+      }
+  }
+  
+  
+    @IBAction func location(_ sender: UIButton) {
+      
+        if  let homeViewController = self.storyboard?
+              .instantiateViewController(identifier: "LocationClinicVC") as? LocationClinicVC{
+      navigationController?.pushViewController(homeViewController, animated: true)
+        }
+    }
+  
+  
+    @IBAction func medicalBtnTapped(_ sender: UIButton) {
+        
+        if  let homeViewController = self.storyboard?
+              .instantiateViewController(identifier: "VisitHistoryTableAdminVC") as? VisitHistoryTableAdminVC{
+      navigationController?.pushViewController(homeViewController,
+                                               animated: true)
+        }
+    }
     
-    self.view.window?.rootViewController = homeViewController
-    self.view.window?.makeKeyAndVisible()
-  }
-  }
+  
+    @objc func logout()
+    {
+        try?  Auth.auth().signOut()
+        
+        let homeViewController = self.storyboard?
+          .instantiateViewController(identifier: K.Storyboard.loginController)
+        
+        self.view.window?.rootViewController = homeViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+}
+
 

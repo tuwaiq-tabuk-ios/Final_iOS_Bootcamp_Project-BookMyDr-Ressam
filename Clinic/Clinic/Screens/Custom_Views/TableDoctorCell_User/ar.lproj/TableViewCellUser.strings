@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Yeer"; ObjectID = "96s-la-VUc"; */
+"96s-la-VUc.text" = "Yeer";
+
+/* Class = "UIButton"; normalTitle = "Appointment Booking"; ObjectID = "CQc-9P-J9R"; */
+"CQc-9P-J9R.normalTitle" = "حجز موعد";
+
+/* Class = "UILabel"; text = "  Doctor :"; ObjectID = "KPx-HU-qoj"; */
+"KPx-HU-qoj.text" = "الطبيب :";
+
+/* Class = "UILabel"; text = "  Years of Experience :"; ObjectID = "Pcp-qU-D0I"; */
+"Pcp-qU-D0I.text" = "عدد سنوات الخبرة";
+
+/* Class = "UILabel"; text = "Clinc"; ObjectID = "jJJ-UK-HcM"; */
+"jJJ-UK-HcM.text" = "Clinc";
+
+/* Class = "UILabel"; text = "Doctor"; ObjectID = "qxG-EH-w7B"; */
+"qxG-EH-w7B.text" = "Doctor";
+
+/* Class = "UILabel"; text = " Department :"; ObjectID = "ytZ-ia-Nwb"; */
+"ytZ-ia-Nwb.text" = "القسم :";

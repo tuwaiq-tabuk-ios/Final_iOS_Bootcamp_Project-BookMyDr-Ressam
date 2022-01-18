@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,21 +20,13 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Dnl-4Z-cYO" userLabel="First_Stack_View">
                         <rect key="frame" x="0.0" y="5" width="546" height="20.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-ar-jq1" userLabel="Doctor_Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Doctor :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-ar-jq1" userLabel="Doctor_Label">
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="W12-GJ-feo"/>
-                                    <constraint firstAttribute="width" constant="110" id="pGh-rb-6B4"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="   Doctor :">
-                                        <attributes>
-                                            <color key="NSColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="Rockwell-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                                <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKd-oD-sEf" userLabel="Doctor_Name_Label">
@@ -88,7 +81,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="4An-wz-rQq"/>
-                                    <constraint firstAttribute="width" constant="110" id="gtp-3g-ebS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="16"/>
                                 <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
