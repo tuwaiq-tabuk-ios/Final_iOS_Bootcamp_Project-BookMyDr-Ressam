@@ -40,21 +40,6 @@ class EditLocationVC: UIViewController {
   }
   
   
-  //Validation all Text Field is empty
-  func validateFields()->String? {
-    
-    
-    if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        adressTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-      
-      return "Please fill in all fields."
-    }
-    
-    return nil
-  }
-  
-  
   //Return to the previous view
   @IBAction func dissmisButtonTapped(_ sender: UIButton) {
     
@@ -64,13 +49,7 @@ class EditLocationVC: UIViewController {
   
   
   @IBAction func doneButtonTapped(_ sender: UIButton) {
-    let error = validateFields()
     
-    //Validation have error then shoe error
-    if error != nil {
-      showError(error!)
-    } else {
-      
       //Not have error update the clinic information in Firebase
       let locationId = UUID.init().uuidString
       let location = LocationModel(locationId:locationId,
@@ -88,13 +67,14 @@ class EditLocationVC: UIViewController {
                                   Msg: error.debugDescription)
         }
       }
-    }
+   
   }
   
   
   //Define the boundaries of the area
   func setStartingLocation (location:CLLocation,
                             distance:CLLocationDistance) {
+    
     let region = MKCoordinateRegion(center: location.coordinate,
                                     latitudinalMeters: distance,
                                     longitudinalMeters: distance)
@@ -114,76 +94,106 @@ class EditLocationVC: UIViewController {
     
     mapView.addAnnotation(pin)
   }
+  
+  
   static let shared = CLLocationManager()
   
-  public func findLocations(with query : String , completion : @escaping (([Location]) -> Void))
+  public func findLocations(with query : String ,
+                            completion : @escaping (([Location]) -> Void))
   {
       let geoCoder = CLGeocoder()
-      geoCoder.geocodeAddressString(query) { places, error in
-          guard let places = places , error == nil else {
+      geoCoder.geocodeAddressString(query) { places,
+        error in
+          guard let places = places ,
+                error == nil else {
               completion([])
               return
           }
           
           let models : [Location] = places.compactMap( { place in
               var name = ""
-              if let locationName  = place.name{
+            
+              if let locationName  = place.name {
                   name += locationName
               }
-              if let adminRegion = place.administrativeArea{
+            
+              if let adminRegion = place.administrativeArea {
                   name += ",\(adminRegion)"
               }
               
-              if let locality = place.locality{
+              if let locality = place.locality {
                   name += ",\(locality)"
               }
-              if let country = place.country{
+            
+              if let country = place.country {
                   name += ",\(country)"
               }
               
-              let result  = Location(title: name, coordinates: place.location!.coordinate)
+              let result  = Location(title: name,
+                                     coordinates: place.location!.coordinate)
               
               return result
           })
           completion(models)
       }
   }
-  func showError(_ message:String) {
-//    errorLabel.text = message
-//    errorLabel.alpha = 1
-  }
 }
-extension EditLocationVC : UITableViewDelegate , UITableViewDataSource
-{
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+
+//MARK: -  UITableViewDelegate , UITableViewDataSource
+extension EditLocationVC : UITableViewDelegate ,
+                           UITableViewDataSource {
+  
+  
+  func tableView(_ tableView: UITableView,
+                 numberOfRowsInSection section: Int) -> Int {
     self.modelList.count
   }
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  
+  
+  func tableView(_ tableView: UITableView,
+                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")
     
     cell!.textLabel!.text = self.modelList[indexPath.row].title
+    
     return cell!
   }
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  
+  
+  func tableView(_ tableView: UITableView,
+                 didSelectRowAt indexPath: IndexPath) {
+    
     print("Cell Selected")
+    
     self.latude = self.modelList[indexPath.row].coordinates.latitude
     self.longtude = self.modelList[indexPath.row].coordinates.longitude
-    let locationCordinate = CLLocation(latitude: self.latude, longitude: self.longtude)
-    setStartingLocation(location: locationCordinate , distance: 0.7)
+    
+    let locationCordinate = CLLocation(latitude: self.latude,
+                                       longitude: self.longtude)
+    
+    setStartingLocation(location: locationCordinate ,
+                        distance: 0.7)
+    
     addAnnotation(location: locationCordinate)
     
   }
 }
 
+//MARK: - UITextFieldDelegate
 extension EditLocationVC : UITextFieldDelegate
 {
  
+  
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     
     self.adressTextField.resignFirstResponder()
+    
     print("text Was Edititng")
-    if let address = self.adressTextField.text,!adressTextField.text!.isEmpty{
+    
+    if let address = self.adressTextField.text,
+       !adressTextField.text!.isEmpty {
       
       findLocations(with: address) { locations in
         self.modelList = locations
@@ -192,8 +202,9 @@ extension EditLocationVC : UITextFieldDelegate
     }
     return true
   }
-  
 }
+
+
 struct Location
 {
     let title : String

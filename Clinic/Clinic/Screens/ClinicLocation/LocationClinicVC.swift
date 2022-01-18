@@ -15,6 +15,7 @@ class LocationClinicVC : UIViewController {
   @IBOutlet weak var emailLabel: UILabel!
   @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var adressLabel: UILabel!
+  
   var model = LocationModel()
   var ref : DatabaseReference!
   var locationList = [LocationModel]()

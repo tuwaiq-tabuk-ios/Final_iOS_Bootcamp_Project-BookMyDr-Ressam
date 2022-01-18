@@ -16,6 +16,7 @@ class LocationClinicUserVC : UIViewController {
   @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
   
+  var model = LocationModel()
   var ref : DatabaseReference!
   var locationList = [LocationModel]()
   
@@ -23,15 +24,8 @@ class LocationClinicUserVC : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let initialLocation = CLLocation(latitude: 28.3905943,
-                                     longitude: 36.5282448)
-    
-    setStartingLocation(location: initialLocation,
-                        distance: 0)
-    
     ref = Database.database().reference()
-    
-    addAnnotation()
+  
     getData()
     setUpelement()
   }
@@ -50,16 +44,22 @@ class LocationClinicUserVC : UIViewController {
       .observe(.value) { (snapshot) in
         
         if let snapshotVaue = snapshot.value as? NSDictionary,snapshot.exists(){
-          let model = LocationModel(value: snapshotVaue)
-           self.locationList.append(model)
-           self.emailLabel.text = model.email
-           self.phoneLabel.text = model.phone
-          self.addressLabel.text = model.adress
+          self.model = LocationModel(value: snapshotVaue)
+          self.locationList.append(self.model)
+          self.emailLabel.text = self.model.email
+          self.phoneLabel.text = self.model.phone
+          self.addressLabel.text = self.model.adress
+          let initialLocation = CLLocation(latitude: self.model.latitude,
+                                           longitude: self.model.longitude)
+          
+          self.setStartingLocation(location: initialLocation,
+                              distance: 0)
+          
+          self.addAnnotation()
         }
         
       }
   }
-  
   
   //Define the boundaries of the area
   func setStartingLocation (location:CLLocation,
@@ -73,11 +73,13 @@ class LocationClinicUserVC : UIViewController {
   }
   
   
+  
   //Add coordinates and notation
   func addAnnotation() {
     let pin = MKPointAnnotation()
-    pin.coordinate = CLLocationCoordinate2D(latitude:28.3905943 ,
-                                            longitude: 36.5282448)
+    
+    pin.coordinate = CLLocationCoordinate2D(latitude:self.model.latitude ,
+                                            longitude: self.model.longitude)
     pin.title = "My Clinic"
     
     mapView.addAnnotation(pin)
