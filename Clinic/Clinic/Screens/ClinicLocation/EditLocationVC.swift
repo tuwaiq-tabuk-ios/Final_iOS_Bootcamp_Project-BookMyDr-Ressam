@@ -40,14 +40,6 @@ class EditLocationVC: UIViewController {
   }
   
   
-  //Return to the previous view
-  @IBAction func dissmisButtonTapped(_ sender: UIButton) {
-    
-    self.dismiss(animated: true,
-                 completion: nil)
-  }
-  
-  
   @IBAction func doneButtonTapped(_ sender: UIButton) {
     
       //Not have error update the clinic information in Firebase

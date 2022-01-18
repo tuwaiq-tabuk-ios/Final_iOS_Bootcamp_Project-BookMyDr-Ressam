@@ -13,31 +13,40 @@ class AdminHomeVC :UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
       
-      navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "power.circle.fill"), style: .plain, target: self, action: #selector(logout))
+      navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "power.circle.fill"),
+                style: .plain, target: self,
+                action: #selector(logout))
   }
   
+  
   @IBAction func doctorBtnTapped(_ sender: UIButton) {
+    
       if  let homeViewController = self.storyboard?
             .instantiateViewController(identifier: "DoctorsTableVC") as? DoctorsTableVC{
     navigationController?.pushViewController(homeViewController, animated: true)
       }
   }
   
+  
     @IBAction func location(_ sender: UIButton) {
+      
         if  let homeViewController = self.storyboard?
               .instantiateViewController(identifier: "LocationClinicVC") as? LocationClinicVC{
       navigationController?.pushViewController(homeViewController, animated: true)
         }
-        
     }
+  
+  
     @IBAction func medicalBtnTapped(_ sender: UIButton) {
         
         if  let homeViewController = self.storyboard?
               .instantiateViewController(identifier: "VisitHistoryTableAdminVC") as? VisitHistoryTableAdminVC{
-      navigationController?.pushViewController(homeViewController, animated: true)
+      navigationController?.pushViewController(homeViewController,
+                                               animated: true)
         }
     }
     
+  
     @objc func logout()
     {
         try?  Auth.auth().signOut()

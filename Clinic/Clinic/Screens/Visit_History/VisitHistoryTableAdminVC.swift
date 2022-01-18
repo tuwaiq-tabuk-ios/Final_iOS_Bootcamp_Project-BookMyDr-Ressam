@@ -91,7 +91,6 @@ extension VisitHistoryTableAdminVC : UITableViewDelegate,
     let cell = tableView.dequeueReusableCell(withIdentifier: "visitCell",
                                              for: indexPath) as? VisitHistoryAdminTableViewCell
     var  doctorName =  " "
-//    var  patientName =  " "
     
     let doctorId = self.confirmedBooks[indexPath.row].doctorId
     
