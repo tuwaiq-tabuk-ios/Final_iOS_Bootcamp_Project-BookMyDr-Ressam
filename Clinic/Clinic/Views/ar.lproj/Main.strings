@@ -57,7 +57,7 @@
 "JZ4-hb-4cE.text" = "انقر هنا للعثور على الحجوزات وإضافة الأدوية";
 
 /* Class = "UITextField"; placeholder = "Address Now"; ObjectID = "Jcj-ZC-QuJ"; */
-"Jcj-ZC-QuJ.placeholder" = "العنوان";
+"Jcj-ZC-QuJ.placeholder" = "الهاتف";
 
 /* Class = "UILabel"; text = "Our Location"; ObjectID = "N60-z3-dJo"; */
 "N60-z3-dJo.text" = "موقعنا";
@@ -105,7 +105,7 @@
 "SjC-XH-vX5.normalTitle" = "الزر";
 
 /* Class = "UITextField"; placeholder = "Phone"; ObjectID = "Tlr-Z2-W5d"; */
-"Tlr-Z2-W5d.placeholder" = "الهاتف";
+"Tlr-Z2-W5d.placeholder" = "العنوان";
 
 /* Class = "UILabel"; text = "Click here to edit our contact information"; ObjectID = "UXe-l2-r3X"; */
 "UXe-l2-r3X.text" = "انقر هنا لتعديل معلومات الاتصال الخاصة بك";
@@ -187,6 +187,7 @@
 
 /* Class = "UILabel"; text = "Welcome MyBookDr"; ObjectID = "ogo-2G-TAs"; */
 "ogo-2G-TAs.text" = "مرحبا بك في MyBookDr .";
+"Pcp-qU-D0I.text" = "عدد سنوات الخبرة :";
 
 /* Class = "UILabel"; text = "Phone :"; ObjectID = "pME-dK-ehu"; */
 "pME-dK-ehu.text" = "الهاتف :";
@@ -232,3 +233,14 @@
 
 /* Class = "UILabel"; text = "Phone :"; ObjectID = "zto-e1-0Q0"; */
 "zto-e1-0Q0.text" = "الهاتف";
+"zTE-UZ-U1T.normalTitle" = "لديك حساب؟ تسجيل الدخول";
+"kIl-FK-cXy.normalTitle" = "هل نسيت كلمة السر ؟";
+"kze-uk-LXG.normalTitle" = "ليس لديك حساب؟ تسجيل جديد";
+"Wmf-wV-NIb.text" = "نسيت كلمة المرور";
+"efy-do-5Kz.placeholder" = "عنوان البريد الإلكتروني";
+"1h4-DE-NWk.normalTitle" = "إرسال";
+"DHs-Ie-ySf.text" = "المريض :";
+"PnX-uw-cSU.text" = "الطبيب :";
+"goS-5F-5PM.text" = "التاريخ";
+"lYw-9c-Q0k.normalTitle" = "وصفة طبية";
+"QlL-cr-hPG.text" = "الوقت";

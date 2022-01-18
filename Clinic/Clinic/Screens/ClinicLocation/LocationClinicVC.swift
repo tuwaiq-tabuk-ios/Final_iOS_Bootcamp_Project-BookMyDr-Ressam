@@ -15,22 +15,13 @@ class LocationClinicVC : UIViewController {
   @IBOutlet weak var emailLabel: UILabel!
   @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var adressLabel: UILabel!
-  
+  var model = LocationModel()
   var ref : DatabaseReference!
   var locationList = [LocationModel]()
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    let initialLocation = CLLocation(latitude: 28.3905943,
-                                     longitude: 36.5282448)
-    
-    setStartingLocation(location: initialLocation,
-                        distance: 0)
-    
-    addAnnotation()
-    
     ref = Database.database().reference()
     getData()
     setElements()
@@ -49,21 +40,21 @@ class LocationClinicVC : UIViewController {
     ref.child(K.FireStore.locationCollection).queryOrderedByKey()
       .observe(.value) { (snapshot) in
         
-        let snapshotVaue = snapshot.value as? NSDictionary
+        if let snapshotVaue = snapshot.value as? NSDictionary,snapshot.exists(){
+          self.model = LocationModel(value: snapshotVaue)
+          self.locationList.append(self.model)
+          self.emailLabel.text = self.model.email
+          self.phoneLabel.text = self.model.phone
+          self.adressLabel.text = self.model.adress
+          let initialLocation = CLLocation(latitude: self.model.latitude,
+                                           longitude: self.model.longitude)
+          
+          self.setStartingLocation(location: initialLocation,
+                              distance: 0)
+          
+          self.addAnnotation()
+        }
         
-        let locationId = snapshotVaue? ["locationId"] as? String
-        let email = snapshotVaue?["email"] as? String
-        let phone = snapshotVaue?["phone"] as? String
-        let adress = snapshotVaue?["adress"] as? String
-        
-        self.emailLabel.text = email
-        self.phoneLabel.text = phone
-        self.adressLabel.text = adress
-        
-        self.locationList.append(LocationModel(locationId: locationId!,
-                                               email: email!,
-                                               phone: phone!,
-                                               adress: adress!))
       }
   }
   
@@ -84,32 +75,15 @@ class LocationClinicVC : UIViewController {
   func addAnnotation() {
     let pin = MKPointAnnotation()
     
-    pin.coordinate = CLLocationCoordinate2D(latitude:28.3905943 ,
-                                            longitude: 36.5282448)
+    pin.coordinate = CLLocationCoordinate2D(latitude:self.model.latitude ,
+                                            longitude: self.model.longitude)
     pin.title = "My Clinic"
     
     mapView.addAnnotation(pin)
   }
 }
-//private func search(using searchRequest: MKLocalSearch.Request) {
-//    // Confine the map search area to an area around the user's current location.
-//    searchRequest.region = boundingRegion
-//
-//    // Include only point of interest results. This excludes results based on address matches.
-//    searchRequest.resultTypes = .pointOfInterest
-//
-//    localSearch = MKLocalSearch(request: searchRequest)
-//    localSearch?.start { [unowned self] (response, error) in
-//        guard error == nil else {
-//            self.displaySearchError(error)
-//            return
-//        }
-//
-//        self.places = response?.mapItems
-//
-//        // Used when setting the map's region in `prepareForSegue`.
-//        if let updatedRegion = response?.boundingRegion {
-//            self.boundingRegion = updatedRegion
-//        }
-//    }
-//}
+
+
+
+
+

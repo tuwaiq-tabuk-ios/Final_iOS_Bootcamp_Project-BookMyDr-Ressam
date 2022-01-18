@@ -51,9 +51,6 @@ class LoginVC: UIViewController {
     
     imageIcon.isUserInteractionEnabled = true
     imageIcon.addGestureRecognizer(tapGestureRecognizer)
-    
-    
-    
   }
   
   
@@ -76,7 +73,7 @@ class LoginVC: UIViewController {
   @IBAction func loginPressed(_ sender: Any) {
     let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//  try?  Auth.auth().signOut()
+    
     Auth.auth().signIn(withEmail: email,
                        password: password) {
       
@@ -88,7 +85,7 @@ class LoginVC: UIViewController {
         
         
       } else {
-      
+        
         K.FireStore.userId = result!.user.uid
         print(K.FireStore.userId)
         self.ref.child(K.FireStore.usersCollection)
@@ -96,22 +93,34 @@ class LoginVC: UIViewController {
             if let data = Data.value as? NSDictionary{
               let isAdmin  = data["isAdmin"] as! Bool
               print("isAdmin : \(isAdmin)")
+              
               if isAdmin
               {
-                
-                let homeViewController = self.storyboard?
-                  .instantiateViewController(identifier: K.Storyboard.adminHomeController)
-                
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
-                
+               
+               
+               
+              if  let homeViewController = self.storyboard?
+                    .instantiateViewController(identifier: K.Storyboard.adminHomeController) as? AdminHomeVC{
+                  
+                  let navi  = UINavigationController(rootViewController: homeViewController)
+                  navi.modalPresentationStyle = .fullScreen
+                  
+                  self.present(navi, animated: true, completion: nil)
+              }
+
               }else{
                 
-                let homeViewController = self.storyboard?
-                  .instantiateViewController(identifier: K.Storyboard.userHomeViewController)
-
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
+                  
+                 if  let homeViewController = self.storyboard?
+                       .instantiateViewController(identifier: K.Storyboard.userHomeViewController) as? HomeVC{
+                     
+                     let navi  = UINavigationController(rootViewController: homeViewController)
+                     navi.modalPresentationStyle = .fullScreen
+                     
+                     self.present(navi, animated: true, completion: nil)
+                 }
+                  
+               
               }
             }
           }
@@ -136,7 +145,6 @@ class LoginVC: UIViewController {
     
     self.view.window?.rootViewController = homeViewController
     self.view.window?.makeKeyAndVisible()
-    
   }
   
   
@@ -148,6 +156,4 @@ class LoginVC: UIViewController {
     self.view.window?.rootViewController = homeViewController
     self.view.window?.makeKeyAndVisible()
   }
-  
-  
 }

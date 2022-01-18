@@ -7,7 +7,7 @@ target 'Clinic' do
 
   # Pods for Clinic
 
-pod 'Firebase/Analytics'
+
 pod 'Firebase/Auth'
 pod 'Firebase/Core'
 pod 'Firebase/Database'

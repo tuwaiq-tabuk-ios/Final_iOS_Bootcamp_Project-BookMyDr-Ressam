@@ -49,21 +49,13 @@ class LocationClinicUserVC : UIViewController {
     ref.child(K.FireStore.locationCollection).queryOrderedByKey()
       .observe(.value) { (snapshot) in
         
-        let snapshotVaue = snapshot.value as? NSDictionary
-        
-        let locationId = snapshotVaue? ["locationId"] as? String
-        let email = snapshotVaue?["email"] as? String
-        let phone = snapshotVaue?["phone"] as? String
-        let adress = snapshotVaue?["adress"] as? String
-        
-        self.emailLabel.text = email
-        self.phoneLabel.text = phone
-        self.addressLabel.text = adress
-        
-        self.locationList.append(LocationModel(locationId: locationId!,
-                                               email: email!,
-                                               phone: phone!,
-                                               adress: adress!))
+        if let snapshotVaue = snapshot.value as? NSDictionary,snapshot.exists(){
+          let model = LocationModel(value: snapshotVaue)
+           self.locationList.append(model)
+           self.emailLabel.text = model.email
+           self.phoneLabel.text = model.phone
+          self.addressLabel.text = model.adress
+        }
         
       }
   }

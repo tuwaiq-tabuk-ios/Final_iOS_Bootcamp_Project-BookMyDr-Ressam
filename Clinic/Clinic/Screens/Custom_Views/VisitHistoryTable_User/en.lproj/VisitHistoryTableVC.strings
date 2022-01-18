@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Medication"; ObjectID = "0qu-Zm-bLs"; */
+"0qu-Zm-bLs.normalTitle" = "Medication";
+
+/* Class = "UILabel"; text = "Date :"; ObjectID = "O3c-p7-rWu"; */
+"O3c-p7-rWu.text" = "Date :";
+
+/* Class = "UILabel"; text = "Doctor :"; ObjectID = "cso-Ji-Jvz"; */
+"cso-Ji-Jvz.text" = "Doctor :";
+
+/* Class = "UILabel"; text = "Time :"; ObjectID = "vMh-KB-zYy"; */
+"vMh-KB-zYy.text" = "Time :";

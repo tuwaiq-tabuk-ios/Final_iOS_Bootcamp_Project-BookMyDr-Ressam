@@ -37,6 +37,7 @@ class MedicationUserVC: UIViewController {
   
   
   func getData() {
+    
     ref.child("Doctor").child(confirmedModel.doctorId).getData { error,
                                                   Data in
       

@@ -85,6 +85,7 @@ class SingUpVC: UIViewController {
                                         emailTextField,
                                         passwordTextField)
     } catch {
+      
       print("ERROR: \(String(describing: CustomError.emptyFields.errorDescription))")
       showError(CustomError.emptyFields.errorDescription ?? "ERROR_NOT_CATCHED: validateEmptyFields(textFields:")
       return
@@ -94,6 +95,7 @@ class SingUpVC: UIViewController {
     }
     catch CustomError.invalidSyntaxPassword {
     } catch {
+      
       print("---- ERROR: \(String(describing: CustomError.invalidSyntaxPassword.errorDescription))")
       showError(CustomError.invalidSyntaxPassword.errorDescription ?? "ERROR_NOT_CATCHED: validatePasswordSyntax(passwordTextField:")
       return
@@ -160,8 +162,7 @@ class SingUpVC: UIViewController {
   
   
   func transitionToHome() {
-    let homeViewController
-      = storyboard?.instantiateViewController(identifier:K.Storyboard.userHomeViewController)
+    let homeViewController = storyboard?.instantiateViewController(identifier:K.Storyboard.userHomeViewController)
     
     view.window?.rootViewController = homeViewController
     view.window?.makeKeyAndVisible()
@@ -175,7 +176,5 @@ class SingUpVC: UIViewController {
     
     self.view.window?.rootViewController = homeViewController
     self.view.window?.makeKeyAndVisible()
-    
-    
   }
 }

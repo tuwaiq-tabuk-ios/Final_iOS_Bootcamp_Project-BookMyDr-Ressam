@@ -12,6 +12,7 @@ class VisitHistoryAdminTableViewCell: UITableViewCell {
   @IBOutlet weak var patientLabel: UILabel!
   @IBOutlet weak var doctorLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var addMedicationButton : UIButton!
   
   var myCellDelegate : MyCellDelegate?

@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Medication"; ObjectID = "0qu-Zm-bLs"; */
+"0qu-Zm-bLs.normalTitle" = "وصفة طبية";
+
+/* Class = "UILabel"; text = "Date :"; ObjectID = "O3c-p7-rWu"; */
+"O3c-p7-rWu.text" = "التاريخ :";
+
+/* Class = "UILabel"; text = "Doctor :"; ObjectID = "cso-Ji-Jvz"; */
+"cso-Ji-Jvz.text" = "الطبيب :";
+
+/* Class = "UILabel"; text = "Time :"; ObjectID = "vMh-KB-zYy"; */
+"vMh-KB-zYy.text" = "الوقت :";

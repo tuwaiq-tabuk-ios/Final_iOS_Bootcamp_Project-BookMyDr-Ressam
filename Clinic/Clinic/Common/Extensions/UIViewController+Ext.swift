@@ -21,8 +21,7 @@ extension UIViewController {
                                   handler: { action in
                                     print("Cancel clicked")
                                     self.dismiss(animated: true,
-                                                 completion: nil)
-                                  }))
+                                                 completion: nil)}))
     
     self.present(alert, animated: true,
                  completion: nil)
