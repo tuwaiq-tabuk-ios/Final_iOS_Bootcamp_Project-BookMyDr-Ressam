@@ -222,6 +222,14 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
                               Msg: "You must pick date and time.")
     }
   }
+  
+  
+  @IBAction func dismissButton(_ sender: Any) {
+    self.dismiss(animated: true,
+                 completion: nil)
+  }
+  
+  
 }
 
 

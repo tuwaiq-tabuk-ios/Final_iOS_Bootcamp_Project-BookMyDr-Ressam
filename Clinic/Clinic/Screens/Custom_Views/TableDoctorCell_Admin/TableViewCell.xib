@@ -19,14 +19,21 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Dnl-4Z-cYO" userLabel="First_Stack_View">
                         <rect key="frame" x="0.0" y="5" width="546" height="20.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Doctor :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-ar-jq1" userLabel="Doctor_Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-ar-jq1" userLabel="Doctor_Label">
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="W12-GJ-feo"/>
                                     <constraint firstAttribute="width" constant="110" id="pGh-rb-6B4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="   Doctor :">
+                                        <attributes>
+                                            <color key="NSColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="Rockwell-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKd-oD-sEf" userLabel="Doctor_Name_Label">
@@ -54,7 +61,7 @@
                                     <constraint firstAttribute="width" constant="110" id="Gqo-fq-Ng9"/>
                                     <constraint firstAttribute="height" constant="20.5" id="UI9-Gt-hLZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
                                 <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -83,7 +90,7 @@
                                     <constraint firstAttribute="height" constant="25" id="4An-wz-rQq"/>
                                     <constraint firstAttribute="width" constant="110" id="gtp-3g-ebS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="16"/>
                                 <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -106,16 +113,22 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N6L-fL-aPI" userLabel="Fourth_Stack_View">
                         <rect key="frame" x="0.0" y="96" width="546" height="20.5"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6n-C3-i0u" userLabel="Bppk_Appo_Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6n-C3-i0u" userLabel="Bppk_Appo_Button">
                                 <rect key="frame" x="0.0" y="0.0" width="546" height="20.5"/>
                                 <color key="backgroundColor" red="0.87045599490000003" green="0.94613626699999998" blue="0.91937712589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="Z7K-eq-RM0"/>
                                     <constraint firstAttribute="width" constant="546" id="jcS-Bz-z8C"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Add an appointment">
-                                    <color key="titleColor" red="0.81231398809523814" green="0.2901519982993197" blue="0.50621811224489799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Add an appointment">
+                                            <attributes>
+                                                <color key="NSColor" red="0.81231398809523814" green="0.2901519982993197" blue="0.50621811224489799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="17" name="Rockwell-Regular"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eAt-Ho-pVT"/>

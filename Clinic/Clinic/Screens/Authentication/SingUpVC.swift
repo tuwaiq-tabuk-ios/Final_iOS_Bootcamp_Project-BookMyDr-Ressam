@@ -13,6 +13,7 @@ import FirebaseDatabase
 
 class SingUpVC: UIViewController {
   
+  //MARK:- IBOutlet
   @IBOutlet weak var firstNameTextField: UITextField!
   @IBOutlet weak var lastNameTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
@@ -24,6 +25,8 @@ class SingUpVC: UIViewController {
   var iconClick = false
   let imageIcon = UIImageView()
   
+  
+  // View Controller lifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -162,5 +165,17 @@ class SingUpVC: UIViewController {
     
     view.window?.rootViewController = homeViewController
     view.window?.makeKeyAndVisible()
+  }
+  
+  
+  @IBAction func loginButton(_ sender: Any) {
+    
+    let homeViewController = self.storyboard?
+      .instantiateViewController(identifier:K.Storyboard.loginController)
+    
+    self.view.window?.rootViewController = homeViewController
+    self.view.window?.makeKeyAndVisible()
+    
+    
   }
 }

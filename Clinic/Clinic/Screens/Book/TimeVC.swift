@@ -28,6 +28,12 @@ class TimeVC: UIViewController,
   }
   
   
+  
+  @IBAction func dismissButton(_ sender: Any) {
+    self.dismiss(animated: true,
+                 completion: nil)
+  }
+  
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
     let count = self.times.count

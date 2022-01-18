@@ -106,15 +106,16 @@ extension DoctorTableUserVC : UITableViewDelegate,
       cell?.yearsOfExperienceLabel.text = String(yearOfExperince)
       print("\n\n\nYear Of experince : " + self.doctorList[indexPath.row].hireDate)
     }
-    cell?.backgroundColor = UIColor.init(red: 246/255, green: 246/255, blue: 212/255, alpha: 1)
-    cell?.layer.cornerRadius = 25.0
-    cell?.tintColor = UIColor.white
-  cell?.layer.borderColor = UIColor.white.cgColor
-   cell?.layer.borderWidth = 3
+    
+//    cell?.backgroundColor = UIColor.init(red: 246/255, green: 246/255, blue: 212/255, alpha: 1)
+//    cell?.layer.cornerRadius = 25.0
+//    cell?.tintColor = UIColor.blue
+//  cell?.layer.borderColor = UIColor.white.cgColor
+//   cell?.layer.borderWidth = 3
     cell?.bookButton.layer.cornerRadius = 25.0
-    cell?.clinicNameLabel.layer.cornerRadius = 25.0
-    cell?.doctorNameLabel.layer.cornerRadius = 25.0
-    cell?.yearsOfExperienceLabel.layer.cornerRadius = 25.0
+//    cell?.clinicNameLabel.layer.cornerRadius = 25.0
+//    cell?.doctorNameLabel.layer.cornerRadius = 25.0
+//    cell?.yearsOfExperienceLabel.layer.cornerRadius = 25.0
     return cell!
   }
   

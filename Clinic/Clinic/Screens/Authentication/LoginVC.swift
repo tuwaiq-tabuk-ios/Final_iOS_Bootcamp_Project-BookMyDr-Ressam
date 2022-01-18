@@ -84,7 +84,7 @@ class LoginVC: UIViewController {
       
       if let error = error {
         self.errorLabel.text = error.localizedDescription
-        self.errorLabel.isHidden = false
+        self.errorLabel.alpha = 1
         
         
       } else {
@@ -104,20 +104,17 @@ class LoginVC: UIViewController {
                 
                 self.view.window?.rootViewController = homeViewController
                 self.view.window?.makeKeyAndVisible()
+                
               }else{
                 
                 let homeViewController = self.storyboard?
                   .instantiateViewController(identifier: K.Storyboard.userHomeViewController)
-                
+
                 self.view.window?.rootViewController = homeViewController
                 self.view.window?.makeKeyAndVisible()
               }
             }
           }
-        
-       
-        
-       
       }
     }
   }
@@ -130,4 +127,27 @@ class LoginVC: UIViewController {
     passwordTextField.styleTextField()
     Utilities.styleHelloButton(loginButton)
   }
+  
+  
+  @IBAction func singUpButton(_ sender: Any) {
+    
+    let homeViewController = self.storyboard?
+      .instantiateViewController(identifier:K.Storyboard.singUpController)
+    
+    self.view.window?.rootViewController = homeViewController
+    self.view.window?.makeKeyAndVisible()
+    
+  }
+  
+  
+  @IBAction func forgetPasswordTapped(_ sender: Any) {
+    
+    let homeViewController = self.storyboard?
+      .instantiateViewController(identifier:K.Storyboard.forgetPasswordVC)
+    
+    self.view.window?.rootViewController = homeViewController
+    self.view.window?.makeKeyAndVisible()
+  }
+  
+  
 }

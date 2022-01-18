@@ -24,9 +24,27 @@ class ViewController: UIViewController {
     Utilities.stylefilledButton(singUpButton)
     Utilities.stylefilledButton(loginButton)
   }
+  
+  
+  @IBAction func singUpButton(_ sender: Any) {
+    
+    let homeViewController = self.storyboard?
+      .instantiateViewController(identifier:K.Storyboard.singUpController)
+    
+    self.view.window?.rootViewController = homeViewController
+    self.view.window?.makeKeyAndVisible()
+  }
+  
+  
+  @IBAction func loginButton(_ sender: Any) {
+    
+    let homeViewController = self.storyboard?
+      .instantiateViewController(identifier:K.Storyboard.loginController)
+    
+    self.view.window?.rootViewController = homeViewController
+    self.view.window?.makeKeyAndVisible()
+    
+  }
 }
 
-// ربط واجهات المستخدم مع البروجكت
-// واجهه جديده لحجز موعد من غير التابل
-//في الملف الطبي اضافه تاريخ الزياره و اضافه وصفه طبيه 
-//مشكله الايرور في تسجيل الدخول ما يطلع
+
