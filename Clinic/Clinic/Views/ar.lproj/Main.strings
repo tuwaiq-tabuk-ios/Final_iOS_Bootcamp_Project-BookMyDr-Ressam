@@ -15,7 +15,7 @@
 "5va-GN-j2q.text" = "الإيميل :";
 
 /* Class = "UILabel"; text = "Email :"; ObjectID = "7wg-Ch-1JW"; */
-"7wg-Ch-1JW.text" = "الإيميل :";
+"7wg-Ch-1JW.text" = "الهاتف :";
 
 /* Class = "UILabel"; text = "Doctor : "; ObjectID = "99J-4N-62Q"; */
 "99J-4N-62Q.text" = " الطبيب :";
@@ -54,7 +54,7 @@
 "IxF-UO-9RH.text" = "انقر هنا لإضافة طبيب إلى دليلنا";
 
 /* Class = "UILabel"; text = "Click here to find books and add medications"; ObjectID = "JZ4-hb-4cE"; */
-"JZ4-hb-4cE.text" = "انقر هنا للعثور على الحجوزات وإضافة الأدوية";
+"JZ4-hb-4cE.text" = "انقر هنا للعثور على المواعيد وإضافة الأدوية";
 
 /* Class = "UITextField"; placeholder = "Address Now"; ObjectID = "Jcj-ZC-QuJ"; */
 "Jcj-ZC-QuJ.placeholder" = "الهاتف";
@@ -66,10 +66,10 @@
 "NVV-Iw-bcC.text" = "الطبيب";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "Nv0-wu-3fB"; */
-"Nv0-wu-3fB.placeholder" = "الايميل";
+"Nv0-wu-3fB.placeholder" = "البريد الالكتروني";
 
 /* Class = "UITextField"; text = "ressam15@gmail.com"; ObjectID = "Nv0-wu-3fB"; */
-"Nv0-wu-3fB.text" = "ressam15@gmail.com";
+
 
 /* Class = "UILabel"; text = "Patient name :"; ObjectID = "OnF-rU-BOo"; */
 "OnF-rU-BOo.text" = "اسم المريض :";
@@ -90,7 +90,7 @@
 "R2i-c5-1BZ.normalTitle" = "الزر";
 
 /* Class = "UILabel"; text = "My Medical File"; ObjectID = "SFb-El-MJ5"; */
-"SFb-El-MJ5.text" = "ملفي الطبي";
+"SFb-El-MJ5.text" = "ملفات الطبية للمرضى";
 
 /* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "ScV-zn-aWb"; */
 "ScV-zn-aWb.normalTitle" = "التعديل";
@@ -108,10 +108,10 @@
 "Tlr-Z2-W5d.placeholder" = "العنوان";
 
 /* Class = "UILabel"; text = "Click here to edit our contact information"; ObjectID = "UXe-l2-r3X"; */
-"UXe-l2-r3X.text" = "انقر هنا لتعديل معلومات الاتصال الخاصة بك";
+"UXe-l2-r3X.text" = "انقر هنا لتعديل معلومات الاتصال الخاصة بنا";
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "UbI-sq-29E"; */
-"UbI-sq-29E.text" = "العنوان";
+"UbI-sq-29E.text" = "العنوان :";
 
 /* Class = "UIButton"; normalTitle = "Dissmis"; ObjectID = "VZb-8M-a8D"; */
 "VZb-8M-a8D.normalTitle" = "الرجوع";
@@ -168,7 +168,7 @@
 "kAf-z8-ufz.text" = "الخطأ";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "kuc-9W-NI5"; */
-"kuc-9W-NI5.placeholder" = "الإيميل";
+"kuc-9W-NI5.placeholder" = "البريد الالكتروني";
 
 /* Class = "UILabel"; text = "Doctor :"; ObjectID = "l8M-FG-ZXc"; */
 "l8M-FG-ZXc.text" = "الدكتور :";
@@ -220,7 +220,7 @@
 "w5z-DG-m6t.placeholder" = "الرقم السري";
 
 /* Class = "UITextField"; text = "resam1234@"; ObjectID = "w5z-DG-m6t"; */
-"w5z-DG-m6t.text" = "resam1234@";
+
 
 /* Class = "UILabel"; text = "Doctors"; ObjectID = "wfC-e4-1PH"; */
 "wfC-e4-1PH.text" = "الأطباء";
@@ -232,7 +232,7 @@
 "zqH-Pd-WxM.text" = "اضغط هنا لحجز موعدك";
 
 /* Class = "UILabel"; text = "Phone :"; ObjectID = "zto-e1-0Q0"; */
-"zto-e1-0Q0.text" = "الهاتف";
+"zto-e1-0Q0.text" = "البريد الالكتروني :";
 "zTE-UZ-U1T.normalTitle" = "لديك حساب؟ تسجيل الدخول";
 "kIl-FK-cXy.normalTitle" = "هل نسيت كلمة السر ؟";
 "kze-uk-LXG.normalTitle" = "ليس لديك حساب؟ تسجيل جديد";
@@ -244,3 +244,13 @@
 "goS-5F-5PM.text" = "التاريخ";
 "lYw-9c-Q0k.normalTitle" = "وصفة طبية";
 "QlL-cr-hPG.text" = "الوقت";
+"0yl-e6-kKB.normalTitle" = "إخفاء";
+"9BN-MI-3C8.text" = " القسم ";
+"jd5-Hl-MZJ.text" = " الطبيب";
+"yfL-P3-Tcs.text" = "اسم المريض :";
+"Rxu-Wj-BDA.text" = " رقم الاتصال";
+"U5r-pg-c9O.text" = " موعد مفضل";
+"crd-hZ-1l6.text" = "الفترات الزمنية المتاحة";
+"slU-km-MLW.normalTitle" = "حجز موعد";
+"723-hv-QUx.placeholder" = "الاسم الكامل";
+"ISt-22-yfl.text" = "+٩٦٦";

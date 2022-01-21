@@ -44,4 +44,9 @@ class ForgetPasswordVC : UIViewController {
     self.view.window?.rootViewController = homeViewController
     self.view.window?.makeKeyAndVisible()
   }
+  
+  
+  @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+      emailTextField.resignFirstResponder()
+  }
 }

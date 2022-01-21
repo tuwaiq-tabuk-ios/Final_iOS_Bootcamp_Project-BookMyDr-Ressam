@@ -19,20 +19,18 @@ class TimeVC: UIViewController,
     self.times.removeAll()
   }
   
+  @objc func dismissSelf()
+  {
+    self.dismiss(animated: true, completion: nil)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(dismissSelf))
     timeTable.delegate = self
     timeTable.dataSource = self
   }
   
-  
-  
-  @IBAction func dismissButton(_ sender: Any) {
-    self.dismiss(animated: true,
-                 completion: nil)
-  }
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
@@ -62,4 +60,10 @@ class TimeVC: UIViewController,
     
     return cell
   }
+  
+  
+  @IBAction func hidingButton(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
+  }
+  
 }

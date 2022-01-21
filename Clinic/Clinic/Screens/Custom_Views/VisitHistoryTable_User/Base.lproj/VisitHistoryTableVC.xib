@@ -87,7 +87,7 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="0qu-Zm-bLs" userLabel="Details_Button">
-                        <rect key="frame" x="262" y="80" width="92" height="24"/>
+                        <rect key="frame" x="73" y="78" width="92" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Prescription"/>
                         <connections>

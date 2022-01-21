@@ -8,38 +8,80 @@
 import UIKit
 import FirebaseDatabase
 import MapKit
-class EditLocationVC: UIViewController {
+class EditLocationVC: UIViewController ,UIGestureRecognizerDelegate{
   
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var phoneTextField: UITextField!
   @IBOutlet weak var adressTextField: UITextField!
   @IBOutlet weak var tableView: UITableView!
-   
   @IBOutlet weak var mapView: MKMapView!
+  
+  var pin = MKPointAnnotation()
   var modelList = [Location]()
   var ref : DatabaseReference!
   var latude = 0.0 , longtude = 0.0
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
+      let gestureRecognizer = UILongPressGestureRecognizer(target: self, action:#selector(self.triggerTouchAction(gestureReconizer:)))
+    mapView.isZoomEnabled = true
+    mapView.isPitchEnabled = true
+      mapView.addGestureRecognizer(gestureRecognizer)
     adressTextField.delegate = self
     ref = Database.database().reference()
     tableView.dataSource = self
     tableView.delegate = self
+      gestureRecognizer.delegate = self
+    let zoomGestur = UIPinchGestureRecognizer(target: self, action: #selector(zoomTracking(pitchGestur:)))
+    zoomGestur.delegate = self
     setUpElements()
   }
   
   
+  @objc func zoomTracking(pitchGestur : UIPinchGestureRecognizer)
+  {
+    if pitchGestur.state == UIPinchGestureRecognizer.State.began
+    {
+      var region: MKCoordinateRegion = mapView.region
+      var span = MKCoordinateSpan()
+      span.latitudeDelta = region.span.latitudeDelta * 2
+      
+      span.longitudeDelta = region.span.longitudeDelta * 2
+      region.span = span
+    }
+    
+  }
+  
+  
+  @objc func triggerTouchAction( gestureReconizer: UILongPressGestureRecognizer) {
+        if gestureReconizer.state != UILongPressGestureRecognizer.State.ended
+        {
+            let totuchLocation  = gestureReconizer.location(in: mapView)
+            let locationCordinate = mapView.convert(totuchLocation, toCoordinateFrom: mapView)
+            mapView.removeAnnotation(pin)
+            pin.coordinate = locationCordinate
+            pin.title = "My Clinic"
+            mapView.addAnnotation(pin)
+            self.latude = locationCordinate.latitude
+            self.longtude = locationCordinate.longitude
+        }
+    }
+  
   func setUpElements(){
-    
-
-    
     emailTextField.styleTextField()
     phoneTextField.styleTextField()
     adressTextField.styleTextField()
   }
   
   
+  @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+      emailTextField.resignFirstResponder()
+    phoneTextField.resignFirstResponder()
+    adressTextField.resignFirstResponder()
+  }
+
+ 
   @IBAction func doneButtonTapped(_ sender: UIButton) {
     
       //Not have error update the clinic information in Firebase
@@ -78,7 +120,7 @@ class EditLocationVC: UIViewController {
   
   //Add coordinates and notation
   func addAnnotation(location:CLLocation) {
-    let pin = MKPointAnnotation()
+    
     
     pin.coordinate = CLLocationCoordinate2D(latitude:location.coordinate.latitude ,
                                             longitude: location.coordinate.longitude)

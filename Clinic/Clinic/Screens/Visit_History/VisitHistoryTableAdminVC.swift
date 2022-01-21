@@ -135,11 +135,14 @@ extension VisitHistoryTableAdminVC : MyCellDelegate {
   func didPressButton(_ tag: Int) {
     
     let model = self.confirmedBooks[tag]
-    let story = UIStoryboard(name: "Main", bundle: nil)
-    if let next = story.instantiateViewController(identifier: "AddMedicationVC") as? AddMedicationVC{
-      next.modalPresentationStyle = .fullScreen
-      next.confirmedModel = model
-      self.present(next, animated: true, completion: nil)
+    _ = UIStoryboard(name: "Main", bundle: nil)
+    if let addMedicationVC =
+        storyboard?.instantiateViewController(identifier:K.Storyboard.addMedicationVC) as? AddMedicationVC{
+      
+      addMedicationVC.modalPresentationStyle = .fullScreen
+      addMedicationVC.confirmedModel = model
+      navigationController?.pushViewController(addMedicationVC, animated: true)
+      
     }
   }
   

@@ -133,15 +133,14 @@ extension DoctorsTableVC : UITableViewDelegate,
     let _ : UIStoryboard = UIStoryboard(name: "Main",
                                         bundle: nil)
     
-    if let nextViewController = storyboard?.instantiateViewController(identifier: "AddBookVC") as? AddBookVC {
+    if let addBookVC =
+        storyboard?.instantiateViewController(identifier:K.Storyboard.addBookVC) as? AddBookVC{
       
-      nextViewController.doctorId = self.doctorList[tag].doctorId
-      nextViewController.clinicName = self.doctorList[tag].clinicName
-      nextViewController.doctorName = self.doctorList[tag].doctorName
-      nextViewController.modalPresentationStyle = .fullScreen
-      self.present(nextViewController,
-                   animated: true,
-                   completion: nil)
+     addBookVC.doctorId = self.doctorList[tag].doctorId
+      addBookVC.clinicName = self.doctorList[tag].clinicName
+      addBookVC.doctorName = self.doctorList[tag].doctorName
+      addBookVC.modalPresentationStyle = .fullScreen
+      navigationController?.pushViewController(addBookVC, animated: true)
     }
   }
   

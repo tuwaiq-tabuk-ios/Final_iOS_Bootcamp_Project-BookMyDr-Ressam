@@ -27,7 +27,7 @@ class LocationClinicVC : UIViewController {
     getData()
     setElements()
   }
-  
+
   
   func setElements() {
     emailLabel.styleLabel()

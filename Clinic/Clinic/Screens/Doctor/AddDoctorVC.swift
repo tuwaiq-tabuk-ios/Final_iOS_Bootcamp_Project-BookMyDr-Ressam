@@ -18,7 +18,6 @@ class AddDoctorVC: UIViewController ,
   @IBOutlet weak var txtSelectDoctor: UITextField!
   @IBOutlet weak var yearsOfExperience: UITextField!
   @IBOutlet weak var doctorNameTextField: UITextField!
-  @IBOutlet weak var dismissButton: UIButton!
   
   let pickerSection = UIPickerView()
 
@@ -59,12 +58,6 @@ class AddDoctorVC: UIViewController ,
   }
   
   
-  //Return to the previous view
-  @IBAction func dissmisButtonTapped(_ sender: UIButton) {
-    self.dismiss(animated: true,
-                 completion: nil)
-  }
-  
   
   @IBAction func addNewDoctorTapped(_ sender: Any) {
     let DocId = UUID.init().uuidString
@@ -85,8 +78,13 @@ class AddDoctorVC: UIViewController ,
       }
     }
   }
-}
 
+
+@IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+    doctorNameTextField.resignFirstResponder()
+  yearsOfExperience.resignFirstResponder()
+ }
+}
 
 // MARK: - UIPickerViewDelegate
 extension AddDoctorVC: UIPickerViewDelegate {
