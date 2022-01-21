@@ -7,8 +7,9 @@
 
 import UIKit
 import FirebaseDatabase
-
-class AddBookUserVC: UIViewController,UITextFieldDelegate {
+import MessageUI
+import FirebaseAuth
+class AddBookUserVC: UIViewController,UITextFieldDelegate, MFMailComposeViewControllerDelegate {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var timeText: UITextField!
@@ -48,10 +49,14 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
   var doctortapped = false
   var clinicTapped = false
   
-  
+  override func viewDidDisappear(_ animated: Bool) {
+    self.timeText.text = ""
+  self.time = ""
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+   
+   
     getDoctors()
     getDates(id:doctorId)
     setUpElements()
@@ -194,7 +199,11 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
           //Show this massage without any error
           self.showaAlertDoneView(Title: "Done",
                                   Msg: "Book added Successfully.")
-          
+        
+          self.sendEmail()
+            self.timeText.text = ""
+          self.time = ""
+          Staticv.instance.Time = ""
           //Check remove the selected time
           let _ = Database.database().reference().child(K.FireStore.availableBooksCollection).child(self.doctorId).child(book.date).child(self.key).removeValue()
           if !self.times.isEmpty {
@@ -206,13 +215,14 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
           if !self.dates.isEmpty {
             self.dates.removeAll()
           }
-          
+            
           let story = UIStoryboard(name: "Main",
                                    bundle: nil)
           
           if let next = story.instantiateViewController(identifier: K.Storyboard.userHomeViewController) as? HomeVC {
             next.modalPresentationStyle = .fullScreen
-            self.present(next, animated: true, completion: nil)
+            self.navigationController?.pushViewController(next, animated: true)
+//            self.present(next, animated: true, completion: nil)
           }
         }
       }
@@ -224,13 +234,38 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate {
   }
   
   
-  @IBAction func dismissButton(_ sender: Any) {
-    self.dismiss(animated: true,
-                 completion: nil)
+  @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+      patientNameTextField.resignFirstResponder()
+    patientPhoneTextField.resignFirstResponder()
   }
+
+
+func sendEmail() {
   
-  
+  let email =  Auth.auth().currentUser?.email!
+    if MFMailComposeViewController.canSendMail() {
+        let mail = MFMailComposeViewController()
+        mail.mailComposeDelegate = self
+        mail.title = "BookMyDr"
+        mail.setToRecipients([email!])
+    
+      mail.setSubject("The appointment has been successfully booked at BookMyDr Clinic!!")
+    
+        present(mail, animated: true)
+    } else {
+        // show failure alert
+      print("error in sending mail")
+    }
 }
+  
+  
+  func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+      controller.dismiss(animated: true)
+  }
+}
+
+
+
 
 
 //MARK:- UITableViewDataSource,UITableViewDelegate
@@ -302,10 +337,10 @@ extension AddBookUserVC :UITableViewDataSource,
     }
     self.key  = self.bookkeys[indexPath.row]
     
-    let story = UIStoryboard(name: "Main",
+   let story = UIStoryboard(name: "Main",
                              bundle: nil)
     let timeController = story.instantiateViewController(identifier: "timeView") as TimeVC
-    
+
     timeController.modalPresentationStyle = .fullScreen
     timeController.times = self.times
     self.present(timeController,
@@ -381,3 +416,5 @@ extension AddBookUserVC : UIPickerViewDelegate,UIPickerViewDataSource {
     view.endEditing(true)
   }
 }
+
+

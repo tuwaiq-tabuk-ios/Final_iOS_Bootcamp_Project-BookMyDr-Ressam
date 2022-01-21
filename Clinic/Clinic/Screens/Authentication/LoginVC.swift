@@ -155,5 +155,17 @@ class LoginVC: UIViewController {
     
     self.view.window?.rootViewController = homeViewController
     self.view.window?.makeKeyAndVisible()
+
+//    if  let forgotPassViewController = self.storyboard?
+//          .instantiateViewController(identifier:K.Storyboard.forgetPasswordVC) as? ForgetPasswordVC{
+//      forgotPassViewController.modalPresentationStyle = .fullScreen
+//  navigationController?.pushViewController(forgotPassViewController, animated: true)
+//    }
+}
+  
+  
+  @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+      emailTextField.resignFirstResponder()
+    passwordTextField.resignFirstResponder()
   }
 }

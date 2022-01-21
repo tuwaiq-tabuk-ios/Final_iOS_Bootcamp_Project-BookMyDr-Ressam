@@ -2,6 +2,9 @@
   Localizable.strings
   Clinic
 
-  Created by Mahmoud Fayez on 18/01/2022.
+  Created by Ressam Al-Thebailah on 18/01/2022.
   
 */
+"Sign Up" = "انشاء حساب";
+"Login" = "تسجيل دخول";
+"Welcome to BookMyDr" = "مرحبا بك  BookMyDr";

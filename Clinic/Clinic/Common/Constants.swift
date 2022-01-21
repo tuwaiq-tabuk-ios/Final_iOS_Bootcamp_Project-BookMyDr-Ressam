@@ -16,6 +16,10 @@ struct K {
     static let loginController = "loginVC"
     static let singUpController = "singUpVC"
     static let forgetPasswordVC = "forgetPasswordVC"
+    static let addBookVC = "AddBookVC"
+    static let addMedicationVC = "AddMedicationVC"
+    static let medicationUserVC = "MedicationUserVC"
+    
   }
   
   

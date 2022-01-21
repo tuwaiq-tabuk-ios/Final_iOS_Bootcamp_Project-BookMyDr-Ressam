@@ -177,4 +177,13 @@ class SingUpVC: UIViewController {
     self.view.window?.rootViewController = homeViewController
     self.view.window?.makeKeyAndVisible()
   }
+  
+  
+  @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+      firstNameTextField.resignFirstResponder()
+   lastNameTextField.resignFirstResponder()
+      emailTextField.resignFirstResponder()
+    passwordTextField.resignFirstResponder()
+  }
+
 }

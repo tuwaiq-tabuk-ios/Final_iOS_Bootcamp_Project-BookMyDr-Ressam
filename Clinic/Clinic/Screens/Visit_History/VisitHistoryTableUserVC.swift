@@ -116,11 +116,16 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
     func didPressButton(_ tag: Int) {
       
       let model = self.confirmedBooks[tag]
-      let story = UIStoryboard(name: "Main", bundle: nil)
-      if let next = story.instantiateViewController(identifier: "MedicationUserVC") as? MedicationUserVC{
-        next.modalPresentationStyle = .fullScreen
-        next.confirmedModel = model
-        self.present(next, animated: true, completion: nil)
+      let _ : UIStoryboard = UIStoryboard(name:"Main",
+                                          bundle: nil)
+      
+      if let medicationVC =
+          storyboard?.instantiateViewController(identifier:K.Storyboard.medicationUserVC) as? MedicationUserVC{
+        
+        medicationVC.modalPresentationStyle = .fullScreen
+        medicationVC.confirmedModel = model
+       
+        navigationController?.pushViewController(medicationVC, animated: true)
       }
     }
     

@@ -9,7 +9,7 @@
 "5va-GN-j2q.text" = "Email :";
 
 /* Class = "UILabel"; text = "Email :"; ObjectID = "7wg-Ch-1JW"; */
-"7wg-Ch-1JW.text" = "Email :";
+"7wg-Ch-1JW.text" = "Phone :";
 
 /* Class = "UILabel"; text = "Medication"; ObjectID = "ADk-dd-UZd"; */
 "ADk-dd-UZd.text" = "Medication";
@@ -42,7 +42,7 @@
 "Nv0-wu-3fB.placeholder" = "Email";
 
 /* Class = "UITextField"; text = "Mohammed15@gmail.com"; ObjectID = "Nv0-wu-3fB"; */
-"Nv0-wu-3fB.text" = "Mohammed15@gmail.com";
+
 
 /* Class = "UILabel"; text = "Patient name :"; ObjectID = "OnF-rU-BOo"; */
 "OnF-rU-BOo.text" = "Patient name :";
@@ -69,7 +69,7 @@
 "UXe-l2-r3X.text" = "Click here to edit our contact information";
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "UbI-sq-29E"; */
-"UbI-sq-29E.text" = "Address";
+"UbI-sq-29E.text" = "Address :";
 
 /* Class = "UIButton"; normalTitle = "Dissmis"; ObjectID = "VZb-8M-a8D"; */
 "VZb-8M-a8D.normalTitle" = "Dissmis";
@@ -150,7 +150,7 @@
 "w5z-DG-m6t.placeholder" = "Password";
 
 /* Class = "UITextField"; text = "resam1234@"; ObjectID = "w5z-DG-m6t"; */
-"w5z-DG-m6t.text" = "resam1234@";
+
 
 /* Class = "UILabel"; text = "Phone :"; ObjectID = "zto-e1-0Q0"; */
-"zto-e1-0Q0.text" = "Phone :";
+"zto-e1-0Q0.text" = "Email :";

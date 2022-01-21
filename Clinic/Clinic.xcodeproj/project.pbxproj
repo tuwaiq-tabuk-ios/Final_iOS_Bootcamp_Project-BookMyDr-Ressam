@@ -27,6 +27,7 @@
 		6692C9B32796D7B500DF5774 /* VisitHistoryTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6692C9B52796D7B500DF5774 /* VisitHistoryTableVC.xib */; };
 		6692C9BB2796D85200DF5774 /* TableViewCellUser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6692C9BD2796D85200DF5774 /* TableViewCellUser.xib */; };
 		6692C9C62796DA1F00DF5774 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6692C9C82796DA1F00DF5774 /* TableViewCell.xib */; };
+		6692C9CE2797F6A000DF5774 /* BundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6692C9CD2797F6A000DF5774 /* BundleKey.swift */; };
 		6693359E277B7FA400250B24 /* StaticV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6693359D277B7FA400250B24 /* StaticV.swift */; };
 		66969CDF278DEF0000B18482 /* VisitHistoryAdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66969CE1278DEF0000B18482 /* VisitHistoryAdminTableViewCell.xib */; };
 		66B76BD3277880AB009B8443 /* LocationClinicUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B76BD2277880AB009B8443 /* LocationClinicUserVC.swift */; };
@@ -89,6 +90,12 @@
 		6692C9C02796D87C00DF5774 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TableViewCellUser.strings; sourceTree = "<group>"; };
 		6692C9C72796DA1F00DF5774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TableViewCell.xib; sourceTree = "<group>"; };
 		6692C9CA2796DA2400DF5774 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TableViewCell.strings; sourceTree = "<group>"; };
+		6692C9CD2797F6A000DF5774 /* BundleKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleKey.swift; sourceTree = "<group>"; };
+		6692C9CF27982E3700DF5774 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		6692C9D027982E3E00DF5774 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VisitHistoryAdminTableViewCell.strings; sourceTree = "<group>"; };
+		6692C9D127982E4300DF5774 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VisitHistoryTableVC.strings; sourceTree = "<group>"; };
+		6692C9D327982E4800DF5774 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TableViewCellUser.strings; sourceTree = "<group>"; };
+		6692C9D527982E4C00DF5774 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TableViewCell.strings; sourceTree = "<group>"; };
 		6693359D277B7FA400250B24 /* StaticV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticV.swift; sourceTree = "<group>"; };
 		66B76BD2277880AB009B8443 /* LocationClinicUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationClinicUserVC.swift; sourceTree = "<group>"; };
 		66BFC86C276755EA007E09E8 /* Clinic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clinic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				66BFC88F27676698007E09E8 /* Constants.swift */,
+				6692C9CD2797F6A000DF5774 /* BundleKey.swift */,
 				661C363E277C45C7000D8DF4 /* Helpers */,
 				66FD2D86277C3AF40006ADE9 /* Extensions */,
 			);
@@ -549,6 +557,7 @@
 				66BFC88827675651007E09E8 /* HomeVC.swift in Sources */,
 				66BFC8992767A414007E09E8 /* UserModel.swift in Sources */,
 				66FC9AA72779B203003041FF /* VisitHistoryTableAdminVC.swift in Sources */,
+				6692C9CE2797F6A000DF5774 /* BundleKey.swift in Sources */,
 				667F0E0227744C8C008A7321 /* DoctorTableUserVC.swift in Sources */,
 				66D1B75827904778006DB004 /* ForgetPasswordVC.swift in Sources */,
 				66FA45ED2771E8B90007D4D7 /* PatientModel.swift in Sources */,
@@ -570,6 +579,7 @@
 			children = (
 				6692C9B82796D7D200DF5774 /* Base */,
 				6692C9BA2796D80400DF5774 /* ar */,
+				6692C9D127982E4300DF5774 /* en */,
 			);
 			name = VisitHistoryTableVC.xib;
 			sourceTree = "<group>";
@@ -579,6 +589,7 @@
 			children = (
 				6692C9BE2796D85600DF5774 /* Base */,
 				6692C9C02796D87C00DF5774 /* ar */,
+				6692C9D327982E4800DF5774 /* en */,
 			);
 			name = TableViewCellUser.xib;
 			sourceTree = "<group>";
@@ -588,6 +599,7 @@
 			children = (
 				6692C9C72796DA1F00DF5774 /* Base */,
 				6692C9CA2796DA2400DF5774 /* ar */,
+				6692C9D527982E4C00DF5774 /* en */,
 			);
 			name = TableViewCell.xib;
 			sourceTree = "<group>";
@@ -597,6 +609,7 @@
 			children = (
 				A927DC302796223400CFC257 /* Base */,
 				6692C9B22796D71000DF5774 /* ar */,
+				6692C9D027982E3E00DF5774 /* en */,
 			);
 			name = VisitHistoryAdminTableViewCell.xib;
 			sourceTree = "<group>";
@@ -606,6 +619,7 @@
 			children = (
 				A927DC2E2796223400CFC257 /* Base */,
 				A927DC35279626D700CFC257 /* ar */,
+				6692C9CF27982E3700DF5774 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

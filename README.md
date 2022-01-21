@@ -11,20 +11,30 @@ Patients and clinic administrators
 
 
 ## User stories - Clinic administrators
-   - Add doctors to the clinic by  specializtion or department.
-   - Add availabe visits for doctors
-   - Edit location, email and telephone of a clinic
-   - Locate the clinic in a map dinamycally as the user change the address
-   - Add medical prescriptions to patients
+   -  Log in and log out an account.
+   - Add doctors of the clinic department and their years of experience.
+   - Add availabe appointments for doctors.
+   - Edit location, email and telephone of a clinic.
+   - Locate the clinic in a map dinamycally as the user change the address.
+   - Add medical prescriptions to patients.
+   - Delete a doctor from the clinic list and from firebase.
 
 
 ## User stories - Patients
-   - Create an account  
-   - Book an appointment with a doctor by departments
-   - See the location of the clinic in a map and information like address, email and phone of the clinic
-   - View history of visits and medical prescriptions
-   - Receive notifications regarding upcoming appointments
-
+   - Log in, log out and create an account. 
+   - Choose a date and time from the available appointments for each doctor.  
+   - Book an appointment with a doctor by departments.
+   - See the location of the clinic in a map and information like address, email and phone of the clinic.
+   - View history of visits and medical prescriptions.
+   - Send an email to the patient about the appointment booking confirmation.
+   
+   
+## User stories - Patients and Clinic administrator
+   - Support dark/light modes. 
+   - Change the language of the application
+   - Retrieve user account password.
+   
+   
 ## ScreenShot - Patients
 
 

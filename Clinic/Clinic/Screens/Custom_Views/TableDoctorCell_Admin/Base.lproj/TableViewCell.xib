@@ -29,14 +29,14 @@
                                 <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKd-oD-sEf" userLabel="Doctor_Name_Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKd-oD-sEf" userLabel="Doctor_Name_Label">
                                 <rect key="frame" x="110" y="0.0" width="436" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="4xT-tX-VFg"/>
                                     <constraint firstAttribute="width" constant="436" id="yjM-XC-jeY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -58,14 +58,14 @@
                                 <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeer" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgl-tG-CYv" userLabel="Value_Years_Experience_Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgl-tG-CYv" userLabel="Value_Years_Experience_Label">
                                 <rect key="frame" x="110" y="0.0" width="436" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="436" id="O86-0J-HU0"/>
                                     <constraint firstAttribute="height" constant="20.5" id="kO1-SQ-Z5N"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -81,25 +81,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="4An-wz-rQq"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="7uk-oF-otl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="16"/>
                                 <color key="textColor" red="0.3921568627" green="0.70980392160000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clinc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0M-ku-Qsl" userLabel="Clinic_Name_Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clinc" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0M-ku-Qsl" userLabel="Clinic_Name_Label">
                                 <rect key="frame" x="110" y="0.0" width="436" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="436" id="ELv-tI-UW7"/>
                                     <constraint firstAttribute="height" constant="25" id="xi7-dd-8h4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="aw1-fI-ZHg" firstAttribute="top" secondItem="yXU-U0-xWB" secondAttribute="top" id="FVY-1V-3Aw"/>
+                            <constraint firstItem="k0M-ku-Qsl" firstAttribute="leading" secondItem="aw1-fI-ZHg" secondAttribute="trailing" id="H8u-f3-2DB"/>
                             <constraint firstAttribute="width" constant="546" id="Xbm-W5-msW"/>
+                            <constraint firstItem="aw1-fI-ZHg" firstAttribute="leading" secondItem="yXU-U0-xWB" secondAttribute="leading" id="Xx9-FG-HEs"/>
                             <constraint firstAttribute="height" constant="25" id="aNQ-Kj-GHg"/>
+                            <constraint firstAttribute="bottom" secondItem="aw1-fI-ZHg" secondAttribute="bottom" id="vgI-CX-GVz"/>
                         </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N6L-fL-aPI" userLabel="Fourth_Stack_View">
@@ -145,6 +150,7 @@
                     <constraint firstItem="Dnl-4Z-cYO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="clW-YA-7fB"/>
                     <constraint firstItem="Dnl-4Z-cYO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cmf-qw-bN9"/>
                     <constraint firstItem="yXU-U0-xWB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eOg-ZN-bqn"/>
+                    <constraint firstItem="yXU-U0-xWB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hmo-8K-oJu"/>
                     <constraint firstAttribute="trailing" secondItem="g4r-rV-Gtc" secondAttribute="trailing" id="qhd-xN-lIt"/>
                     <constraint firstItem="N6L-fL-aPI" firstAttribute="top" secondItem="yXU-U0-xWB" secondAttribute="bottom" constant="15" id="xtA-36-4VM"/>
                 </constraints>

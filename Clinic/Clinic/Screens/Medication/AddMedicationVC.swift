@@ -64,27 +64,27 @@ class AddMedicationVC: UIViewController {
     }
   }
   
+
+  @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+      treatmentTextField.resignFirstResponder()
+  }
+
   
   @IBAction func addButtonTapped(_ sender: UIButton) {
     let model = MedicationModel(bookId: confirmedModel.bookId, medication: treatmentTextField.text!)
-    ref.child("Medication").child(confirmedModel.bookId).setValue(model.toDic()){
+      ref.child("Medication").child(confirmedModel.bookId).setValue(model.toDic()){ [self]
       error , result in
       if error == nil
       {
         self.showaAlertDoneView(Title: "Done!",
                                 Msg: "Medicine have been added successfully")
+          self.confirmedModel.haveMedication = true
+          self.ref.child("confirmedBooks").child(self.confirmedModel.bookId).setValue(self.confirmedModel.toDic())
       }else{
         self.showaAlertDoneView(Title: "Error!",
                                 Msg: error.debugDescription)
       }
     }
-  }
-  
-  
-  //Return to the previous view
-  @IBAction func backButtonTapped(_ sender: UIButton) {
-    self.dismiss(animated: true,
-                 completion: nil)
   }
 }
 
