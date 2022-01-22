@@ -15,18 +15,26 @@ class TimeVC: UIViewController,
   
   var times = [String]()
   
+  
   override func viewDidDisappear(_ animated: Bool) {
     self.times.removeAll()
   }
   
+  
   @objc func dismissSelf()
   {
-    self.dismiss(animated: true, completion: nil)
+    self.dismiss(animated: true,
+                 completion: nil)
   }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(dismissSelf))
+    
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Dismiss",
+                                                        style: .plain,
+                                                        target: self,
+                                                        action: #selector(dismissSelf))
     timeTable.delegate = self
     timeTable.dataSource = self
   }

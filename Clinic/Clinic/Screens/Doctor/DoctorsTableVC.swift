@@ -68,8 +68,8 @@ class DoctorsTableVC: UIViewController {
 }
 
 
-//MARK: - UITableViewDelegate,UITableViewDataSource
 
+//MARK: - UITableViewDelegate,UITableViewDataSource
 extension DoctorsTableVC : UITableViewDelegate,
                            UITableViewDataSource,
                            MyCellDelegate{
@@ -81,13 +81,13 @@ extension DoctorsTableVC : UITableViewDelegate,
   -> UISwipeActionsConfiguration? {
     let delete = UIContextualAction(style: .destructive,
                                     title: "Delete") { ACTION,
-                                                       view,
-                                                       result in
+      view,
+      result in
       
-      self.ref.child(K.FireStore.doctorCollection).child(self.doctorList[indexPath.row].doctorId).removeValue()
+      self.ref.child(K.FireStore.doctorCollection)
+        .child(self.doctorList[indexPath.row].doctorId).removeValue()
       result(true)
     }
-    
     return UISwipeActionsConfiguration(actions: [delete])
   }
   
@@ -96,8 +96,9 @@ extension DoctorsTableVC : UITableViewDelegate,
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath)
   -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell",
-                                             for: indexPath) as? TableViewCell
+    let cell = tableView
+      .dequeueReusableCell(withIdentifier: "TableViewCell",
+                           for: indexPath) as? TableViewCell
     
     cell?.myCellDelegate = self
     
@@ -106,21 +107,15 @@ extension DoctorsTableVC : UITableViewDelegate,
     
     if !self.doctorList.isEmpty {
       
-      cell?.clinicNameLabel.text = self.doctorList[indexPath.row].clinicName
-      cell?.doctorNameLabel.text = self.doctorList[indexPath.row].doctorName
-      cell?.yearsExpLabel.text = self.doctorList[indexPath.row].hireDate
+      cell?.clinicNameLabel.text =
+      self.doctorList[indexPath.row].clinicName
+      cell?.doctorNameLabel.text =
+      self.doctorList[indexPath.row].doctorName
+      cell?.yearsExpLabel.text =
+      self.doctorList[indexPath.row].hireDate
     }
-    
-//    cell?.backgroundColor = UIColor.init(red: 246/255, green: 246/255, blue: 212/255, alpha: 1)
-//    cell?.layer.cornerRadius = 25.0
-//    cell?.tintColor = UIColor.white
-//  cell?.layer.borderColor = UIColor.white.cgColor
-//   cell?.layer.borderWidth = 3
     cell?.bookingButton.layer.cornerRadius = 25.0
-//    cell?.clinicNameLabel.layer.cornerRadius = 25.0
-//    cell?.doctorNameLabel.layer.cornerRadius = 25.0
-//    cell?.yearsExpLabel.layer.cornerRadius = 25.0
-   
+    
     return cell!
   }
   
@@ -136,11 +131,16 @@ extension DoctorsTableVC : UITableViewDelegate,
     if let addBookVC =
         storyboard?.instantiateViewController(identifier:K.Storyboard.addBookVC) as? AddBookVC{
       
-     addBookVC.doctorId = self.doctorList[tag].doctorId
-      addBookVC.clinicName = self.doctorList[tag].clinicName
-      addBookVC.doctorName = self.doctorList[tag].doctorName
+      addBookVC.doctorId =
+      self.doctorList[tag].doctorId
+      addBookVC.clinicName =
+      self.doctorList[tag].clinicName
+      addBookVC.doctorName =
+      self.doctorList[tag].doctorName
+      
       addBookVC.modalPresentationStyle = .fullScreen
-      navigationController?.pushViewController(addBookVC, animated: true)
+      navigationController?.pushViewController(addBookVC,
+                                               animated: true)
     }
   }
   

@@ -49,7 +49,7 @@ struct PatientModel {
   }
   
   
-  func toDic()-> [String:Any]
+  func toDictionary()-> [String:Any]
   {
     return[
       "bookId": self.bookId,

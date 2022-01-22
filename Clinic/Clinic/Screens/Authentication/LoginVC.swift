@@ -83,7 +83,6 @@ class LoginVC: UIViewController {
         self.errorLabel.text = error.localizedDescription
         self.errorLabel.alpha = 1
         
-        
       } else {
         
         K.FireStore.userId = result!.user.uid
@@ -96,31 +95,24 @@ class LoginVC: UIViewController {
               
               if isAdmin
               {
-               
-               
-               
-              if  let homeViewController = self.storyboard?
-                    .instantiateViewController(identifier: K.Storyboard.adminHomeController) as? AdminHomeVC{
+                if  let homeViewController = self.storyboard?
+                      .instantiateViewController(identifier: K.Storyboard.adminHomeController) as? AdminHomeVC{
                   
                   let navi  = UINavigationController(rootViewController: homeViewController)
                   navi.modalPresentationStyle = .fullScreen
                   
                   self.present(navi, animated: true, completion: nil)
-              }
-
-              }else{
+                }
                 
+              }else{
+                if  let homeViewController = self.storyboard?
+                      .instantiateViewController(identifier: K.Storyboard.userHomeViewController) as? HomeVC{
                   
-                 if  let homeViewController = self.storyboard?
-                       .instantiateViewController(identifier: K.Storyboard.userHomeViewController) as? HomeVC{
-                     
-                     let navi  = UINavigationController(rootViewController: homeViewController)
-                     navi.modalPresentationStyle = .fullScreen
-                     
-                     self.present(navi, animated: true, completion: nil)
-                 }
+                  let navi  = UINavigationController(rootViewController: homeViewController)
+                  navi.modalPresentationStyle = .fullScreen
                   
-               
+                  self.present(navi, animated: true, completion: nil)
+                }
               }
             }
           }
@@ -155,17 +147,11 @@ class LoginVC: UIViewController {
     
     self.view.window?.rootViewController = homeViewController
     self.view.window?.makeKeyAndVisible()
-
-//    if  let forgotPassViewController = self.storyboard?
-//          .instantiateViewController(identifier:K.Storyboard.forgetPasswordVC) as? ForgetPasswordVC{
-//      forgotPassViewController.modalPresentationStyle = .fullScreen
-//  navigationController?.pushViewController(forgotPassViewController, animated: true)
-//    }
-}
+  }
   
   
   @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-      emailTextField.resignFirstResponder()
+    emailTextField.resignFirstResponder()
     passwordTextField.resignFirstResponder()
   }
 }

@@ -113,23 +113,23 @@ class SingUpVC: UIViewController {
       withEmail: email,
       password: password) { (result,
                              errorCreatingUser)in
-      
-      if errorCreatingUser != nil {
         
-        self.showError("Error creating user")
-      } else {
-        K.FireStore.userId = (result?.user.uid)!
-        
-        self.ref.child(K.FireStore.usersCollection).child(K.FireStore.userId).setValue([
-          "FirstName" : firstName,
-          "LastName" : lastName,
-          "Email" : email,
-          "Id" : K.FireStore.userId,
-          "isAdmin" : false
-        ])
+        if errorCreatingUser != nil {
+          
+          self.showError("Error creating user")
+        } else {
+          K.FireStore.userId = (result?.user.uid)!
+          
+          self.ref.child(K.FireStore.usersCollection).child(K.FireStore.userId).setValue([
+            "FirstName" : firstName,
+            "LastName" : lastName,
+            "Email" : email,
+            "Id" : K.FireStore.userId,
+            "isAdmin" : false
+          ])
+        }
+        self.transitionToHome()
       }
-      self.transitionToHome()
-    }
   }
   
   
@@ -162,10 +162,17 @@ class SingUpVC: UIViewController {
   
   
   func transitionToHome() {
-    let homeViewController = storyboard?.instantiateViewController(identifier:K.Storyboard.userHomeViewController)
-    
-    view.window?.rootViewController = homeViewController
-    view.window?.makeKeyAndVisible()
+    if  let homeViewController = self.storyboard?
+          .instantiateViewController(identifier: K.Storyboard.userHomeViewController) as? HomeVC{
+      
+      let navi  = UINavigationController(rootViewController: homeViewController)
+      
+      navi.modalPresentationStyle = .fullScreen
+      
+      self.present(navi,
+                   animated: true,
+                   completion: nil)
+    }
   }
   
   
@@ -180,10 +187,10 @@ class SingUpVC: UIViewController {
   
   
   @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-      firstNameTextField.resignFirstResponder()
-   lastNameTextField.resignFirstResponder()
-      emailTextField.resignFirstResponder()
+    firstNameTextField.resignFirstResponder()
+    lastNameTextField.resignFirstResponder()
+    emailTextField.resignFirstResponder()
     passwordTextField.resignFirstResponder()
   }
-
+  
 }

@@ -14,7 +14,8 @@ struct ConfirmedBooksModel {
   var date :String
   var time : String
   var haveMedication : Bool
-  
+  var patientName : String
+  var patientMobile : String
   init(value : NSDictionary)
   {
     self.bookId = value["bookId"] as! String
@@ -23,6 +24,8 @@ struct ConfirmedBooksModel {
     self.date = value["date"] as! String
     self.time = value["time"] as! String
     self.haveMedication = value["haveMedication"] as! Bool
+    self.patientName = value["patientName"] as! String
+    self.patientMobile = value["patientMobile"] as! String
   }
   
   init()
@@ -33,14 +36,18 @@ struct ConfirmedBooksModel {
     self.date = ""
     self.time = ""
     self.haveMedication = false
-    
+    self.patientName = ""
+    self.patientMobile = ""
   }
+  
   init(bookId : String ,
        userId : String ,
        doctorId : String ,
        date : String ,
        time : String,
-       haveMedication:Bool)
+       haveMedication:Bool,
+       patientName : String ,
+       patientMobile : String )
   
   {
     self.bookId = bookId
@@ -49,9 +56,11 @@ struct ConfirmedBooksModel {
     self.date = date
     self.time = time
     self.haveMedication = haveMedication
+    self.patientName = patientName
+    self.patientMobile = patientMobile
   }
   
-  func toDic() -> [String : Any]
+  func toDictionary() -> [String : Any]
   {
     return[
       "bookId":self.bookId,
@@ -59,7 +68,9 @@ struct ConfirmedBooksModel {
       "doctorId": self.doctorId,
       "date":self.date,
       "time":self.time,
-      "haveMedication" :self.haveMedication
+      "haveMedication" :self.haveMedication,
+      "patientName" :self.patientName,
+      "patientMobile" :self.patientMobile
     ] as [String : Any]
   }
                  

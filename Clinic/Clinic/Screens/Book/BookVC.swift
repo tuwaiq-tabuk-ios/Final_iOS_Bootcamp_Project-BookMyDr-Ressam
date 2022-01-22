@@ -43,10 +43,6 @@ class BookVC : UIViewController,
   
   func setUpElements() {
     Utilities.stylefilledButton(bookAppointmentButton)
-    //    clinicTextField.styleTextField()
-    //    doctorTextField.styleTextField()
-    //    patientNameTextField.styleTextField()
-    //    patientPhoneTextField.styleTextField()
   }
   
   

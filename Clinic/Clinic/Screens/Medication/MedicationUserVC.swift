@@ -38,33 +38,28 @@ class MedicationUserVC: UIViewController {
   
   func getData() {
     
-    ref.child("Doctor").child(confirmedModel.doctorId).getData { error,
-                                                  Data in
-      
-      if let data = Data.value as? NSDictionary {
+    ref.child("Doctor")
+      .child(confirmedModel.doctorId).getData { error,Data in
         
-        self.doctorNameLabel.text! = data["doctorName"] as? String ?? "No data"
-        self.departmentNameLabel.text!   = data["clinicName"] as? String ?? "No data"
+        if let data = Data.value as? NSDictionary {
+          
+          self.doctorNameLabel.text! =
+          data["doctorName"] as? String ?? "No data"
+          self.departmentNameLabel.text! =
+          data["clinicName"] as? String ?? "No data"
+        }
       }
-    }
     
-    ref.child(K.FireStore.usersCollection).child(confirmedModel.userId).getData { error, Data in
-      
-      if let data = Data.value as? NSDictionary {
-        let first  = data["FirstName"] as? String ?? "No data"
-        let last  = data["LastName"] as? String ?? "No data"
-        self.patientNameLabel.text! = first + " " + last
-       
-      }
-    }
+    self.patientNameLabel.text = confirmedModel.patientName
     
-    ref.child("Medication").child(confirmedModel.bookId).getData { error,
-                                                  Data in
-      
-      if let data = Data.value as? NSDictionary {
+    ref.child("Medication")
+      .child(confirmedModel.bookId).getData { error, Data in
         
-        self.teartmentNameLabel.text! = data["medication"] as? String ?? "No data"
+        if let data = Data.value as? NSDictionary {
+          
+          self.teartmentNameLabel.text!
+          = data["medication"] as? String ?? "No data"
+        }
       }
-    }
   }
 }

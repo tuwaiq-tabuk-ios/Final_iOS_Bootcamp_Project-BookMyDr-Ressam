@@ -38,13 +38,14 @@ class VisitHistoryTableUserVC : UIViewController {
     ref.child(K.FireStore.confirmedBooksCollection).getData
     { Error,
       dataShot in
-
+      
       if  let data = dataShot.value as? NSDictionary {
         
         for (_,v) in data {
           
           let v1 = v as! NSDictionary
-          self.confirmedBooks.append(ConfirmedBooksModel(value: v1))
+          self.confirmedBooks
+            .append(ConfirmedBooksModel(value: v1))
         }
       } else {
         
@@ -55,7 +56,6 @@ class VisitHistoryTableUserVC : UIViewController {
         
         if item.userId == K.FireStore.userId
         {
-          
           self.patientConfirmedBooks.append(item)
         }
       }
@@ -66,9 +66,8 @@ class VisitHistoryTableUserVC : UIViewController {
 
 
 //MARK:- UITableViewDelegate,UITableViewDataSource
-extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
-//                                    , MyCellDelegate
-{
+extension VisitHistoryTableUserVC : UITableViewDelegate,
+                                    UITableViewDataSource {
   
   
   func tableView(_ tableView: UITableView,
@@ -78,25 +77,34 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
   
   
   func tableView(_ tableView: UITableView,
-                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "VisitHistoryTableVC",
-                                             for: indexPath) as? VisitHistoryTableVC
+                 cellForRowAt indexPath: IndexPath)
+  -> UITableViewCell {
+    
+    let cell =
+    tableView.dequeueReusableCell(withIdentifier: "VisitHistoryTableVC",
+                                  for: indexPath) as? VisitHistoryTableVC
+    
     var  doctorName =  " "
     let doctorId =
-      
-      self.patientConfirmedBooks[indexPath.row].doctorId
+    
+    self.patientConfirmedBooks[indexPath.row].doctorId
+    
     ref.child("Doctor").child(doctorId).getData { error,
-                                                  Data in
+      Data in
       if let data = Data.value as? NSDictionary {
         
         doctorName = data["doctorName"] as? String ?? "No data"
         cell?.doctorLabel.text = doctorName
-       }
+      }
     }
     
     cell?.medicationButton.tag = indexPath.row
-    cell?.dateLabel.text = self.patientConfirmedBooks[indexPath.row].date
-    cell?.timeLabel.text = self.patientConfirmedBooks[indexPath.row].time
+    
+    cell?.dateLabel.text =
+    self.patientConfirmedBooks[indexPath.row].date
+    cell?.timeLabel.text =
+    self.patientConfirmedBooks[indexPath.row].time
+    
     cell?.myCellDelegate = self
     
     return cell!
@@ -107,31 +115,31 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,UITableViewDataSource
     1
   }
 }
-  
 
-  //MARK:- MyCellDelegate
-  extension VisitHistoryTableUserVC : MyCellDelegate {
+
+//MARK:- MyCellDelegate
+extension VisitHistoryTableUserVC : MyCellDelegate {
+  
+  
+  func didPressButton(_ tag: Int) {
     
+    let model = self.confirmedBooks[tag]
+    let _ : UIStoryboard = UIStoryboard(name:"Main",
+                                        bundle: nil)
     
-    func didPressButton(_ tag: Int) {
+    if let medicationVC =
+        storyboard?.instantiateViewController(identifier:K.Storyboard.medicationUserVC) as? MedicationUserVC{
       
-      let model = self.confirmedBooks[tag]
-      let _ : UIStoryboard = UIStoryboard(name:"Main",
-                                          bundle: nil)
+      medicationVC.modalPresentationStyle = .fullScreen
+      medicationVC.confirmedModel = model
       
-      if let medicationVC =
-          storyboard?.instantiateViewController(identifier:K.Storyboard.medicationUserVC) as? MedicationUserVC{
-        
-        medicationVC.modalPresentationStyle = .fullScreen
-        medicationVC.confirmedModel = model
-       
-        navigationController?.pushViewController(medicationVC, animated: true)
-      }
+      navigationController?.
+      pushViewController(medicationVC,
+                         animated: true)
     }
-    
-    
   }
-  
-  
+}
+
+
 
 

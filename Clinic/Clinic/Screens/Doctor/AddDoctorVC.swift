@@ -20,7 +20,7 @@ class AddDoctorVC: UIViewController ,
   @IBOutlet weak var doctorNameTextField: UITextField!
   
   let pickerSection = UIPickerView()
-
+  
   var ref: DatabaseReference!
   var arrSection = ClinicData().clinicDataList
   var currentIndex = 0
@@ -60,6 +60,7 @@ class AddDoctorVC: UIViewController ,
   
   
   @IBAction func addNewDoctorTapped(_ sender: Any) {
+    
     let DocId = UUID.init().uuidString
     
     let doctor = DoctorModel(doctorId: DocId,
@@ -67,7 +68,8 @@ class AddDoctorVC: UIViewController ,
                              clinicName:arrSection[currentIndex],
                              hireDate:self.yearsOfExperience.text!)
     
-    self.ref.child(K.FireStore.doctorCollection).child(doctor.doctorId).setValue(doctor.toDic())
+    self.ref.child(K.FireStore.doctorCollection)
+      .child(doctor.doctorId).setValue(doctor.toDictionary())
     { [self] error, DataRef in
       if error == nil {
         self.showaAlertDoneView(Title: "Done!",
@@ -78,13 +80,15 @@ class AddDoctorVC: UIViewController ,
       }
     }
   }
-
-
-@IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+  
+  
+  @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+    
     doctorNameTextField.resignFirstResponder()
-  yearsOfExperience.resignFirstResponder()
- }
+    yearsOfExperience.resignFirstResponder()
+  }
 }
+
 
 // MARK: - UIPickerViewDelegate
 extension AddDoctorVC: UIPickerViewDelegate {
@@ -105,7 +109,7 @@ extension AddDoctorVC: UIPickerViewDelegate {
                   numberOfRowsInComponent component: Int) -> Int {
     return arrSection.count
   }
- 
+  
   
   func pickerView(_ pickerView: UIPickerView,
                   titleForRow row: Int,

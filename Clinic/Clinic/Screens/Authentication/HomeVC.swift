@@ -16,49 +16,54 @@ class HomeVC: UIViewController {
     print("Uid \(K.FireStore.userId)")
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "power.circle.fill"),
-              style: .plain, target: self,
-                action: #selector(logout))
-}
+                                                        style: .plain, target: self,
+                                                        action: #selector(logout))
+  }
   
   
-  
-    @IBAction func btnLocationTapped(_ sender: UIButton) {
-      
-        if  let homeViewController = self.storyboard?
-              .instantiateViewController(identifier: "LocationClinicUserVC") as? LocationClinicUserVC{
-      navigationController?.pushViewController(homeViewController, animated: true)
-        }
-    }
+  @IBAction func btnLocationTapped(_ sender: UIButton) {
     
-  
-    @IBAction func BtnAppointmentTapped(_ sender: UIButton) {
-        
-        if  let homeViewController = self.storyboard?
-              .instantiateViewController(identifier: "AddBookUser") as? AddBookUserVC{
-      navigationController?.pushViewController(homeViewController, animated: true)
-        }
+    if  let homeViewController = self.storyboard?
+          .instantiateViewController(identifier: "LocationClinicUserVC") as? LocationClinicUserVC {
+      
+      navigationController?.pushViewController(homeViewController,
+                                               animated: true)
     }
+  }
   
+  
+  @IBAction func BtnAppointmentTapped(_ sender: UIButton) {
     
-    @IBAction func btnMedicalTapped(_ sender: UIButton) {
+    if  let homeViewController = self.storyboard?
+          .instantiateViewController(identifier: "AddBookUser") as? AddBookUserVC{
       
-        if  let homeViewController = self.storyboard?
-              .instantiateViewController(identifier: "VisitHistoryTableUserVC") as? VisitHistoryTableUserVC{
-      navigationController?.pushViewController(homeViewController, animated: true)
-        }
+      navigationController?.pushViewController(homeViewController,
+                                               animated: true)
     }
+  }
   
   
-    @IBAction func btnDoctorTapped(_ sender: UIButton) {
-      
-        if  let homeViewController = self.storyboard?
-              .instantiateViewController(identifier: "DoctorTableUserVC") as? DoctorTableUserVC{
-      navigationController?.pushViewController(homeViewController, animated: true)
-        }
+  @IBAction func btnMedicalTapped(_ sender: UIButton) {
+    
+    if  let homeViewController = self.storyboard?
+          .instantiateViewController(identifier: "VisitHistoryTableUserVC") as? VisitHistoryTableUserVC {
+      navigationController?.pushViewController(homeViewController,
+                                               animated: true)
     }
+  }
   
   
-@objc func logout() {
+  @IBAction func btnDoctorTapped(_ sender: UIButton) {
+    
+    if  let homeViewController = self.storyboard?
+          .instantiateViewController(identifier: "DoctorTableUserVC") as? DoctorTableUserVC {
+      navigationController?.pushViewController(homeViewController,
+                                               animated: true)
+    }
+  }
+  
+  
+  @objc func logout() {
     try?  Auth.auth().signOut()
     
     let homeViewController = self.storyboard?
