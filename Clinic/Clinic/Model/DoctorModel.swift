@@ -33,7 +33,7 @@ struct DoctorModel {
   }
   
   
-  func toDic() -> [String : Any]
+  func toDictionary() -> [String : Any]
   {
     return
       [ "doctorId" : self.doctorId!,

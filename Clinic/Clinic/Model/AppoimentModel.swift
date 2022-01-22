@@ -37,7 +37,7 @@ struct AppoimentModel {
   }
   
   
-  func toDic()-> [String:Any]
+  func toDictionary()-> [String:Any]
   {
     return[
       "clinicName": self.clinicName,

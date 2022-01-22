@@ -39,7 +39,7 @@ struct UserModel {
   }
   
   
-  func toDic() -> [String : Any]
+  func toDictionary() -> [String : Any]
   {
     return
       [ "Id" : self.uid,

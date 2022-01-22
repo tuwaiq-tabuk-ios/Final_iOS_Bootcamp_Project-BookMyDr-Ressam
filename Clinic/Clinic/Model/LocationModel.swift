@@ -50,7 +50,7 @@ struct LocationModel {
   }
   
   
-  func toDic()-> [String:Any]
+  func toDictionary()-> [String:Any]
   {
     return[
       "locationId": self.locationId,

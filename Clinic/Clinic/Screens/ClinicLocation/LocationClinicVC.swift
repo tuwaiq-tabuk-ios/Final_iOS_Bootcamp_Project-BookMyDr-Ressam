@@ -27,7 +27,7 @@ class LocationClinicVC : UIViewController {
     getData()
     setElements()
   }
-
+  
   
   func setElements() {
     emailLabel.styleLabel()
@@ -51,7 +51,7 @@ class LocationClinicVC : UIViewController {
                                            longitude: self.model.longitude)
           
           self.setStartingLocation(location: initialLocation,
-                              distance: 0)
+                                   distance: 0)
           
           self.addAnnotation()
         }

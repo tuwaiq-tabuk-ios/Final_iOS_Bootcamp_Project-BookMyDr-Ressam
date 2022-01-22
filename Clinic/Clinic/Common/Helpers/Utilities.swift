@@ -19,7 +19,7 @@ class Utilities {
     button.layer.borderColor = UIColor.white.cgColor
     button.layer.borderWidth = 3
   }
- static func calcExperince(date : String) -> Int
+ static func calculatorExperince(date : String) -> Int
     {
     var year : Int?
     let dateFormatter = DateFormatter()
