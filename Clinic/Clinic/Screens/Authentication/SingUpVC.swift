@@ -102,6 +102,7 @@ class SingUpVC: UIViewController {
       showError(CustomError.invalidSyntaxPassword.errorDescription ?? "ERROR_NOT_CATCHED: validatePasswordSyntax(passwordTextField:")
       return
     }
+    
     guard passwordTextField.text == passwordConfirmationTextField.text else {
       errorLabel.text = "password is incorrect"
       return
