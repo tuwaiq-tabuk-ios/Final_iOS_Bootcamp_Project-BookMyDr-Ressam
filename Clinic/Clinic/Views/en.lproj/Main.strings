@@ -33,7 +33,7 @@
 "JZ4-hb-4cE.text" = "Click here to find books and add medications";
 
 /* Class = "UITextField"; placeholder = "Phone"; ObjectID = "Jcj-ZC-QuJ"; */
-"Jcj-ZC-QuJ.placeholder" = "Phone";
+"Jcj-ZC-QuJ.placeholder" = "name@Example@.com";
 
 /* Class = "UILabel"; text = "Doctor"; ObjectID = "NVV-Iw-bcC"; */
 "NVV-Iw-bcC.text" = "Doctor";
@@ -108,7 +108,7 @@
 "gEe-To-ImU.placeholder" = "First Name";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "jAC-OT-atC"; */
-"jAC-OT-atC.placeholder" = "Email";
+"jAC-OT-atC.placeholder" = "+966";
 
 /* Class = "UILabel"; text = "Error"; ObjectID = "kAf-z8-ufz"; */
 "kAf-z8-ufz.text" = "Error";

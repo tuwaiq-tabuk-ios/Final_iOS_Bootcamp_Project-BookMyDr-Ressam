@@ -63,12 +63,12 @@ class AddDoctorVC: UIViewController ,
     
     let DocId = UUID.init().uuidString
     
-    let doctor = DoctorModel(doctorId: DocId,
+    let doctor = Doctor(doctorId: DocId,
                              doctorName:self.doctorNameTextField.text!,
                              clinicName:arrSection[currentIndex],
                              hireDate:self.yearsOfExperience.text!)
     
-    self.ref.child(K.FireStore.doctorCollection)
+    self.ref.child(K.RealtimeDatabase.doctorCollection)
       .child(doctor.doctorId).setValue(doctor.toDictionary())
     { [self] error, DataRef in
       if error == nil {

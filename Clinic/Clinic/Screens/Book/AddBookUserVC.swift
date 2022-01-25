@@ -9,6 +9,7 @@ import UIKit
 import FirebaseDatabase
 import MessageUI
 import FirebaseAuth
+
 class AddBookUserVC: UIViewController,UITextFieldDelegate, MFMailComposeViewControllerDelegate {
   
   @IBOutlet weak var tableView: UITableView!
@@ -22,9 +23,9 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate, MFMailComposeViewCont
   var CliniccurrentIndex = 0 ,  doctorcurrentIndex = 0
   
   var clinicList = ClinicData().clinicDataList
-  var Doctors = [DoctorModel]()
-  var FilteredDoctors = [DoctorModel]()
-  var appoiment = [AppoimentModel]()
+  var Doctors = [Doctor]()
+  var FilteredDoctors = [Doctor]()
+  var appoiment = [Appoiment]()
   
   var dates = [String]()
   var times = [String]()
@@ -112,7 +113,7 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate, MFMailComposeViewCont
         let data = Data.value as! NSDictionary
         for (_,v) in data {
           let  v1  = v as! NSDictionary
-          self.Doctors.append(DoctorModel(value: v1))
+          self.Doctors.append(Doctor(value: v1))
         }
       }
     }
@@ -178,7 +179,7 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate, MFMailComposeViewCont
       
       //Store the data in firebase
       let bookId = UUID.init().uuidString
-      let book = PatientModel(
+      let book = Patient(
         bookId: bookId,
         clinicName: self.clinicNameText.text!,
         doctorName: self.doctorNameText.text!,
@@ -189,9 +190,9 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate, MFMailComposeViewCont
         isAvilable:true)
       
       //Set booking data to firebase
-      let confirmedBook = ConfirmedBooksModel(bookId: book.bookId, userId: K.FireStore.userId, doctorId: self.doctorId, date: book.date, time: book.time, haveMedication: false,patientName: book.name,patientMobile: book.phone)
+      let confirmedBook = ConfirmedBooks(bookId: book.bookId, userId: K.RealtimeDatabase.userId, doctorId: self.doctorId, date: book.date, time: book.time, haveMedication: false,patientName: book.name,patientMobile: book.phone)
       ref = Database.database().reference()
-      ref.child(K.FireStore.confirmedBooksCollection).child(book.bookId).setValue(
+      ref.child(K.RealtimeDatabase.confirmedBooksCollection).child(book.bookId).setValue(
         confirmedBook.toDictionary()) {
           Error, result in
           if Error == nil {
@@ -204,7 +205,7 @@ class AddBookUserVC: UIViewController,UITextFieldDelegate, MFMailComposeViewCont
             self.time = ""
             Staticv.instance.Time = ""
             //Check remove the selected time
-            let _ = Database.database().reference().child(K.FireStore.availableBooksCollection).child(self.doctorId).child(book.date).child(self.key).removeValue()
+            let _ = Database.database().reference().child(K.RealtimeDatabase.availableBooksCollection).child(self.doctorId).child(book.date).child(self.key).removeValue()
             if !self.times.isEmpty {
               self.times.removeAll()
             }
@@ -277,7 +278,7 @@ extension AddBookUserVC :UITableViewDataSource,
     {
       
       let db : DatabaseReference = Database.database().reference()
-        .child(K.FireStore.availableBooksCollection).child(id)
+        .child(K.RealtimeDatabase.availableBooksCollection).child(id)
       
       db.observe(.value) { DataResult in
         if let data =  DataResult.value , DataResult.exists()  {
@@ -295,7 +296,7 @@ extension AddBookUserVC :UITableViewDataSource,
               self.bookkeys.append(k as! String)
               
               let V = v as! NSDictionary
-              self.appoiment.append(AppoimentModel(
+              self.appoiment.append(Appoiment(
                 clinicName: V["clinicName"] as! String,
                 doctorName: V["doctorName"] as! String,
                 date: V["date"] as! String,

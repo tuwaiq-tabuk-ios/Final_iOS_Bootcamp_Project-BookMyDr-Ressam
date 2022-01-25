@@ -75,7 +75,7 @@ class AddBookVC : UIViewController {
     //Validation date and time not empty
     if  !date.isEmpty && !time.isEmpty {
       
-      let book = AppoimentModel(clinicName: clinicName,
+      let book = Appoiment(clinicName: clinicName,
                                 doctorName: doctorName,
                                 date: self.date,
                                 Time: self.time,
@@ -83,7 +83,7 @@ class AddBookVC : UIViewController {
       
       let uid = UUID.init().uuidString
       //Store date and time in Firebase
-      ref = Database.database().reference().child(K.FireStore.availableBooksCollection)
+      ref = Database.database().reference().child(K.RealtimeDatabase.availableBooksCollection)
         .child(doctorId).child(date).child(uid)
       ref.setValue([
         "clinicName":book.clinicName,

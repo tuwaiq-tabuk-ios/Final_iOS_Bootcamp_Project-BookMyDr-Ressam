@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocationModel {
+struct LocationM {
   var locationId = String()
   var email : String
   var phone : String

@@ -12,9 +12,9 @@ class VisitHistoryTableAdminVC: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var confirmedBooks = [ConfirmedBooksModel]()
-  var patientConfirmedBooks = [ConfirmedBooksModel]()
-  var patientList = [PatientModel]()
+  var confirmedBooks = [ConfirmedBooks]()
+  var patientConfirmedBooks = [ConfirmedBooks]()
+  var patientList = [Patient]()
   var ref: DatabaseReference!
   var myId = ""
   
@@ -36,7 +36,7 @@ class VisitHistoryTableAdminVC: UIViewController {
   
   private func getData() {
     
-    ref.child(K.FireStore.confirmedBooksCollection)
+    ref.child(K.RealtimeDatabase.confirmedBooksCollection)
       .getData { Error, dataShot in
         
         if  let data = dataShot.value as? NSDictionary {
@@ -45,7 +45,7 @@ class VisitHistoryTableAdminVC: UIViewController {
             
             let v1 = v as! NSDictionary
             self.confirmedBooks
-              .append(ConfirmedBooksModel(value: v1))
+              .append(ConfirmedBooks(value: v1))
           }
         } else {
           
@@ -71,7 +71,7 @@ extension VisitHistoryTableAdminVC : UITableViewDelegate,
       view,
       result in
       
-      self.ref.child(K.FireStore.confirmedBooksCollection)
+      self.ref.child(K.RealtimeDatabase.confirmedBooksCollection)
         .child(self.confirmedBooks[indexPath.row].bookId)
         .removeValue()
       result(true)
@@ -99,7 +99,7 @@ extension VisitHistoryTableAdminVC : UITableViewDelegate,
     let doctorId =
     self.confirmedBooks[indexPath.row].doctorId
     
-    ref.child("Doctor").child(doctorId).getData { error,
+    ref.child(K.RealtimeDatabase.doctorCollection).child(doctorId).getData { error,
       Data in
       
       if let data = Data.value as? NSDictionary {
@@ -110,7 +110,7 @@ extension VisitHistoryTableAdminVC : UITableViewDelegate,
       }
     }
     
-    ref.child(K.FireStore.usersCollection)
+    ref.child(K.RealtimeDatabase.usersCollection)
       .child(self.confirmedBooks[indexPath.row].userId)
       .getData { error, Data in
         

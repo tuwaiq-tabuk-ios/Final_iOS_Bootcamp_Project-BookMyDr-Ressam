@@ -16,7 +16,7 @@ class MedicationUserVC: UIViewController {
   @IBOutlet weak var teartmentNameLabel: UILabel!
   
   var ref : DatabaseReference!
-  var confirmedModel = ConfirmedBooksModel()
+  var confirmedModel = ConfirmedBooks()
   
   
   override func viewDidLoad() {
@@ -38,7 +38,7 @@ class MedicationUserVC: UIViewController {
   
   func getData() {
     
-    ref.child("Doctor")
+    ref.child(K.RealtimeDatabase.doctorCollection)
       .child(confirmedModel.doctorId).getData { error,Data in
         
         if let data = Data.value as? NSDictionary {
@@ -52,7 +52,7 @@ class MedicationUserVC: UIViewController {
     
     self.patientNameLabel.text = confirmedModel.patientName
     
-    ref.child("Medication")
+    ref.child(K.RealtimeDatabase.medicationCollection)
       .child(confirmedModel.bookId).getData { error, Data in
         
         if let data = Data.value as? NSDictionary {

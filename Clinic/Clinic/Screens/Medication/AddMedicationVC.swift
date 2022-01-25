@@ -16,7 +16,7 @@ class AddMedicationVC: UIViewController {
   @IBOutlet weak var treatmentTextField: UITextField!
   
   var ref : DatabaseReference!
-  var confirmedModel = ConfirmedBooksModel()
+  var confirmedModel = ConfirmedBooks()
   
   
   override func viewDidLoad() {
@@ -38,7 +38,7 @@ class AddMedicationVC: UIViewController {
   
   private func initData() {
     
-    ref.child("Doctor").child(confirmedModel.doctorId).getData { error,
+    ref.child(K.RealtimeDatabase.doctorCollection).child(confirmedModel.doctorId).getData { error,
       Data in
       if let data = Data.value as? NSDictionary {
         
@@ -49,7 +49,7 @@ class AddMedicationVC: UIViewController {
       }
     }
     
-    ref.child(K.FireStore.usersCollection)
+    ref.child(K.RealtimeDatabase.usersCollection)
       .child(confirmedModel.userId).getData { error, Data in
         
         if let data = Data.value as? NSDictionary {
@@ -60,7 +60,7 @@ class AddMedicationVC: UIViewController {
         }
       }
     
-    ref.child("Medication").child(confirmedModel.bookId)
+    ref.child(K.RealtimeDatabase.medicationCollection).child(confirmedModel.bookId)
       .getData{ error , Data in
         if let data =
             Data.value as? NSDictionary,Data.exists() {
@@ -78,10 +78,10 @@ class AddMedicationVC: UIViewController {
   
   @IBAction func addButtonTapped(_ sender: UIButton) {
     
-    let model = MedicationModel(bookId: confirmedModel.bookId,
+    let model = Medication(bookId: confirmedModel.bookId,
                                 medication: treatmentTextField.text!)
     
-    ref.child("Medication").child(confirmedModel.bookId)
+    ref.child(K.RealtimeDatabase.medicationCollection).child(confirmedModel.bookId)
       .setValue(model.toDictionary()){ [self]
         error , result in
         if error == nil
@@ -91,7 +91,7 @@ class AddMedicationVC: UIViewController {
           
           self.confirmedModel.haveMedication = true
           
-          self.ref.child("confirmedBooks")
+          self.ref.child(K.RealtimeDatabase.confirmedBooksCollection)
             .child(self.confirmedModel.bookId)
             .setValue(self.confirmedModel.toDictionary())
         }else{

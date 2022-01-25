@@ -11,9 +11,9 @@ import FirebaseDatabase
 class VisitHistoryTableUserVC : UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  var confirmedBooks = [ConfirmedBooksModel]()
-  var patientConfirmedBooks = [ConfirmedBooksModel]()
-  var patientList = [PatientModel]()
+  var confirmedBooks = [ConfirmedBooks]()
+  var patientConfirmedBooks = [ConfirmedBooks]()
+  var patientList = [Patient]()
   var ref: DatabaseReference!
   var myId = ""
   
@@ -35,7 +35,7 @@ class VisitHistoryTableUserVC : UIViewController {
   
   private func getData() {
     
-    ref.child(K.FireStore.confirmedBooksCollection).getData
+    ref.child(K.RealtimeDatabase.confirmedBooksCollection).getData
     { Error,
       dataShot in
       
@@ -45,7 +45,7 @@ class VisitHistoryTableUserVC : UIViewController {
           
           let v1 = v as! NSDictionary
           self.confirmedBooks
-            .append(ConfirmedBooksModel(value: v1))
+            .append(ConfirmedBooks(value: v1))
         }
       } else {
         
@@ -54,7 +54,7 @@ class VisitHistoryTableUserVC : UIViewController {
       for item in self.confirmedBooks
       {
         
-        if item.userId == K.FireStore.userId
+        if item.userId == K.RealtimeDatabase.userId
         {
           self.patientConfirmedBooks.append(item)
         }
@@ -89,7 +89,7 @@ extension VisitHistoryTableUserVC : UITableViewDelegate,
     
     self.patientConfirmedBooks[indexPath.row].doctorId
     
-    ref.child("Doctor").child(doctorId).getData { error,
+    ref.child(K.RealtimeDatabase.doctorCollection).child(doctorId).getData { error,
       Data in
       if let data = Data.value as? NSDictionary {
         
@@ -133,8 +133,7 @@ extension VisitHistoryTableUserVC : MyCellDelegate {
       medicationVC.modalPresentationStyle = .fullScreen
       medicationVC.confirmedModel = model
       
-      navigationController?.
-      pushViewController(medicationVC,
+      navigationController?.pushViewController(medicationVC,
                          animated: true)
     }
   }

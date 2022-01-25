@@ -23,7 +23,7 @@ class BookVC : UIViewController,
   
   var ref : DatabaseReference!
   var pickerView : UIPickerView?
-  var listbook = [AppoimentModel]()
+  var listbook = [Appoiment]()
   var date : String = ""
   var time : String = ""
   var doctorId : String = ""
@@ -57,7 +57,7 @@ class BookVC : UIViewController,
       
       let patientId = UUID.init().uuidString
       
-      let patient = PatientModel(bookId: patientId,
+      let patient = Patient(bookId: patientId,
                                  clinicName:self.clinicTextField.text!,
                                  doctorName: self.doctorTextField.text!,
                                  name: self.patientNameTextField.text!,
@@ -66,7 +66,7 @@ class BookVC : UIViewController,
                                  time: self.time,
                                  isAvilable: true)
       
-      ref = Database.database().reference().child(K.FireStore.patientCollection).child(doctorId).child(date).child(time).child(patientId)
+      ref = Database.database().reference().child(K.RealtimeDatabase.patientCollection).child(doctorId).child(date).child(time).child(patientId)
       
       ref.setValue([
         "patientId":patient.bookId,

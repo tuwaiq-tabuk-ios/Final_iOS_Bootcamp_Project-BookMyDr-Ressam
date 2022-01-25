@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MedicationModel {
+struct Medication {
   var bookId :String
   var medication :String
   
