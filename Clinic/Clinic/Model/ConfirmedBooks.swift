@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct ConfirmedBooksModel {
+struct ConfirmedBooks {
+  
   var bookId :String
   var userId :String
   var doctorId : String

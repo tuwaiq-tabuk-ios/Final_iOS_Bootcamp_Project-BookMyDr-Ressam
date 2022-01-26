@@ -22,7 +22,7 @@ class AdminHomeVC :UIViewController {
   @IBAction func doctorBtnTapped(_ sender: UIButton) {
     
     if  let homeViewController = self.storyboard?
-          .instantiateViewController(identifier: "DoctorsTableVC") as? DoctorsTableVC {
+          .instantiateViewController(identifier: K.Storyboard.doctorsTableVC) as? DoctorsTableVC {
       navigationController?.pushViewController(homeViewController,
                                                animated: true)
     }
@@ -32,7 +32,7 @@ class AdminHomeVC :UIViewController {
   @IBAction func location(_ sender: UIButton) {
     
     if  let homeViewController = self.storyboard?
-          .instantiateViewController(identifier: "LocationClinicVC") as? LocationClinicVC {
+          .instantiateViewController(identifier:K.Storyboard.locationClinicVC) as? LocationClinicVC {
       navigationController?.pushViewController(homeViewController,
                                                animated: true)
     }
@@ -42,7 +42,7 @@ class AdminHomeVC :UIViewController {
   @IBAction func medicalBtnTapped(_ sender: UIButton) {
     
     if  let homeViewController = self.storyboard?
-          .instantiateViewController(identifier: "VisitHistoryTableAdminVC") as? VisitHistoryTableAdminVC {
+          .instantiateViewController(identifier:K.Storyboard.visitHistoryTableAdminVC) as? VisitHistoryTableAdminVC {
       navigationController?.pushViewController(homeViewController,
                                                animated: true)
     }

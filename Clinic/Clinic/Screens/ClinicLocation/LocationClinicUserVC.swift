@@ -16,9 +16,9 @@ class LocationClinicUserVC : UIViewController {
   @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
   
-  var model = LocationModel()
+  var model = LocationM()
   var ref : DatabaseReference!
-  var locationList = [LocationModel]()
+  var locationList = [LocationM]()
   
   
   override func viewDidLoad() {
@@ -40,11 +40,11 @@ class LocationClinicUserVC : UIViewController {
   
   //Get the Clinic Information in Firebase
   func getData() {
-    ref.child(K.FireStore.locationCollection).queryOrderedByKey()
+    ref.child(K.RealtimeDatabase.locationCollection).queryOrderedByKey()
       .observe(.value) { (snapshot) in
         
         if let snapshotVaue = snapshot.value as? NSDictionary,snapshot.exists(){
-          self.model = LocationModel(value: snapshotVaue)
+          self.model = LocationM(value: snapshotVaue)
           self.locationList.append(self.model)
           self.emailLabel.text = self.model.email
           self.phoneLabel.text = self.model.phone

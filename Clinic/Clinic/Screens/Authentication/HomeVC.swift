@@ -13,7 +13,7 @@ class HomeVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    print("Uid \(K.FireStore.userId)")
+    print("Uid \(K.RealtimeDatabase.userId)")
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "power.circle.fill"),
                                                         style: .plain, target: self,
@@ -24,7 +24,7 @@ class HomeVC: UIViewController {
   @IBAction func btnLocationTapped(_ sender: UIButton) {
     
     if  let homeViewController = self.storyboard?
-          .instantiateViewController(identifier: "LocationClinicUserVC") as? LocationClinicUserVC {
+          .instantiateViewController(identifier:K.Storyboard.locationClinicUserVC) as? LocationClinicUserVC {
       
       navigationController?.pushViewController(homeViewController,
                                                animated: true)
@@ -46,7 +46,7 @@ class HomeVC: UIViewController {
   @IBAction func btnMedicalTapped(_ sender: UIButton) {
     
     if  let homeViewController = self.storyboard?
-          .instantiateViewController(identifier: "VisitHistoryTableUserVC") as? VisitHistoryTableUserVC {
+          .instantiateViewController(identifier: K.Storyboard.visitHistoryTableUserVC) as? VisitHistoryTableUserVC {
       navigationController?.pushViewController(homeViewController,
                                                animated: true)
     }
@@ -56,7 +56,7 @@ class HomeVC: UIViewController {
   @IBAction func btnDoctorTapped(_ sender: UIButton) {
     
     if  let homeViewController = self.storyboard?
-          .instantiateViewController(identifier: "DoctorTableUserVC") as? DoctorTableUserVC {
+          .instantiateViewController(identifier:K.Storyboard.doctorTableUserVC) as? DoctorTableUserVC {
       navigationController?.pushViewController(homeViewController,
                                                animated: true)
     }

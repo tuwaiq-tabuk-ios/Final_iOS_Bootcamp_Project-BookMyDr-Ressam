@@ -14,7 +14,7 @@ class DoctorsTableVC: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   var ref: DatabaseReference!
-  var doctorList = [DoctorModel]()
+  var doctorList = [Doctor]()
   var myId = ""
   
   
@@ -35,7 +35,7 @@ class DoctorsTableVC: UIViewController {
   
   //Get the doctor information from firebase
   private func getData() {
-    ref.child(K.FireStore.doctorCollection).observe(.value, with: {
+    ref.child(K.RealtimeDatabase.doctorCollection).observe(.value, with: {
       DataShot in
       
       if DataShot.value != nil {
@@ -51,7 +51,7 @@ class DoctorsTableVC: UIViewController {
           for (_,v) in data {
             let value = v as! NSDictionary
             
-            self.doctorList.append(DoctorModel(value: value))
+            self.doctorList.append(Doctor(value: value))
           }
         }
         self.tableView.reloadData()
@@ -84,7 +84,7 @@ extension DoctorsTableVC : UITableViewDelegate,
       view,
       result in
       
-      self.ref.child(K.FireStore.doctorCollection)
+      self.ref.child(K.RealtimeDatabase.doctorCollection)
         .child(self.doctorList[indexPath.row].doctorId).removeValue()
       result(true)
     }

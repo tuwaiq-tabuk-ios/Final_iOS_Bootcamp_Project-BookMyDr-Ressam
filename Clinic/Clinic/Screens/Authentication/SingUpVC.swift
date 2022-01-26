@@ -18,6 +18,7 @@ class SingUpVC: UIViewController {
   @IBOutlet weak var lastNameTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
+  @IBOutlet weak var passwordConfirmationTextField: UITextField!
   @IBOutlet weak var singUpButton: UIButton!
   @IBOutlet weak var errorLabel: UILabel!
   
@@ -83,7 +84,8 @@ class SingUpVC: UIViewController {
       try Utilities.validateEmptyFields(textFields: firstNameTextField,
                                         lastNameTextField,
                                         emailTextField,
-                                        passwordTextField)
+                                        passwordTextField,passwordConfirmationTextField)
+      
     } catch {
       
       print("ERROR: \(String(describing: CustomError.emptyFields.errorDescription))")
@@ -100,6 +102,12 @@ class SingUpVC: UIViewController {
       showError(CustomError.invalidSyntaxPassword.errorDescription ?? "ERROR_NOT_CATCHED: validatePasswordSyntax(passwordTextField:")
       return
     }
+    
+    guard passwordTextField.text == passwordConfirmationTextField.text else {
+      errorLabel.text = "password is incorrect"
+      return
+    }
+   
     
     let firstName = firstNameTextField.cmTakeOutWhiteSpaces()
     let lastName = lastNameTextField.cmTakeOutWhiteSpaces()
@@ -118,13 +126,13 @@ class SingUpVC: UIViewController {
           
           self.showError("Error creating user")
         } else {
-          K.FireStore.userId = (result?.user.uid)!
+          K.RealtimeDatabase.userId = (result?.user.uid)!
           
-          self.ref.child(K.FireStore.usersCollection).child(K.FireStore.userId).setValue([
+          self.ref.child(K.RealtimeDatabase.usersCollection).child(K.RealtimeDatabase.userId).setValue([
             "FirstName" : firstName,
             "LastName" : lastName,
             "Email" : email,
-            "Id" : K.FireStore.userId,
+            "Id" : K.RealtimeDatabase.userId,
             "isAdmin" : false
           ])
         }
@@ -140,6 +148,7 @@ class SingUpVC: UIViewController {
     lastNameTextField.styleTextField()
     emailTextField.styleTextField()
     passwordTextField.styleTextField()
+    passwordConfirmationTextField.styleTextField()
     Utilities.styleHelloButton(singUpButton)
   }
   

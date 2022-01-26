@@ -57,7 +57,7 @@
 "JZ4-hb-4cE.text" = "انقر هنا للعثور على المواعيد وإضافة الأدوية";
 
 /* Class = "UITextField"; placeholder = "Address Now"; ObjectID = "Jcj-ZC-QuJ"; */
-"Jcj-ZC-QuJ.placeholder" = "الهاتف";
+"Jcj-ZC-QuJ.placeholder" = "الايميل";
 
 /* Class = "UILabel"; text = "Our Location"; ObjectID = "N60-z3-dJo"; */
 "N60-z3-dJo.text" = "موقعنا";
@@ -159,7 +159,7 @@
 "hdW-cp-TKz.text" = "ابحث عن طبيب في قائمتنا";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "jAC-OT-atC"; */
-"jAC-OT-atC.placeholder" = "الإيميل";
+"jAC-OT-atC.placeholder" = "الهاتف";
 
 /* Class = "UIButton"; normalTitle = "Sing Up"; ObjectID = "k0G-ou-xor"; */
 "k0G-ou-xor.normalTitle" = "التسجيل من جديد";

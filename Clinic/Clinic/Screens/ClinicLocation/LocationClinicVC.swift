@@ -16,9 +16,9 @@ class LocationClinicVC : UIViewController {
   @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var adressLabel: UILabel!
   
-  var model = LocationModel()
+  var model = LocationM()
   var ref : DatabaseReference!
-  var locationList = [LocationModel]()
+  var locationList = [LocationM]()
   
   
   override func viewDidLoad() {
@@ -27,7 +27,7 @@ class LocationClinicVC : UIViewController {
     getData()
     setElements()
   }
-  
+
   
   func setElements() {
     emailLabel.styleLabel()
@@ -38,11 +38,11 @@ class LocationClinicVC : UIViewController {
   
   //Get the Clinic Information in Firebase
   func getData() {
-    ref.child(K.FireStore.locationCollection).queryOrderedByKey()
+    ref.child(K.RealtimeDatabase.locationCollection).queryOrderedByKey()
       .observe(.value) { (snapshot) in
         
         if let snapshotVaue = snapshot.value as? NSDictionary,snapshot.exists(){
-          self.model = LocationModel(value: snapshotVaue)
+          self.model = LocationM(value: snapshotVaue)
           self.locationList.append(self.model)
           self.emailLabel.text = self.model.email
           self.phoneLabel.text = self.model.phone
@@ -51,7 +51,7 @@ class LocationClinicVC : UIViewController {
                                            longitude: self.model.longitude)
           
           self.setStartingLocation(location: initialLocation,
-                                   distance: 0)
+                              distance: 0)
           
           self.addAnnotation()
         }

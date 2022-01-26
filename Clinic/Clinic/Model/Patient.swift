@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PatientModel {
+struct Patient {
   var bookId : String
   var clinicName : String
   var doctorName: String

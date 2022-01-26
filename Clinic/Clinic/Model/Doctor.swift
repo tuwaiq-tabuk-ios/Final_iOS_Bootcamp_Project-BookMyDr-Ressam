@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DoctorModel {
+struct Doctor {
   var doctorId : String!
   var doctorName : String!
   var clinicName : String!

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class TableViewCell: UITableViewCell {
   
   @IBOutlet weak var doctorNameLabel: UILabel!

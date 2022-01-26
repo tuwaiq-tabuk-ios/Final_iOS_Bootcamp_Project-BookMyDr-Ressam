@@ -134,7 +134,7 @@ class ViewController: UIViewController {
            height: 70)
     
     loginButton.frame = CGRect(x: 20,
-                               y: view.frame.height - 90,
+                               y: 645,
                                width: (view.frame.width - 40)
                                , height: 70)
     

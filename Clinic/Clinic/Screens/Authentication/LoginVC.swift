@@ -85,10 +85,10 @@ class LoginVC: UIViewController {
         
       } else {
         
-        K.FireStore.userId = result!.user.uid
-        print(K.FireStore.userId)
-        self.ref.child(K.FireStore.usersCollection)
-          .child(K.FireStore.userId).getData { error, Data in
+        K.RealtimeDatabase.userId = result!.user.uid
+        print(K.RealtimeDatabase.userId)
+        self.ref.child(K.RealtimeDatabase.usersCollection)
+          .child(K.RealtimeDatabase.userId).getData { error, Data in
             if let data = Data.value as? NSDictionary{
               let isAdmin  = data["isAdmin"] as! Bool
               print("isAdmin : \(isAdmin)")

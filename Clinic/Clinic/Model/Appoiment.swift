@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppoimentModel {
+struct Appoiment {
   var clinicName : String
   var doctorName: String
   var date : String

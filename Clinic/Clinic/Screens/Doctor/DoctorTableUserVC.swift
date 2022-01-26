@@ -14,7 +14,7 @@ class DoctorTableUserVC : UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   var ref: DatabaseReference!
-  var doctorList = [DoctorModel]()
+  var doctorList = [Doctor]()
   var myId = ""
   
   
@@ -35,7 +35,7 @@ class DoctorTableUserVC : UIViewController {
   
   //Get the doctor information from firebase
   private func getDate() {
-    ref.child(K.FireStore.doctorCollection).getData { Error,
+    ref.child(K.RealtimeDatabase.doctorCollection).getData { Error,
       DataShot in
       if Error == nil {
         let data = DataShot.value as? NSDictionary
@@ -43,7 +43,7 @@ class DoctorTableUserVC : UIViewController {
         for (_,v) in data! {
           let value =  v as! NSDictionary
           
-          self.doctorList.append(DoctorModel(value: value))
+          self.doctorList.append(Doctor(value: value))
         }
       } else {
         print(Error.debugDescription)

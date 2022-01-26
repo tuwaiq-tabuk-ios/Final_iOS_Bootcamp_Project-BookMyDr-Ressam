@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseDatabase
 import MapKit
+
 class EditLocationVC: UIViewController ,UIGestureRecognizerDelegate{
   
   @IBOutlet weak var emailTextField: UITextField!
@@ -111,12 +112,12 @@ class EditLocationVC: UIViewController ,UIGestureRecognizerDelegate{
     
     //Not have error update the clinic information in Firebase
     let locationId = UUID.init().uuidString
-    let location = LocationModel(locationId:locationId,
+    let location = LocationM(locationId:locationId,
                                  email:self.emailTextField.text!,
                                  phone:self.phoneTextField.text!, adress:self.adressTextField.text!,
                                  lat: self.latude,long: self.longtude)
     
-    self.ref .child(K.FireStore.locationCollection)
+    self.ref .child(K.RealtimeDatabase.locationCollection)
       .setValue(location.toDictionary())
     { [self] error, DataRef in
       if error == nil {

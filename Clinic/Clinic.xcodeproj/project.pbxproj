@@ -17,7 +17,7 @@
 		663FF488276F0FD20012D275 /* EditLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663FF487276F0FD20012D275 /* EditLocationVC.swift */; };
 		6643207A2769E24800C137C1 /* DoctorsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664320792769E24800C137C1 /* DoctorsTableVC.swift */; };
 		6643207C2769F92500C137C1 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6643207B2769F92500C137C1 /* UIViewController+Ext.swift */; };
-		664A3370276F580B0050EDB3 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A336F276F580B0050EDB3 /* LocationModel.swift */; };
+		664A3370276F580B0050EDB3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A336F276F580B0050EDB3 /* Location.swift */; };
 		664A33722770EEA70050EDB3 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A33712770EEA70050EDB3 /* CellProtocol.swift */; };
 		6650BEC727874E3E00CE6C06 /* AdminHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6650BEC627874E3E00CE6C06 /* AdminHomeVC.swift */; };
 		6679F185276A44DC0031ECA5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6679F183276A44DC0031ECA5 /* TableViewCell.swift */; };
@@ -43,17 +43,17 @@
 		66BFC88A27675CA1007E09E8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC88927675CA1007E09E8 /* Utilities.swift */; };
 		66BFC88E27675FDC007E09E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66BFC88D27675FDC007E09E8 /* GoogleService-Info.plist */; };
 		66BFC89027676698007E09E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC88F27676698007E09E8 /* Constants.swift */; };
-		66BFC8992767A414007E09E8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC8982767A414007E09E8 /* UserModel.swift */; };
+		66BFC8992767A414007E09E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC8982767A414007E09E8 /* User.swift */; };
 		66BFC89D27688068007E09E8 /* AddDoctorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC89C27688068007E09E8 /* AddDoctorVC.swift */; };
-		66BFC89F2768B28C007E09E8 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC89E2768B28C007E09E8 /* DoctorModel.swift */; };
+		66BFC89F2768B28C007E09E8 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC89E2768B28C007E09E8 /* Doctor.swift */; };
 		66D1B75827904778006DB004 /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D1B75727904778006DB004 /* ForgetPasswordVC.swift */; };
 		66ED16EB27745D5B009DFC2B /* AddBookUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED16EA27745D5B009DFC2B /* AddBookUserVC.swift */; };
 		66F3809A277D935700EA4E49 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F38099277D935700EA4E49 /* UILabel+Ext.swift */; };
 		66F3809E27821C3800EA4E49 /* ClinicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F3809D27821C3800EA4E49 /* ClinicData.swift */; };
-		66FA2A1127730A1D0002D6DE /* AppoimentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA2A1027730A1D0002D6DE /* AppoimentModel.swift */; };
-		66FA45ED2771E8B90007D4D7 /* PatientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA45EC2771E8B90007D4D7 /* PatientModel.swift */; };
-		66FAB0E62789E7E4007F37B9 /* ConfirmedBooksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E52789E7E4007F37B9 /* ConfirmedBooksModel.swift */; };
-		66FAB0E82789E876007F37B9 /* MedicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E72789E876007F37B9 /* MedicationModel.swift */; };
+		66FA2A1127730A1D0002D6DE /* Appoiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA2A1027730A1D0002D6DE /* Appoiment.swift */; };
+		66FA45ED2771E8B90007D4D7 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA45EC2771E8B90007D4D7 /* Patient.swift */; };
+		66FAB0E62789E7E4007F37B9 /* ConfirmedBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E52789E7E4007F37B9 /* ConfirmedBooks.swift */; };
+		66FAB0E82789E876007F37B9 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E72789E876007F37B9 /* Medication.swift */; };
 		66FAB0EB278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FAB0E9278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift */; };
 		66FC9AA52779A88B003041FF /* MyMedicalFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AA42779A88B003041FF /* MyMedicalFileVC.swift */; };
 		66FC9AA72779B203003041FF /* VisitHistoryTableAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC9AA62779B203003041FF /* VisitHistoryTableAdminVC.swift */; };
@@ -76,7 +76,7 @@
 		663FF487276F0FD20012D275 /* EditLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLocationVC.swift; sourceTree = "<group>"; };
 		664320792769E24800C137C1 /* DoctorsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsTableVC.swift; sourceTree = "<group>"; };
 		6643207B2769F92500C137C1 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		664A336F276F580B0050EDB3 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		664A336F276F580B0050EDB3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		664A33712770EEA70050EDB3 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		6650BEC627874E3E00CE6C06 /* AdminHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeVC.swift; sourceTree = "<group>"; };
 		6679F183276A44DC0031ECA5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -110,17 +110,17 @@
 		66BFC88927675CA1007E09E8 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		66BFC88D27675FDC007E09E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66BFC88F27676698007E09E8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		66BFC8982767A414007E09E8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		66BFC8982767A414007E09E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		66BFC89C27688068007E09E8 /* AddDoctorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoctorVC.swift; sourceTree = "<group>"; };
-		66BFC89E2768B28C007E09E8 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
+		66BFC89E2768B28C007E09E8 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		66D1B75727904778006DB004 /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		66ED16EA27745D5B009DFC2B /* AddBookUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookUserVC.swift; sourceTree = "<group>"; };
 		66F38099277D935700EA4E49 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		66F3809D27821C3800EA4E49 /* ClinicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicData.swift; sourceTree = "<group>"; };
-		66FA2A1027730A1D0002D6DE /* AppoimentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoimentModel.swift; sourceTree = "<group>"; };
-		66FA45EC2771E8B90007D4D7 /* PatientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientModel.swift; sourceTree = "<group>"; };
-		66FAB0E52789E7E4007F37B9 /* ConfirmedBooksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmedBooksModel.swift; sourceTree = "<group>"; };
-		66FAB0E72789E876007F37B9 /* MedicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationModel.swift; sourceTree = "<group>"; };
+		66FA2A1027730A1D0002D6DE /* Appoiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appoiment.swift; sourceTree = "<group>"; };
+		66FA45EC2771E8B90007D4D7 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		66FAB0E52789E7E4007F37B9 /* ConfirmedBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmedBooks.swift; sourceTree = "<group>"; };
+		66FAB0E72789E876007F37B9 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		66FAB0E9278AC83B007F37B9 /* VisitHistoryAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitHistoryAdminTableViewCell.swift; sourceTree = "<group>"; };
 		66FC9AA42779A88B003041FF /* MyMedicalFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedicalFileVC.swift; sourceTree = "<group>"; };
 		66FC9AA62779B203003041FF /* VisitHistoryTableAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitHistoryTableAdminVC.swift; sourceTree = "<group>"; };
@@ -290,14 +290,14 @@
 		66BFC8972767A3FF007E09E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				66BFC8982767A414007E09E8 /* UserModel.swift */,
-				66BFC89E2768B28C007E09E8 /* DoctorModel.swift */,
-				664A336F276F580B0050EDB3 /* LocationModel.swift */,
-				66FA45EC2771E8B90007D4D7 /* PatientModel.swift */,
-				66FA2A1027730A1D0002D6DE /* AppoimentModel.swift */,
+				66BFC8982767A414007E09E8 /* User.swift */,
+				66BFC89E2768B28C007E09E8 /* Doctor.swift */,
+				664A336F276F580B0050EDB3 /* Location.swift */,
+				66FA45EC2771E8B90007D4D7 /* Patient.swift */,
+				66FA2A1027730A1D0002D6DE /* Appoiment.swift */,
 				66F3809D27821C3800EA4E49 /* ClinicData.swift */,
-				66FAB0E52789E7E4007F37B9 /* ConfirmedBooksModel.swift */,
-				66FAB0E72789E876007F37B9 /* MedicationModel.swift */,
+				66FAB0E52789E7E4007F37B9 /* ConfirmedBooks.swift */,
+				66FAB0E72789E876007F37B9 /* Medication.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -528,7 +528,7 @@
 				66FD2D84277C399B0006ADE9 /* TimeVC.swift in Sources */,
 				66ED16EB27745D5B009DFC2B /* AddBookUserVC.swift in Sources */,
 				6679F185276A44DC0031ECA5 /* TableViewCell.swift in Sources */,
-				66FA2A1127730A1D0002D6DE /* AppoimentModel.swift in Sources */,
+				66FA2A1127730A1D0002D6DE /* Appoiment.swift in Sources */,
 				66FC9AAB2779CABF003041FF /* MedicationUserVC.swift in Sources */,
 				664A33722770EEA70050EDB3 /* CellProtocol.swift in Sources */,
 				6618833027843A2B001B11E9 /* VisitHistoryTableVC.swift in Sources */,
@@ -543,7 +543,7 @@
 				66BFC874276755EA007E09E8 /* StartVC.swift in Sources */,
 				663FF486276F0F900012D275 /* LocationClinicVC.swift in Sources */,
 				661C363D277C3E5F000D8DF4 /* UITextField+Ext.swift in Sources */,
-				66FAB0E62789E7E4007F37B9 /* ConfirmedBooksModel.swift in Sources */,
+				66FAB0E62789E7E4007F37B9 /* ConfirmedBooks.swift in Sources */,
 				663A16E52771AEBA00002D9A /* AddBookVC.swift in Sources */,
 				66BFC870276755EA007E09E8 /* AppDelegate.swift in Sources */,
 				66BFC88A27675CA1007E09E8 /* Utilities.swift in Sources */,
@@ -555,18 +555,18 @@
 				667F0DFE27730B6C008A7321 /* BookVC.swift in Sources */,
 				66BFC872276755EA007E09E8 /* SceneDelegate.swift in Sources */,
 				66BFC88827675651007E09E8 /* HomeVC.swift in Sources */,
-				66BFC8992767A414007E09E8 /* UserModel.swift in Sources */,
+				66BFC8992767A414007E09E8 /* User.swift in Sources */,
 				66FC9AA72779B203003041FF /* VisitHistoryTableAdminVC.swift in Sources */,
 				6692C9CE2797F6A000DF5774 /* BundleKey.swift in Sources */,
 				667F0E0227744C8C008A7321 /* DoctorTableUserVC.swift in Sources */,
 				66D1B75827904778006DB004 /* ForgetPasswordVC.swift in Sources */,
-				66FA45ED2771E8B90007D4D7 /* PatientModel.swift in Sources */,
+				66FA45ED2771E8B90007D4D7 /* Patient.swift in Sources */,
 				66FC9AA92779CA45003041FF /* AddMedicationVC.swift in Sources */,
-				66FAB0E82789E876007F37B9 /* MedicationModel.swift in Sources */,
+				66FAB0E82789E876007F37B9 /* Medication.swift in Sources */,
 				6643207C2769F92500C137C1 /* UIViewController+Ext.swift in Sources */,
 				66BFC89027676698007E09E8 /* Constants.swift in Sources */,
-				664A3370276F580B0050EDB3 /* LocationModel.swift in Sources */,
-				66BFC89F2768B28C007E09E8 /* DoctorModel.swift in Sources */,
+				664A3370276F580B0050EDB3 /* Location.swift in Sources */,
+				66BFC89F2768B28C007E09E8 /* Doctor.swift in Sources */,
 				66F3809A277D935700EA4E49 /* UILabel+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
